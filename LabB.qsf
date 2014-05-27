@@ -478,9 +478,22 @@ set_location_assignment PIN_V24 -to GPIO_1[32]
 set_location_assignment PIN_V23 -to GPIO_1[33]
 set_location_assignment PIN_W25 -to GPIO_1[34]
 set_location_assignment PIN_W23 -to GPIO_1[35]
+<<<<<<< HEAD
+set_global_assignment -name VERILOG_FILE RegisterOEN.v
+set_global_assignment -name VERILOG_FILE RegisterFile.v
+set_global_assignment -name VERILOG_FILE ramlpm_bb.v
+set_global_assignment -name VERILOG_FILE ramlpm.v
+set_global_assignment -name VERILOG_FILE LabB.v
+set_global_assignment -name VERILOG_FILE imemlpm_bb.v
+set_global_assignment -name VERILOG_FILE imemlpm.v
+set_global_assignment -name VERILOG_FILE Hex7seg.v
+set_global_assignment -name VERILOG_FILE DecoderN.v
+set_global_assignment -name VERILOG_FILE instruction_register.v
+=======
 set_global_assignment -name VERILOG_FILE instruction_register.v
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS OUTPUT DRIVING AN UNSPECIFIED SIGNAL"
 set_global_assignment -name MIF_FILE ram.mif
+<<<<<<< HEAD
 set_global_assignment -name VERILOG_FILE cunit.v
 set_global_assignment -name VERILOG_FILE RegisterOEN.v
 set_global_assignment -name VERILOG_FILE DecoderN.v
@@ -493,3 +506,9 @@ set_global_assignment -name VERILOG_FILE PCClear.v
 set_global_assignment -name VERILOG_FILE PCUp.v
 set_global_assignment -name VERILOG_FILE Processor.v
 set_global_assignment -name VERILOG_FILE RegisterFile.v
+=======
+set_global_assignment -name QIP_FILE imemlpm.qip
+set_global_assignment -name QIP_FILE ramlpm.qip
+set_global_assignment -name VERILOG_FILE cunit.v
+>>>>>>> 72c8d4e18f45357710294a3488ba3a8c0bdbcbb7
+>>>>>>> c1c4b4e85b1bf2f054ae6f5d32a0b24a9a2a7ee1
