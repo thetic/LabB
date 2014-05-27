@@ -483,3 +483,4 @@ set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS OUTPUT DRI
 set_global_assignment -name MIF_FILE ram.mif
 set_global_assignment -name QIP_FILE imemlpm.qip
 set_global_assignment -name QIP_FILE ramlpm.qip
+set_global_assignment -name VERILOG_FILE cunit.v
