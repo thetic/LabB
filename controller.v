@@ -2,7 +2,8 @@
  * TCES 330, Spring 2014
  * Lab B
  * Chad Condon
- * Controller
+ * Controller state machine.
+ * Comments are fun
  */
 module controller (
   input      [15:0] instruction,  // instruction
@@ -58,27 +59,48 @@ module controller (
             case (instruction[15:12])
               4'b0000:
                 begin
-                next_state <= NOOP;  
+                  next_state <= NOOP;
                 end
                 
               4'b0010:
                 begin
-                  next_state <= LOAD_A;
+                  next_state <= LOAD_A           ;
+                  D_addr     <= instruction[11:4];
+                  RF_s       <= 1                ;
+                  RF_W_addr  <= instruction[3 :0];
                 end
 
               4'b0001:
                 begin
-                  next_state <= STORE;
+                  next_state <= STORE            ;
+                  D_addr     <= instruction[11:4];
+                  RF_s       <= 1                ;
+                  RF_W_addr  <= instruction[3 :0];
+                  RF_W_wr    <= 1                ;
                 end
 
               4'b0011:
                 begin
-                  next_state <= ADD;
+                  next_state <= ADD              ;
+                  D_addr     <= instruction[7 :0];
+                  D_wr       <= 1                ;
+                  RF_Ra_addr <= instruction[11:8];
+                  RF_Ra_rd   <= 1                ;
+                  RF_Rb_addr <= instruction[7 :4];
+                  RF_Rb_rd   <= 1                ;
+                  Alu_s0     <= 1                ;
                 end
 
               4'b0100:
                 begin
-                  next_state <= SUB;
+                  next_state <= SUB              ;
+                  RF_W_addr  <= instruction[3 :0];
+                  RF_W_wr    <= 1                ;
+                  RF_Ra_addr <= instruction[11:8];
+                  RF_Ra_rd   <= 1                ;
+                  RF_Rb_addr <= instruction[7 :4];
+                  RF_Rb_rd   <= 1                ;
+                  Alu_s0     <= 3'd2             ;
                 end
 
               4'b0101:
