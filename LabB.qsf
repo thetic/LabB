@@ -481,6 +481,15 @@ set_location_assignment PIN_W23 -to GPIO_1[35]
 set_global_assignment -name VERILOG_FILE instruction_register.v
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS OUTPUT DRIVING AN UNSPECIFIED SIGNAL"
 set_global_assignment -name MIF_FILE ram.mif
-set_global_assignment -name QIP_FILE imemlpm.qip
-set_global_assignment -name QIP_FILE ramlpm.qip
 set_global_assignment -name VERILOG_FILE cunit.v
+set_global_assignment -name VERILOG_FILE RegisterOEN.v
+set_global_assignment -name VERILOG_FILE DecoderN.v
+set_global_assignment -name VERILOG_FILE Hex7seg.v
+set_global_assignment -name MIF_FILE imem.mif
+set_global_assignment -name VERILOG_FILE LabB.v
+set_global_assignment -name VERILOG_FILE PC.v
+set_global_assignment -name VERILOG_FILE PCAdder.v
+set_global_assignment -name VERILOG_FILE PCClear.v
+set_global_assignment -name VERILOG_FILE PCUp.v
+set_global_assignment -name VERILOG_FILE Processor.v
+set_global_assignment -name VERILOG_FILE RegisterFile.v
