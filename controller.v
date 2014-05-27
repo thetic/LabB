@@ -3,6 +3,7 @@
  * Lab B
  * Chad Condon
  * Controller state machine.
+ * Comments are fun
  */
 module controller (
   input      [15:0] instruction,  // instruction
