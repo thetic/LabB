@@ -21,6 +21,7 @@ module controller (
   output reg [3 :0] RF_Rb_addr ,  // register file read address b
   output reg        RF_Rb_rd   ,  // register file read enable signal b
   output reg [3 :0] Alu_s0        // alu function select signal
+  output reg [3 :0] StateO     ,  // current state output
 );
 
   // name states:
@@ -39,6 +40,7 @@ module controller (
   reg [3:0] state     ;
   reg [3:0] next_state;
 
+  assign State0 = state; //assign current state output to current state.
 
   // state table:
   always @(*)
