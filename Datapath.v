@@ -35,7 +35,6 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr
   assign ALU_A = Ra_data; //A input to ALU = RF Ra data.
   assign ALU_B = Rb_data; //B input to ALU = RF Rb data.
   assign ALU_Out = ALUdata; //output of ALU = ALUdata.
-  assign RQ0 = R_data; //RF[0] contents = R_data
   assign Mux_out = regFileData; //output of Mux = regFileData.
   
   //reference ramlpm (address, clock, data, wren, q);
@@ -57,7 +56,7 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr
   end //always mux.
 	
   //reference RegisterFile(W_data, W_addr, W_en, Ra_addr, Rb_addr, Ra_en, Rb_en, Clk, Rst, Ra_data, Rb_data);
-  RegisterFile RegFile(regFileData, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Rb_addr, RF_Ra_rd, RF_Rb_rd, Clock, Reset, Ra_data, Rb_data);
+  RegisterFile RegFile(regFileData, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Rb_addr, RF_Ra_rd, RF_Rb_rd, Clock, Reset, Ra_data, Rb_data, RQ0);
 	
   //reference ALU(A, B, S, Q_act);
   ALU Alu(Ra_data, Rb_data, Alu_s0, ALUdata);
