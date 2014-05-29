@@ -10,8 +10,8 @@ module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0
   output [15:0] RQ0;     // RF[0] contents
   output [15:0] Mux_out; // Datapath mux output
 
-  //reference cunit();
-  cunit UNI();
+  //Reference cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0);
+  cunit UNI(Clk, D_addr, D_wr, RF_s, RF_W_Addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0);
 
   //Need to alter data path to include ALU_A, ALU_B, ALU_Out, RQ0, and Mux_out.
   //reference module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out);
