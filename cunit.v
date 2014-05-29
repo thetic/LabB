@@ -18,6 +18,10 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_r
 	output RF_W_wr; //write enable for RegisterFile.
 	output RF_Ra_rd; //Read address A enable for RegisterFile.
 	output RF_Rb_rd; //Read address B enable for RegisterFile.
+
+	output [4:0] PC_Out; //PC current address
+	output [15:0] IR_Out; //Instruction register output
+	output [3:0] State0; //current state
 	
 	// internal wires
 	wire [4:0] address; // PC current address
@@ -27,6 +31,8 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_r
 	wire ir_ld; // load instruction
 	wire [15:0] mem_instruction_out;
 	
+	assign PC_Out = address;
+
 	// Reference PC(O, Clear, Up, Clock);
 	PC pc0(address, pc_clr, pc_up, Clock)
 	
