@@ -4,7 +4,7 @@
  * This module 
  */
 
-module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0);
+module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
 
 	input Clock; //System Clock
 	
@@ -20,29 +20,25 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_r
 	output RF_Rb_rd; //Read address B enable for RegisterFile.
 
 	output [4:0] PC_Out; //PC current address
-	output [15:0] IR_Out; //Instruction register output
-	output [3:0] State0; //current state
+	output [15:0] IR_Out; //Current instruction
+	output [3:0] StateO; //current state
 	
 	// internal wires
-	wire [4:0] address; // PC current address
-	wire [15:0] instruction; // current instruction
 	wire pc_clr; // clears pc
 	wire pc_up;	// pc increment
 	wire ir_ld; // load instruction
 	wire [15:0] mem_instruction_out;
-	
-	assign PC_Out = address;
 
 	// Reference PC(O, Clear, Up, Clock);
-	PC pc0(address, pc_clr, pc_up, Clock)
+	PC pc0(PC_Out, pc_clr, pc_up, Clock)
 	
 	// Reference instruction_register #(param N)(Clk, d, q);
-	instruction_register instruction_register0 #(16)(Clock, mem_instruction_out, instruction, ir_ld);
+	instruction_register instruction_register0 #(16)(Clock, mem_instruction_out, IR_Out, ir_ld);
 	
 	// Reference controller(instruction, clk, PC_clr, PC_up, IR_ld, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0);
-	controller state_machine0(instruction, Clock, pc_clr, pc_up, ir_ld, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0);
+	controller state_machine0(IR_Out, Clock, pc_clr, pc_up, ir_ld, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, StateO);
 	
 	// Reference imemlpm(address, clock, q);
-	imemlpm I0(address, Clock, mem_instruction_out);
+	imemlpm I0(PC_Out, Clock, mem_instruction_out);
 	
 endmodule
