@@ -158,6 +158,7 @@ module controller (
       endcase
     end
 
+    // flop:
     always @(posedge clk) begin
       state = next_state;
     end
