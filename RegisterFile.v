@@ -2,7 +2,7 @@
 // Implements a register file
 // Size: four 32-bit registers
 
-module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R_en1, R_data0, R_data1);
+module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R_en1, R_data0, R_data1, RQ0);
   input Clk;           // system clock
   input Reset;         // reset signal
   input [15:0] W_data; // data to write
@@ -14,6 +14,7 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   input R_en1;         // read enable 1
   output [15:0] R_data0;// output data 0
   output [15:0] R_data1;// output data 1
+  output [15:0] RQ0;	//RF[0] contents.
   
   wire [15:0] W_d, R_d0, R_d1;
   
@@ -27,8 +28,10 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   DecoderN #(.N(4)) ReadDecoder1(R_addr1, R_en1, R_d1);
   
   // registers with output enable
+  // reference: module RegisterOENExtraOutput( Clk, Rst, Ld, I, Oe, Qz, Q_act );
+  RegisterOENExtraOutput #(.N(16)) Reg0(Clk, Reset, W_d[0], W_data, R_d0[0], R_d1[0], R_data0, R_data1, RQ0);
+
   // reference: module RegisterOEN( Clk, Rst, Ld, I, Oe, Qz );
-  RegisterOEN #(.N(16)) Reg0(Clk, Reset, W_d[0], W_data, R_d0[0], R_d1[0], R_data0, R_data1);
   RegisterOEN #(.N(16)) Reg1(Clk, Reset, W_d[1], W_data, R_d0[1], R_d1[1], R_data0, R_data1);
   RegisterOEN #(.N(16)) Reg2(Clk, Reset, W_d[2], W_data, R_d0[2], R_d1[2], R_data0, R_data1);
   RegisterOEN #(.N(16)) Reg3(Clk, Reset, W_d[3], W_data, R_d0[3], R_d1[3], R_data0, R_data1);
