@@ -5,7 +5,7 @@
  * Insruction register
  */
 module instruction_register #(
-  paramater N = 16        // default bitwidth of register
+  parameter N = 16        // default bitwidth of register
 )(
   input              clk, // clock
   input      [N-1:0] d  , // input data

@@ -1,8 +1,8 @@
 module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
-  input [1:0]KEY;	//Input KEYs
-  input [17:15]SW;	//Input Switches
+  input  [1 :0 ] KEY;	//Input KEYs
+  input  [17:15] SW ;	//Input Switches
   //7 segment hex displays
-  output [0:6]HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
+  output [0 :6 ] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
 
   wire Clk = KEY[0];
   wire Reset = !KEY[1];

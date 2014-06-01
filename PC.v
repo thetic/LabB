@@ -6,11 +6,11 @@ module PC(O, Clear, Up, Clock);
 	
 	wire [4:0]m0i, mc, I; // Mux 0 Input, Mux 0-1 Connector, PC Input
 	
-	PCAdder(O, m0i); // Increments the PC
+	PCAdder PCAdder (O, m0i); // Increments the PC
 	
-	PCUp(O, m0i, Up, mc); // Determines whether or not to increment
+	PCUp PCUp (O, m0i, Up, mc); // Determines whether or not to increment
 	
-	PCClear(mc, zero, Clear, I); // Determines whether or not to clear
+	PCClear PCClear (mc, zero, Clear, I); // Determines whether or not to clear
 	
 	always @(posedge Clock) O = I; // Update PC on posedge Clock
 
