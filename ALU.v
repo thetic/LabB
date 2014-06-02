@@ -8,7 +8,7 @@
 // This ALU has eight functions:
 // if s == 0 the output is 0
 // if s == 1 the output is A + B
-// if s == 2 the output is A – B
+// if s == 2 the output is A - B
 // if s == 3 the output is A (pass-through)
 // if s == 4 the output is A ^ B
 // if s == 5 the output is A | B

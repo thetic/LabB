@@ -3,7 +3,6 @@
  * Lab B
  * Chad Condon
  * Controller state machine.
- * Comments are fun
  */
 module controller (
   input      [15:0] instruction,  // instruction
@@ -12,7 +11,7 @@ module controller (
   output reg        PC_up      ,  // pc increment signal
   output reg        IR_ld      ,  // load instruction signal
   output reg [7 :0] D_addr     ,  // data memory address
-  output reg [15:0] D_wr       ,  // data memory write enable signal
+  output reg        D_wr       ,  // data memory write enable signal
   output reg        RF_s       ,  // register file select signal
   output reg [3 :0] RF_W_addr  ,  // register file write address
   output reg        RF_W_wr    ,  // register file write enable signal
@@ -21,7 +20,7 @@ module controller (
   output reg [3 :0] RF_Rb_addr ,  // register file read address b
   output reg        RF_Rb_rd   ,  // register file read enable signal b
   output reg [3 :0] Alu_s0     ,  // alu function select signal
-  output reg [3 :0] StateO        // current state output
+  output reg [3 :0] State         // current state output
 );
 
   // name states:
@@ -37,15 +36,15 @@ module controller (
   localparam HALT   = 4'd9;
 
   // store states:
-  reg [3:0] state     ;
-  reg [3:0] next_state;
+  reg [3:0] current_state;
+  reg [3:0] next_state   ;
 
-  assign State0 = state; //assign current state output to current state.
+  assign State = current_state; //assign current state output to current state.
 
   // state table:
   always @(*)
     begin
-      case (state)
+      case (current_state)
         INIT:
           begin
             next_state <= FETCH;
@@ -162,7 +161,7 @@ module controller (
 
     // flop:
     always @(posedge clk) begin
-      state = next_state;
+      current_state = next_state;
     end
 
 endmodule

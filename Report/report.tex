@@ -8,8 +8,16 @@
 \usepackage{color}
 \usepackage{placeins}
 \usepackage{rotating}
-\usepackage{hyperref}\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
 
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
 \usetikzlibrary{shapes.geometric, arrows, positioning}
 \definecolor{mygreen}{rgb}{0, 0.25, 0}
 \lstset{
@@ -51,18 +59,18 @@
 \section*{Laboratory Assignment 2} \addcontentsline{toc}{section}{Laboratory Assignment 2} \FloatBarrier
 
 The purpose of this exercise is to build and implement a six-instruction programmable processor.
-The instructions set is as shown in Figure~\ref{tab:instructions}.\footnote{$r$'s and $d$'s represent register file locations and data memory locations respectively.}
+The instructions set is as shown in \hyperref[tab:intructions]{Table \ref*{tab:instructions} }.\footnote{$r$'s and $d$'s represent register file locations and data memory locations respectively.}
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{ll}                                                                                                             \\\toprule
-        \textbf{Operation}  & \textbf{Instruction}                                                                                  \\\midrule
-        NOOP                & $0000 \; 0000 \; 0000 \; 0000$                                                                        \\
-        STORE               & $0001 \; r_3 r_2 r_1 r_0 \; d_7 d_6 d_5 d_4 d_3 d_2 d_1 d_0$                                          \\
-        LOAD                & $0010 \; d_7 d_6 d_5 d_4 d_3 d_2 d_1 d_0 \; r_3 r_2 r_1 r_0$                                          \\
-        ADD                 & $0011 \; r_{a3} r_{a2} r_{a1} r_{a0} \; r_{b3} r_{b2} r_{b1} r_{b0} \; r_{c3} r_{c2} r_{c1} r_{c0}$   \\
-        SUBTRACT            & $0100 \; r_{a3} r_{a2} r_{a1} r_{a0} \; r_{b3} r_{b2} r_{b1} r_{b0} \; r_{c3} r_{c2} r_{c1} r_{c0}$   \\
-        HALT                & $0101 \; 0000 \; 0000 \; 0000$                                                                        \\\bottomrule
+    \begin{tabular}{ll}                                                                                                                 \\\toprule
+        \textbf{Operation}  & \textbf{Instruction}                                                                                      \\\midrule
+        NOOP                & $0000 \;\: 0000 \;\: 0000 \;\: 0000$                                                                      \\
+        STORE               & $0001 \;\: r_3 r_2 r_1 r_0 \;\: d_7 d_6 d_5 d_4 d_3 d_2 d_1 d_0$                                          \\
+        LOAD                & $0010 \;\: d_7 d_6 d_5 d_4 d_3 d_2 d_1 d_0 \;\: r_3 r_2 r_1 r_0$                                          \\
+        ADD                 & $0011 \;\: r_{a3} r_{a2} r_{a1} r_{a0} \;\: r_{b3} r_{b2} r_{b1} r_{b0} \;\: r_{c3} r_{c2} r_{c1} r_{c0}$ \\
+        SUBTRACT            & $0100 \;\: r_{a3} r_{a2} r_{a1} r_{a0} \;\: r_{b3} r_{b2} r_{b1} r_{b0} \;\: r_{c3} r_{c2} r_{c1} r_{c0}$ \\
+        HALT                & $0101 \;\: 0000 \;\: 0000 \;\: 0000$                                                                      \\\bottomrule
     \end{tabular}
     \caption{Instruction Set}
     \label{tab:instructions}

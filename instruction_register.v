@@ -2,7 +2,7 @@
  * TCES 330, Spring 2014
  * Lab B
  * Chad Condon
- * Insruction register
+ * Instruction register
  */
 module instruction_register #(
   parameter N = 16        // default bitwidth of register
