@@ -44,16 +44,6 @@ module controller (
   // state table:
   always @*
     begin
-//	 RF_W_addr = 0;
-//	 RF_W_wr = 0;
-//	 RF_Ra_addr = 0;
-//	 RF_Ra_rd = 0;
-//	 RF_Rb_addr = 0;
-//	 RF_Rb_rd = 0;
-//	 Alu_s0 = 0;
-//	 D_addr = 0;
-//	 D_wr = 0;
-//	 RF_s = 0;
       case (current_state)
         INIT:
           begin
