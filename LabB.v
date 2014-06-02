@@ -6,6 +6,18 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
 
   wire Clk = KEY[0];
   wire Reset = !KEY[1];
+  wire [15:0] IR_Out;
+  wire [15:0] ALU_A;
+  wire [15:0] ALU_B;
+  wire [15:0] ALU_Out;
+  wire [15:0] RQ0;
+  wire [7:0] PC_Out;
+  wire [3:0] StateO;
+  wire [15:0] Mux_out;
+
+  wire [2:0] switch = SW[17:15];
+
+  reg [15:0] HexMux;
 
   //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
   Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
@@ -41,11 +53,13 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   end//always
   
   //Reference Hex7Seg(in, HEX);
-  Hex7Seg H0(IR[3:0], HEX0);
-  Hex7Seg H1(IR[7:4], HEX1);
-  Hex7Seg H2(IR[11:8], HEX2);
-  Hex7Seg H3(IR[15:12], HEX3);
+  //Display IR
+  Hex7Seg H0(IR_Out[3:0], HEX0);
+  Hex7Seg H1(IR_Out[7:4], HEX1);
+  Hex7Seg H2(IR_Out[11:8], HEX2);
+  Hex7Seg H3(IR_Out[15:12], HEX3);
 
+  //Variable display
   Hex7Seg H4(HexMux[3:0], HEX4);
   Hex7Seg H5(HexMux[7:4], HEX5);
   Hex7Seg H6(HexMux[11:8], HEX6);
