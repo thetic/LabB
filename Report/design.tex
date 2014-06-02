@@ -84,7 +84,12 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:c
 
 The control unit module required a program counter Verilog module with the properties listed below.
 
-%TODO write up PC
+\begin{itemize}
+    \item One one-bit input $Clear$ as the active high, synchronous clear signal.
+    \item One one-bit input $Up$ as the load enable signal.
+    \item One one-bit input $Clock$ as the clock signal.
+    \item One five-bit output $O$ as the program counter value.
+\end{itemize}
 
 The file \verb|PC.v| contains the module \verb|PC| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:pc]{Listing \ref*{lst:pc}}.
@@ -93,7 +98,10 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:p
 
 The program counter module required a PC incrementer Verilog module with the properties listed below.
 
-%TODO write up PCAdder
+\begin{itemize}
+    \item One five-bit input $I$.
+    \item One five-bit output $O$ which passes the sum $I + 1$.
+\end{itemize}
 
 The file \verb|PCAdder.v| contains the module \verb|PCAdder| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCAdder]{Listing \ref*{lst:PCAdder}}.
@@ -102,7 +110,12 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:P
 
 The program counter module required an add multiplexer Verilog module with the properties listed below.
 
-%TODO write up PCUp
+\begin{itemize}
+    \item Two one-bit inputs $data0x$ and $data1x$ as the selectable inputs.
+    \item One one-bit input $sel$ as the select signal.
+    \item One one-bit output $result$ which passes $data0x$ or $data1x$ if $sel$ is 0 or 1 respectively.
+\end{itemize}
+
 
 The file \verb|PCUp.v| contains the module \verb|PCUp| which satisfies these properties from the Altera library of parameterized modules.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCUp]{Listing \ref*{lst:PCUp}}.
@@ -111,7 +124,11 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:P
 
 The program counter module required a clear multiplexer Verilog module with the properties listed below.
 
-%TODO write up PCClear
+\begin{itemize}
+    \item Two one-bit inputs $data0x$ and $data1x$ as the selectable inputs.
+    \item One one-bit input $sel$ as the select signal.
+    \item One one-bit output $result$ which passes $data0x$ or $data1x$ if $sel$ is 0 or 1 respectively.
+\end{itemize}
 
 The file \verb|PCClear.v| contains the module \verb|PCClear| which satisfies these properties from the Altera library of parameterized modules.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCClear]{Listing \ref*{lst:PCClear}}.
@@ -120,7 +137,13 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:P
 
 The control unit module required an instruction register Verilog module with the properties listed below.
 
-%TODO write up IR
+\begin{itemize}
+    \item Parameterized data bit width $N$.
+    \item One one-bit input $clk$ as the clock signal.
+    \item One $N$-bit input $d$ as the input value.
+    \item One one-bit input $ir_\text{ld}$ as the load enable signal.
+    \item One $N$-bit output $q$ as the register's value.
+\end{itemize}
 
 The file \verb|instruction_register.v| contains the module \verb|instruction_register| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:ir]{Listing \ref*{lst:ir}}.
@@ -129,7 +152,6 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:i
 
 The control unit module required controller Verilog module with the properties listed below.
 
-%TODO write up controller
 \begin{itemize}
     \item One sixteen-bit input $instruction$ which accepts an intruction.
     \item One one-bit input $clk$ which acts as the clock.
@@ -137,14 +159,14 @@ The control unit module required controller Verilog module with the properties l
     \item One one-bit output $PC_\text{up}$ which signals to increment to program counter.
     \item One one-bit output $IR_\text{ld}$ which signals to load the instruction register.
     \item One one-bit output $RF_\text{s}$ which selects the register file.
-    \item One one-bit output $RF\_W_\text{wr}$ which signals to write enable the register file.
-    \item One one-bit output $RF\_Ra_\text{rd}$ which signals to read enable the A stream of the register file.
-    \item One one-bit output $RF\_Rb_\text{rd}$ which signals to read enable the B stream of the regoster file.
+    \item One one-bit output $RF_{W_\text{wr}}$ which signals to write enable the register file.
+    \item One one-bit output $RF_{Ra_\text{rd}}$ which signals to read enable the A stream of the register file.
+    \item One one-bit output $RF_{Rb_\text{rd}}$ which signals to read enable the B stream of the regoster file.
     \item One eight-bit output $D_\text{addr}$ which signals the data memory address.
-    \item One one-bit output $D\_wr$ which signals to write enable the data memory.
-    \item One four-bit output $RF\_W_\text{addr}$ which signals the register file's write address.
-    \item One four-bit output $RF\_Ra_\text{addr}$ which signals the register file's A stream read address.
-    \item One four-bit output $RF\_Rb_\text{addr}$ which signals the register files' B stream read address.
+    \item One one-bit output $D_wr$ which signals to write enable the data memory.
+    \item One four-bit output $RF_{W_\text{addr}}$ which signals the register file's write address.
+    \item One four-bit output $RF_{Ra_\text{addr}}$ which signals the register file's A stream read address.
+    \item One four-bit output $RF_{Rb_\text{addr}}$ which signals the register files' B stream read address.
     \item One four-bit output $Alu_\text{s0}$ which selects the arithmetic logic unit's function.
     \item One four-bit output $State$ which signals the current state,
     \item Positive edge triggered.
@@ -172,7 +194,11 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:c
 
 The control unit module required an instruction memory Verilog module with the properties listed below.
 
-%TODO write up imem
+\begin{itemize}
+    \item One five-bit input $address$ as the data address.
+    \item One one-bit input $clock$ as the clock signal.
+    \item One sixteen-bit output $q$ as the data read signal.
+\end{itemize}
 
 The file \verb|imemlpm.v| contains the module \verb|imemlpm| which satisfies these properties from the Altera library of parameterized modules.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:imemlpm]{Listing \ref*{lst:imemlpm}}.
@@ -181,11 +207,22 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:i
 
 The processor module required datapath Verilog module with the properties listed below.
 
-%TODO
 \begin{itemize}
     \item One one-bit input $Clock$ as the clock signal.
     \item One one-bit input $Reset$ as an active high, synchronous reset signal.
-    \item Obe eight-bit input $D_\text{addr}$ as the data address.
+    \item One eight-bit input $D_\text{addr}$ as the data memory address.
+    \item One one-bit input $D_\text{wr}$ as the data memory write enable signal.
+    \item One four-bit input $RF_{W_\text{addr}}$ as the register file write address.
+    \item One one-bit input $RF_{W_\text{wr}}$ as the register file write enable signal.
+    \item One four-bit input $RF_{Ra_\text{addr}}$ as the register file stream A read address.
+    \item One one-bit input $RF_{Ra_\text{rd}}$ as the register file stream A read enable signal.
+    \item One four-bit input $RF_{Rb_\text{addr}}$ as the register file stream B read address.
+    \item One one-bit input $RF_{Rb_\text{rd}}$ as the register file stream B read enable signal.
+    \item One three-bit input $Alu_{s0}$ as the ALU function select signal.
+    \item Two sixteen-bit outputs $ALU_A$ and $ALU_B$ as the ALU A- and B-side inputs respectively.
+    \item One sixteen-bit output $RQ0$ as the first register file entry.
+    \item One sixteen-bit output $Mux_\text{out}$ as register file write data input.
+    \item Positive edge triggered.
 \end{itemize}
 
 The file \verb|Datapath.v| contains the module \verb|Datapath| which satisfies these properties.
