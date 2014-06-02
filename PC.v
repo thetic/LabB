@@ -1,3 +1,9 @@
+/*
+  TCES Lab B
+  Spring 2014
+  Aaron Stephens
+  Program Counter
+*/
 module PC(O, Clear, Up, Clock);
 	input Clear, Up, Clock; // Clear, Increment, Clock
 	output reg [4:0]O;      // PC Output
@@ -8,9 +14,9 @@ module PC(O, Clear, Up, Clock);
 	
 	PCAdder PCAdder (O, m0i); // Increments the PC
 	
-	PCUp PCUp (O, m0i, Up, mc); // Determines whether or not to increment
+	muxlpm m0 (O, m0i, Up, mc); // Determines whether or not to increment
 	
-	PCClear PCClear (mc, zero, Clear, I); // Determines whether or not to clear
+	muxlpm m1 (mc, zero, Clear, I); // Determines whether or not to clear
 	
 	always @(posedge Clock) O = I; // Update PC on posedge Clock
 
