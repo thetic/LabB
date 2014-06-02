@@ -22,7 +22,7 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   
   //use a switch case statement to determine
   //what the top 4 hex displays show
-  always @(switch) begin
+  always @* begin
     case(switch)
 
       0 : begin

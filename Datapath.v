@@ -39,7 +39,7 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr
   ramlpm RLPM(D_addr, Clock, Ra_data, D_wr, R_data);
   
   //two to one mux.
-  always @(RF_s) begin
+  always @* begin
   
     //if RF_s is one, then the W_data going to 
     //the register file is R_data, which comes
@@ -54,7 +54,7 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr
   end //always mux.
 	
   //reference RegisterFile(W_data, W_addr, W_en, Ra_addr, Rb_addr, Ra_en, Rb_en, Clk, Rst, Ra_data, Rb_data);
-  RegisterFile RegFile(regFileData, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Rb_addr, RF_Ra_rd, RF_Rb_rd, Clock, Reset, Ra_data, Rb_data, RQ0);
+  RegisterFile RegFile(regFileData, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Rb_addr, RF_Ra_rd, RF_Rb_rd, Clock, Reset, ALU_A, ALU_B, RQ0);
 	
   ALU ALU (
     .Sel(Alu_s0),

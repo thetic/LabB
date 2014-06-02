@@ -42,17 +42,27 @@ module controller (
   assign State = current_state; //assign current state output to current state.
 
   // state table:
-  always @(*)
+  always @*
     begin
+//	 RF_W_addr = 0;
+//	 RF_W_wr = 0;
+//	 RF_Ra_addr = 0;
+//	 RF_Ra_rd = 0;
+//	 RF_Rb_addr = 0;
+//	 RF_Rb_rd = 0;
+//	 Alu_s0 = 0;
+//	 D_addr = 0;
+//	 D_wr = 0;
+//	 RF_s = 0;
       case (current_state)
         INIT:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
 
         FETCH:
           begin
-            next_state <= DECODE;
+            next_state = DECODE;
           end
           
         DECODE:
@@ -60,58 +70,58 @@ module controller (
             case (instruction[15:12])
               4'b0000:
                 begin
-                  next_state <= NOOP;
+                  next_state = NOOP;
                 end
                 
               4'b0010:
                 begin
-                  next_state <= LOAD_A           ;
-                  D_addr     <= instruction[11:4];
-                  RF_s       <= 1                ;
-                  RF_W_addr  <= instruction[3 :0];
+                  next_state = LOAD_A           ;
+                  D_addr     = instruction[11:4];
+                  RF_s       = 1                ;
+                  RF_W_addr  = instruction[3 :0];
                 end
 
               4'b0001:
                 begin
-                  next_state <= STORE            ;
-                  D_addr     <= instruction[11:4];
-                  RF_s       <= 1                ;
-                  RF_W_addr  <= instruction[3 :0];
-                  RF_W_wr    <= 1                ;
+                  next_state = STORE            ;
+                  D_addr     = instruction[11:4];
+                  RF_s       = 1                ;
+                  RF_W_addr  = instruction[3 :0];
+                  RF_W_wr    = 1                ;
                 end
 
               4'b0011:
                 begin
-                  next_state <= ADD              ;
-                  D_addr     <= instruction[7 :0];
-                  D_wr       <= 1                ;
-                  RF_Ra_addr <= instruction[11:8];
-                  RF_Ra_rd   <= 1                ;
-                  RF_Rb_addr <= instruction[7 :4];
-                  RF_Rb_rd   <= 1                ;
-                  Alu_s0     <= 1                ;
+                  next_state = ADD              ;
+                  D_addr     = instruction[7 :0];
+                  D_wr       = 1                ;
+                  RF_Ra_addr = instruction[11:8];
+                  RF_Ra_rd   = 1                ;
+                  RF_Rb_addr = instruction[7 :4];
+                  RF_Rb_rd   = 1                ;
+                  Alu_s0     = 1                ;
                 end
 
               4'b0100:
                 begin
-                  next_state <= SUB              ;
-                  RF_W_addr  <= instruction[3 :0];
-                  RF_W_wr    <= 1                ;
-                  RF_Ra_addr <= instruction[11:8];
-                  RF_Ra_rd   <= 1                ;
-                  RF_Rb_addr <= instruction[7 :4];
-                  RF_Rb_rd   <= 1                ;
-                  Alu_s0     <= 3'd2             ;
+                  next_state = SUB              ;
+                  RF_W_addr  = instruction[3 :0];
+                  RF_W_wr    = 1                ;
+                  RF_Ra_addr = instruction[11:8];
+                  RF_Ra_rd   = 1                ;
+                  RF_Rb_addr = instruction[7 :4];
+                  RF_Rb_rd   = 1                ;
+                  Alu_s0     = 3'd2             ;
                 end
 
               4'b0101:
                 begin
-                  next_state <= HALT;
+                  next_state = HALT;
                 end
 
               default:
                 begin
-                  next_state <= NOOP;
+                  next_state = NOOP;
                 end
 
             endcase
@@ -119,42 +129,42 @@ module controller (
           
         NOOP:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
           
         LOAD_A:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
           
         LOAD_B:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
           
         STORE:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
           
         ADD:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
           
         SUB:
           begin
-            next_state <= FETCH;
+            next_state = FETCH;
           end
           
         HALT:
           begin
-            next_state <= HALT;
+            next_state = HALT;
           end
 
         default:
           begin
-            next_state <= INIT;
+            next_state = INIT;
           end
       endcase
     end
