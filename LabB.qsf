@@ -486,8 +486,6 @@ set_global_assignment -name VERILOG_FILE RegisterOEN.v
 set_global_assignment -name VERILOG_FILE DecoderN.v
 set_global_assignment -name VERILOG_FILE RegisterFile.v
 set_global_assignment -name VERILOG_FILE ramlpm.v
-set_global_assignment -name VERILOG_FILE PCUp.v
-set_global_assignment -name VERILOG_FILE PCClear.v
 set_global_assignment -name VERILOG_FILE PCAdder.v
 set_global_assignment -name VERILOG_FILE controller.v
 set_global_assignment -name VERILOG_FILE imemlpm.v
