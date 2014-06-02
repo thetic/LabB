@@ -11,7 +11,7 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_r
 	output [3 :0] RF_W_addr ; //Write address for RegisterFile.
 	output [3 :0] RF_Ra_addr; //Read address A for RegisterFile.
 	output [3 :0] RF_Rb_addr; //Read address B for RegisterFile.
-	output [3 :0] D_wr      ; //Data write enable for ramlpm.
+	output        D_wr      ; //Data write enable for ramlpm.
 	output        RF_s      ; //Select line for data mux.
 	output [2 :0] Alu_s0    ; //Select line for ALU.
 	output        RF_W_wr   ; //write enable for RegisterFile.
