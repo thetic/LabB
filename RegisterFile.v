@@ -17,7 +17,11 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   output [15:0] RQ0;	//RF[0] contents.
   
   wire [15:0] W_d, R_d0, R_d1;
-  
+
+  wire genvar I; //we are going to generate the registers
+  wire [255:0] Q; //register file outputs
+
+  //reference DecoderN();
   // write decoder
   DecoderN #(.N(4)) WriteDecoder(W_addr, W_en, W_d);
   
@@ -26,9 +30,19 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   
   // read decoder 1
   DecoderN #(.N(4)) ReadDecoder1(R_addr1, R_en1, R_d1);
-  
-  // registers with output enable
-  // reference: module RegisterOENExtraOutput( Clk, Rst, Ld, I, Oe, Qz, Q_act );
+
+  // instantiate the 16 dial-output registers
+  // reference: module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1, RQ );
+  generate
+    for(I = 0; I < 16; I = I + 1) begin : rgen
+      RegisterOEN #(.N(16)) U(Clk, Reset, W_d[I], W_Data, R_d0[I], R_d1[I], R_data0, R_data1, Q[I * 16 + 15 : I * 16]);
+    end
+  endgenerate
+
+  //grab Register 0 output.
+  assign RQ0 = Q[15:0];
+
+/*
   RegisterOENExtraOutput #(.N(16)) Reg0(Clk, Reset, W_d[0], W_data, R_d0[0], R_d1[0], R_data0, R_data1, RQ0);
 
   // reference: module RegisterOEN( Clk, Rst, Ld, I, Oe, Qz );
@@ -47,5 +61,6 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   RegisterOEN #(.N(16)) Reg13(Clk, Reset, W_d[13], W_data, R_d0[13], R_d1[13], R_data0, R_data1);
   RegisterOEN #(.N(16)) Reg14(Clk, Reset, W_d[14], W_data, R_d0[14], R_d1[14], R_data0, R_data1);
   RegisterOEN #(.N(16)) Reg15(Clk, Reset, W_d[15], W_data, R_d0[15], R_d1[15], R_data0, R_data1);
-  
+  */
+
 endmodule
