@@ -1,3 +1,134 @@
-\section{Test Procedures} \label{sec:testprocecedures}
+\section{Test Procedures} % (fold)
+\label{sec:test_procedures}
 
 The following test procedures will be used to verify that each part of this laboratory exercise satisfies the requirements given in \hyperref[sec:requirements]{Section \ref*{sec:requirements}}.
+
+\subsection{PC Incrementer} % (fold)
+\label{sub:pc_incrementer}
+
+% subsection pc_incrementer (end)
+
+\subsection{Add Multiplexer} % (fold)
+\label{sub:add_multiplexer}
+
+The add multiplexer module, \verb|PCUp|, was a simple LPM module and will therefore not be specifically tested.
+% subsection add_multiplexer (end)
+
+\subsection{Clear Multiplexer} % (fold)
+\label{sub:clear_multiplexer}
+
+The clear multiplexer module, \verb|PCClear|, was a simple LPM module and will therefore not be specifically tested.
+% subsection clear_multiplexer (end)
+
+\subsection{Decoder} % (fold)
+\label{sub:decoder}
+
+The decoder module, \verb|DecoderN|, has been previously used and tested for Homework 6 and will therefore not be specifically tested.
+% subsection decoder (end)
+
+\subsection{Register} % (fold)
+\label{sub:register}
+
+The register module, \verb|RegisterOEN|, has been previously used and tested for Homework 6  and only minimally modified.
+It will therefore not be specifically tested.
+% subsection register (end)
+
+\subsection{Controller} % (fold)
+\label{sub:controller}
+
+% subsection controller (end)
+
+\subsection{Program Counter} % (fold)
+\label{sub:program_counter}
+
+% subsection program_counter (end)
+
+\subsection{Instruction Memory} % (fold)
+\label{sub:instruction_memory}
+
+% subsection instruction_memory (end)
+
+
+\subsection{Instruction Register} % (fold)
+\label{sub:instruction_register}
+
+% subsection instruction_register (end)
+
+\subsection{Data Memory} % (fold)
+\label{sub:data_memory}
+
+% subsection data_memory (end)
+
+\subsection{Register File} % (fold)
+\label{sub:register_file}
+
+The register file module, \verb|RegisterFile|, has been previously used and tested for Homework 6 and only minimally modified.
+It will therefore not be specifically tested.
+% subsection register_file (end)
+
+\subsection{Arithmetic Logic Unit} % (fold)
+\label{sub:arithmetic_logic_unit}
+
+The arithmetic logic unit module, \verb|ALU|, has been previously used and tested for Homework 6 and will therefore not be specifically tested.
+% subsection arithmetic_logic_unit (end)
+
+\subsection{Control Unit} % (fold)
+\label{sub:control_unit}
+
+The following test procedure will be used to verify that the Verilog module \verb|cunit| satisfies
+the requirements for this part.
+
+%TODO test control unit
+
+% subsection control_unit (end)
+
+\subsection{Datapath} % (fold)
+\label{sub:datapath}
+
+The following test procedure will be used to verify that the Verilog module \verb|Datapath| satisfies
+the requirements for this part.
+
+%TODO test datapath
+
+% subsection datapath (end)
+
+\subsection{Processor} % (fold)
+\label{sub:processor}
+
+The following test procedure will be used to verify that the Verilog module \verb|Processor| satisfies
+the requirements for this part.
+
+%TODO test processor
+
+% subsection processor (end)
+
+\subsection{Hex Display} % (fold)
+\label{sub:hex_display}
+
+The hex display module, \verb|Hex7seg|, has been previously used and tested for several assignments and will therefore not be specifically tested.
+% subsection hex_display (end)
+
+\subsection{Project} % (fold)
+\label{sub:project}
+
+The following test procedure will be used to verify that the \emph{Quartus II} project \verb|Lab6| satisfies
+the requirements for this lab.
+
+%TODO write up project
+\begin{itemize}
+    \item The eight instruction processor circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}} and % TODO outputs the multiplexer output M.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}.
+    \item Open the project and verify that compilation produces no errors or unallowed warnings.
+    \item Load the project onto the DE2 board without errors.
+    \item Generate the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}} and verify the corresponding outputs,% TODO M.
+\end{itemize}
+
+\begin{table}[htbp]
+    \centering
+    %TODO tabular
+    \caption{Project Test Vectors\label{tab:project_vectors}}
+\end{table}
+% subsection project (end)
+
+% section test_procedures (end)
