@@ -4,20 +4,18 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   //7 segment hex displays
   output [0 :6 ] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
 
-  wire Clk = KEY[0];
-  wire Reset = !KEY[1];
-  wire [15:0] IR_Out;
-  wire [15:0] ALU_A;
-  wire [15:0] ALU_B;
-  wire [15:0] ALU_Out;
-  wire [15:0] RQ0;
-  wire [7:0] PC_Out;
-  wire [3:0] StateO;
-  wire [15:0] Mux_out;
-
-  wire [2:0] switch = SW[17:15];
-
-  reg [15:0] HexMux;
+  wire        Clk    =  KEY[0    ];
+  wire        Reset  = !KEY[1    ];
+  wire [2 :0] switch =  SW [17:15];
+  wire [15:0] IR_Out              ;
+  wire [15:0] ALU_A               ;
+  wire [15:0] ALU_B               ;
+  wire [15:0] ALU_Out             ;
+  wire [15:0] RQ0                 ;
+  wire [7 :0] PC_Out              ;
+  wire [3 :0] StateO              ;
+  wire [15:0] Mux_out             ;
+  reg  [15:0] HexMux              ;
 
   //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
   Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
