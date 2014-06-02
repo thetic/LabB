@@ -17,9 +17,9 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   output [15:0] RQ0;	//RF[0] contents.
   
   wire [15:0] W_d, R_d0, R_d1;
-
-  wire genvar I; //we are going to generate the registers
   wire [255:0] Q; //register file outputs
+  
+  genvar I; //we are going to generate the registers
 
   //reference DecoderN( W, E, Y );
   // write decoder

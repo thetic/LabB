@@ -483,7 +483,6 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_FILE RegisterOEN.v
-set_global_assignment -name VERILOG_FILE RegisterOENExtraOutput.v
 set_global_assignment -name VERILOG_FILE DecoderN.v
 set_global_assignment -name VERILOG_FILE RegisterFile.v
 set_global_assignment -name VERILOG_FILE ramlpm.v

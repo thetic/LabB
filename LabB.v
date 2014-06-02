@@ -41,7 +41,7 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
 
       5 : HexMux = RQ0;
 
-      6 : HexMux = Mux_Out;
+      6 : HexMux = Mux_out;
 
       7 : HexMux = 16'd0;
 
@@ -52,16 +52,16 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   
   //Reference Hex7Seg(in, HEX);
   //Display IR
-  Hex7Seg H0(IR_Out[3:0], HEX0);
-  Hex7Seg H1(IR_Out[7:4], HEX1);
-  Hex7Seg H2(IR_Out[11:8], HEX2);
-  Hex7Seg H3(IR_Out[15:12], HEX3);
+  Hex7seg H0(IR_Out[3:0], HEX0);
+  Hex7seg H1(IR_Out[7:4], HEX1);
+  Hex7seg H2(IR_Out[11:8], HEX2);
+  Hex7seg H3(IR_Out[15:12], HEX3);
 
   //Variable display
-  Hex7Seg H4(HexMux[3:0], HEX4);
-  Hex7Seg H5(HexMux[7:4], HEX5);
-  Hex7Seg H6(HexMux[11:8], HEX6);
-  Hex7Seg H7(HexMux[15:12], HEX7);
+  Hex7seg H4(HexMux[3:0], HEX4);
+  Hex7seg H5(HexMux[7:4], HEX5);
+  Hex7seg H6(HexMux[11:8], HEX6);
+  Hex7seg H7(HexMux[15:12], HEX7);
 
   
 endmodule
