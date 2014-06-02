@@ -20,9 +20,9 @@ The design of each module will be discussed below.
                 child {node [draw] (cunit) {\hyperref[subsub:controlunit]{Control}\\\hyperref[subsub:controlunit]{Unit}}
                     child {node [draw] (controller) {\hyperref[par:controller]{Controller}}}
                     child {node [draw] (PC) {\hyperref[par:pc]{PC}}
-                        child {node [draw] (PCAdderer) {PC\\Incrementer}}
-                        child {node [draw] (PCUp) {Add\\Multiplexer}}
-                        child {node [draw] (PCClear) {Clear\\Multiplexer}}
+                        child {node [draw] (PCAdderer) {\hyperref[subpar:pcadder]{PC}\\\hyperref[subpar:pcadder]{Incrementer}}}
+                        child {node [draw] (PCUp) {\hyperref[subpar:pcup]{Add}\\\hyperref[subpar:pcup]{Multiplexer}}}
+                        child {node [draw] (PCClear) {\hyperref[subpar:pcclear]{Clear}\\\hyperref[subpar:pcclear]{Multiplexer}}}
                     }
                     child {node [draw] (imemlpm) {\hyperref[par:imem]{Instruction}\\\hyperref[par:imem]{Memory}}}
                     child {node [draw] (IR) {\hyperref[par:ir]{IR}}}
@@ -30,9 +30,9 @@ The design of each module will be discussed below.
                 child {node [draw] (Datapath) {\hyperref[subsub:datapath]{Datapath}}
                     child {node [draw] (RAM) {\hyperref[par:regmem]{Data}\\\hyperref[par:regmem]{Memory}}}
                     child {node [draw] (RegisterFile) {\hyperref[par:regfile]{Register}\\\hyperref[par:regfile]{File}}
-                    child {node [draw] (PCClear) {Decoder}}
-                        child {node [draw] (PCClear) {Register}}
-                        child {node [draw] (PCClear) {Transparent\\Register}}
+                    child {node [draw] (PCClear) {\hyperref[subpar:decoder]{Decoder}}}
+                        child {node [draw] (PCClear) {\hyperref[subpar:register]{Register}}}
+                        child {node [draw] (PCClear) {\hyperref[subpar:transregister]{Transparent}\\\hyperref[subpar:transregister]{Register}}}
                     }
                     child {node [draw] (ALU) {\hyperref[par:alu]{ALU}}}
                 }
@@ -43,7 +43,30 @@ The design of each module will be discussed below.
 
 The top-level module must have the properties listed below.
 
-%TODO write up LabB.v
+\begin{itemize}
+    \item One one-bit input $KEY_0$ as the clock signal.
+    \item One one-bit input $KEY_1$ as the active low reset signal.
+    \item One two-bit input $SW_{17:15}$ as the display select signal.
+    \item Four seven-bit outputs $HEX0$, $HEX1$, $HEX2$, and $HEX3$ as the instruction display.
+    \item Four seven-bit outputs $HEX4$, $HEX5$, $HEX6$, and $HEX7$ as selectable display.
+    \item The value of $SW_{17:15}$ selects the value to be displayed on $HEX4$, $HEX5$, $HEX6$, and $HEX7$ as shown in \hyperref[tab:display]{Table \ref*{tab:display}}.
+\end{itemize}
+
+\begin{table}[htbp] 
+    \centering
+    \begin{tabular}{ll}                             \toprule
+        $SW_{17:15}$    & Displayed Values              \\\midrule
+        0               & Current State                 \\
+        1               & A side input to ALU           \\
+        2               & B side input to ALU           \\
+        3               & ALU output                    \\
+        4               & \emph{Unused}                 \\
+        5               & Register File 0 contents      \\
+        6               & Datapath multiplexer output   \\
+        7               & \emph{Unused}                 \\\bottomrule
+    \end{tabular}
+\caption{Selectable Display Values\label{tab:display}}
+\end{table}
 
 The file \verb|LabB.v| contains the module \verb|LabB| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:LabB]{Listing \ref*{lst:LabB}}.
@@ -54,9 +77,9 @@ The top-level module required a hex display Verilog module with the properties l
 This module was reused from Homework 2.
 
 \begin{itemize}
-    \item One four-bit input $C$.
-    \item One seven-bit output $Display$.
-    \item Assigns $Display$ to the appropriate value to display the character representing $C$'s value as a hexadecimal character of a seven segment display.
+    \item One four-bit input $C$ as the displayed value.
+    \item One seven-bit output $Display$ as the seven segment display.
+    \item Assigns $Display$ to the appropriate value to display the hexadecimal character representing $C$'s value on a seven segment display.
 \end{itemize}
 
 The file \verb|Hex7seg.v| contains the module \verb|Hex7seg| which satisfies these properties.
@@ -66,7 +89,17 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:h
 
 The top-level module required a processesor Verilog modules with the properties listed below.
 
-%TODO write up processor
+\begin{itemize}
+    \item One one-bit input $Clk$ as the clock signal.
+    \item One one-bit input $Reset$ as the active high reset signal.
+    \item One sixteen-bit output $IR_\text{Out}$ as the instruction register value.
+    \item One five-bit output $PC_\text{Out}$ as the program counter value.
+    \item One four-bit output $State0$ as the current state.
+    \item Two sixteen-bit outputs $ALU_A$ and $ALU_B$ as the A- and B-side ALU inputs respectively.
+    \item One sixteen-bit output $ALU_\text{Out}$ as the ALU output.
+    \item One sixteen-bit output $RQ0$ as the register file 0 entry.
+    \item One sixteen-bit output $Mux_\text{out}$ as the datapath multiplexer output.
+\end{itemize}
 
 The file \verb|Processor.v| contains the module \verb|Processor| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:processor]{Listing \ref*{lst:processor}}.
@@ -75,7 +108,20 @@ A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:p
 
 The processor module required a control unit Verilog module with the properties listed below.
 
-%TODO write up control unit
+\begin{itemize}
+    \item One one-bit input $Clock$ as the clock signal.
+    \item One eight-bit output $D_text{addr}$ as the data memory address.
+    \item One four-bit output $RF_{W_\text{addr}}$ as the register file write address.
+    \item Two four-bit outputs $RF_{Ra_\text{addr}}$ and $RF_{Rab_\text{addr}}$ as the register file A and B stream read addresses respectively.
+    \item One one-bit output $D_\text{wr}$ as the data memory write enable signal.
+    \item One one-bit output $RF_s$ as the data multiplexer select signal.
+    \item One three-bit output $Alu_{s0}$ as the ALU function select signal.
+    \item One one-bit output $RF_{W_\text{wr}}$ as the register file write enable signal.
+    \item Two one-bit inputs $RF_{Ra_\text{rd}}$ and $RF_{Rab_\text{rd}}$ as the register file A and B stream read enable signals respectively.
+    \item One One five-bit output $RC_\text{Out}$ as the program counter address.
+    \item One sixteen-bit output $IR_\text{Out}$ as the current instruction.
+    \item One four-bit output $State0$ as the controller state. 
+\end{itemize}
 
 The file \verb|cunit.v| contains the module \verb|cunit| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:cunit]{Listing \ref*{lst:cunit}}.
@@ -94,7 +140,7 @@ The control unit module required a program counter Verilog module with the prope
 The file \verb|PC.v| contains the module \verb|PC| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:pc]{Listing \ref*{lst:pc}}.
 
-\subparagraph{PC Incrementer}
+\subparagraph{PC Incrementer} \label{subpar:pcadder}
 
 The program counter module required a PC incrementer Verilog module with the properties listed below.
 
@@ -106,7 +152,7 @@ The program counter module required a PC incrementer Verilog module with the pro
 The file \verb|PCAdder.v| contains the module \verb|PCAdder| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCAdder]{Listing \ref*{lst:PCAdder}}.
 
-\subparagraph{Add Multiplexer}
+\subparagraph{Add Multiplexer} \label{subpar:pcup}
 
 The program counter module required an add multiplexer Verilog module with the properties listed below.
 
@@ -120,7 +166,7 @@ The program counter module required an add multiplexer Verilog module with the p
 The file \verb|PCUp.v| contains the module \verb|PCUp| which satisfies these properties from the Altera library of parameterized modules.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCUp]{Listing \ref*{lst:PCUp}}.
 
-\subparagraph{Clear Multiplexer}
+\subparagraph{Clear Multiplexer} \label{subpar:pcclear}
 
 The program counter module required a clear multiplexer Verilog module with the properties listed below.
 
@@ -171,8 +217,7 @@ The control unit module required controller Verilog module with the properties l
     \item One four-bit output $State$ which signals the current state,
     \item Positive edge triggered.
     \item Quartus recognized state machine.
-    \item Ten states representing each phase of each instruction.
-    (See \hyperref[tab:instructions]{Table \ref*{tab:instructions}})
+    \item Ten states representing each phase of each instruction.\footnote{See \hyperref[tab:instructions]{Table \ref*{tab:instructions}} for a list of instructions.}
     \begin{itemize}
         \item \textbf{INIT}: Wait
         \item \textbf{FETCH}: Retrieve new instruction
@@ -267,7 +312,7 @@ This module was reused from Homework 6.
 The file \verb|RegisterFile.v| contains the module \verb|RegisterFile| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:registerfile]{Listing \ref*{lst:registerfile}}.
 
-\subparagraph{Decoder}
+\subparagraph{Decoder} \label{subpar:decoder}
 
 The register file module required a decoder Verilog module with the properties listed below.
 This module was reused from Homework 6.
@@ -283,7 +328,7 @@ This module was reused from Homework 6.
 The file \verb|DecoderN.v| contains the module \verb|DecoderN| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:DecoderN]{Listing \ref*{lst:DecoderN}}.
 
-\subparagraph{Register}
+\subparagraph{Register} \label{subpar:register}
 
 The register file module required a register Verilog module with the properties listed below.
 This module was reused from Homework 6.
@@ -307,7 +352,7 @@ This module was reused from Homework 6.
 The file \verb|RegisterOEN.v| contains the module \verb|RegisterOEN| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:RegisterOEN]{Listing \ref*{lst:RegisterOEN}}.
 
-\subparagraph{Transparent Register}
+\subparagraph{Transparent Register} \label{subpar:transregister}
 
 The register file moduule required a transparent register Verilog module witht he properties listed below.
 
