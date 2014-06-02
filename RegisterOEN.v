@@ -4,7 +4,7 @@
 // Used to build register files
 
 
-module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1 );
+module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1, RQ );
   parameter N = 16;
   
   input Clk;
@@ -15,8 +15,11 @@ module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1 );
   input [N - 1:0] I;  // data to load
 
   output [N - 1:0] Qz0, Qz1;  // switched output
+  output [N - 1:0] RQ; // unswitched output
   
   reg [N - 1:0] Q;   // standard (unswitched) output
+
+  assign RQ = Q;
 
   // Register Procedure
   always @(posedge Clk) begin
