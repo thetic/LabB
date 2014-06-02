@@ -1,19 +1,20 @@
 \section{Design} \label{sec:design}
 
-Analysis of the requirements described in \hyperref[sec:requirements]{Section \ref*{sec:requirements} } as well as those in \href{https://moodle.insttech.washington.edu/mod/resource/view.php?id=32929}{Lecture 16b} yielded the hierarchy shown in \hyperref[fig:hierarchy]{Figure \ref*{fig:hierarchy}}.
+Analysis of the requirements described in \hyperref[sec:requirements]{Section \ref*{sec:requirements}} as well as those in \href{https://moodle.insttech.washington.edu/mod/resource/view.php?id=32929}{Lecture 16b} yielded the hierarchy shown in \hyperref[fig:hierarchy]{Figure \ref*{fig:hierarchy}}.
 The design of each module will be discussed below.
 
 \begin{figure}[htbp]
     \centering
+    \begin{center}
     \begin{tikzpicture}[
-            every node/.style={rectangle, align=center},
-            level/.style={growth parent anchor=south, level distance=1cm},
-            level 1/.style={sibling distance=5cm},
-            level 2/.style={sibling distance=8cm},
-            level 3/.style={sibling distance=2.5cm},
-            level 4/.style={sibling distance=3cm},
-            edge from parent/.style={draw,-latex},
-            every child node/.style={anchor=north}]
+            every node/.style = {rectangle, align=center},
+            level/.style = {growth parent anchor = south, level distance = 1cm},
+            level 1/.style = {sibling distance = 5cm},
+            level 2/.style = {sibling distance = 8cm},
+            level 3/.style = {sibling distance = 2.5cm},
+            level 4/.style = {sibling distance = 2.5cm},
+            edge from parent/.style = {draw,-latex},
+            every child node/.style = {anchor = north}]
         \node [draw] (top) {Lab B}
             child {node [draw] (Hex7Seg) {\hyperref[par:hex]{Hex}\\\hyperref[par:hex]{Display}}}
             child {node [draw] (Processor) {\hyperref[subsec:processor]{Processor}}
@@ -32,12 +33,12 @@ The design of each module will be discussed below.
                     child {node [draw] (RegisterFile) {\hyperref[par:regfile]{Register}\\\hyperref[par:regfile]{File}}
                     child {node [draw] (PCClear) {\hyperref[subpar:decoder]{Decoder}}}
                         child {node [draw] (PCClear) {\hyperref[subpar:register]{Register}}}
-                        child {node [draw] (PCClear) {\hyperref[subpar:transregister]{Transparent}\\\hyperref[subpar:transregister]{Register}}}
                     }
                     child {node [draw] (ALU) {\hyperref[par:alu]{ALU}}}
                 }
             };
     \end{tikzpicture}
+    \end{center}
     \caption{Design Hierachy \label{fig:hierarchy}}
 \end{figure}
 
@@ -209,7 +210,7 @@ The control unit module required controller Verilog module with the properties l
     \item One one-bit output $RF_{Ra_\text{rd}}$ which signals to read enable the A stream of the register file.
     \item One one-bit output $RF_{Rb_\text{rd}}$ which signals to read enable the B stream of the regoster file.
     \item One eight-bit output $D_\text{addr}$ which signals the data memory address.
-    \item One one-bit output $D_wr$ which signals to write enable the data memory.
+    \item One one-bit output $D_{wr}$ which signals to write enable the data memory.
     \item One four-bit output $RF_{W_\text{addr}}$ which signals the register file's write address.
     \item One four-bit output $RF_{Ra_\text{addr}}$ which signals the register file's A stream read address.
     \item One four-bit output $RF_{Rb_\text{addr}}$ which signals the register files' B stream read address.
@@ -334,15 +335,16 @@ The register file module required a register Verilog module with the properties 
 This module was reused from Homework 6.
 
 \begin{itemize}
-    \item Paramerized data size $N$
-    \item One one-bit input $Clk$ which acts as the clock.
-    \item One one-bit input $Rst$ which acts as an active high reset.
-    \item One one-bit input $Ld$ which acts as a load enable.
-    \item One one-bit input $Oe0$ which acts as the A stream output enable.
-    \item One one-bit input $Oe1$ which acts as the B stream output enable.
-    \item One $N$-bit input $I$ which acts as the data to load.
-    \item One $N$-bit output $Qz0$ which acts as the A stream switched output.
-    \item One $N$-bit output $Qz1$ which acts as the B stream switched output.
+    \item Parameterized data size $N$
+    \item One one-bit input $Clk$ as the clock signal.
+    \item One one-bit input $Rst$ as an active high reset.
+    \item One one-bit input $Ld$ as a load enable signal.
+    \item One one-bit input $Oe0$ as the A stream output enable signal.
+    \item One one-bit input $Oe1$ the B stream output enable signal.
+    \item One $N$-bit input $I$ as the data to load.
+    \item One $N$-bit output $Qz0$ as the switched A stream switched output.
+    \item One $N$-bit output $Qz1$ as the switched B stream switched output.
+    \item One $N$-bit output $QR$ as the the unswitched output. 
     \item Positive edge triggered.
     \item Holds the value of $I$ when $Ld = 1$.
     \item Outputs the data to $Qz0$ and $Qz1$ when $Oe0$ and $Oe1$ are high respectively.
@@ -351,18 +353,6 @@ This module was reused from Homework 6.
 
 The file \verb|RegisterOEN.v| contains the module \verb|RegisterOEN| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:RegisterOEN]{Listing \ref*{lst:RegisterOEN}}.
-
-\subparagraph{Transparent Register} \label{subpar:transregister}
-
-The register file moduule required a transparent register Verilog module witht he properties listed below.
-
-\begin{itemize}
-    \item All ports and parameters included from \verb|RegisterOEN| module.
-    \item One $N$-bit output $Q_act$ which signals the register's current data.
-\end{itemize}
-
-The file \verb|RegisterOENExtraOutput.v| contains the module \verb|RegisterOENExtraOutput| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:RegisterOENExtraOutput]{Listing \ref*{lst:RegisterOENExtraOutput}}.
 
 \paragraph{Arithmetic Logic Unit} \label{par:alu}
 
