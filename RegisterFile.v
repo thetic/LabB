@@ -2,7 +2,7 @@
 // Implements a register file
 // Size: four 32-bit registers
 
-module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R_en1, R_data0, R_data1, RQ0);
+module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R_en1, R_data0, R_data1, RQ);
   input Clk;           // system clock
   input Reset;         // reset signal
   input [15:0] W_data; // data to write
@@ -14,7 +14,7 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   input R_en1;         // read enable 1
   output [15:0] R_data0;// output data 0
   output [15:0] R_data1;// output data 1
-  output [15:0] RQ0;	//RF[0] contents.
+  output [15:0] RQ;	//RF[0] contents.
   
   wire [15:0] W_d, R_d0, R_d1;
   wire [255:0] Q; //register file outputs
@@ -40,6 +40,6 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   endgenerate
 
   //grab Register 0 output.
-  assign RQ0 = Q[15:0];
+  assign RQ = Q[15:0];
 
 endmodule
