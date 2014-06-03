@@ -9,6 +9,9 @@ module controller (
   input             clk        ,  // clock
   output reg [7 :0] D_addr     ,  // data memory address
   output reg        D_wr       ,  // data memory write enable signal
+  output reg        PC_clr      ,  // load instruction signal
+  output reg        PC_up      ,  // load instruction signal
+  output reg        IR_ld      ,  // load instruction signal
   output reg        RF_s       ,  // register file select signal
   output reg [3 :0] RF_W_addr  ,  // register file write address
   output reg        RF_W_wr    ,  // register file write enable signal
@@ -45,11 +48,14 @@ module controller (
         INIT:
           begin
             next_state = FETCH;
+				PC_clr = 1;
           end
 
         FETCH:
           begin
             next_state = DECODE;
+				IR_ld = 1;
+				PC_up = 1;
           end
           
         DECODE:
