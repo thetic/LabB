@@ -8,7 +8,7 @@ module PC(O, Clear, Up, Clock);
 	input Clear, Up, Clock; // Clear, Increment, Clock
 	output reg [4:0]O;      // PC Output
 	
-	localparam zero = 4'b0000; // For clearing the PC
+	localparam zero = 5'b00000; // For clearing the PC
 	
 	wire [4:0]m0i, mc, I; // Mux 0 Input, Mux 0-1 Connector, PC Input
 	
