@@ -37,10 +37,10 @@ module muxlpm (
 	sel,
 	result);
 
-	input	[7:0]  data0x;
-	input	[7:0]  data1x;
+	input	[4:0]  data0x;
+	input	[4:0]  data1x;
 	input	  sel;
-	output	[7:0]  result;
+	output	[4:0]  result;
 
 endmodule
 
@@ -53,16 +53,16 @@ endmodule
 // Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 // Retrieval info: CONSTANT: LPM_SIZE NUMERIC "2"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_MUX"
-// Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "8"
+// Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "5"
 // Retrieval info: CONSTANT: LPM_WIDTHS NUMERIC "1"
-// Retrieval info: USED_PORT: data0x 0 0 8 0 INPUT NODEFVAL "data0x[7..0]"
-// Retrieval info: USED_PORT: data1x 0 0 8 0 INPUT NODEFVAL "data1x[7..0]"
-// Retrieval info: USED_PORT: result 0 0 8 0 OUTPUT NODEFVAL "result[7..0]"
+// Retrieval info: USED_PORT: data0x 0 0 5 0 INPUT NODEFVAL "data0x[4..0]"
+// Retrieval info: USED_PORT: data1x 0 0 5 0 INPUT NODEFVAL "data1x[4..0]"
+// Retrieval info: USED_PORT: result 0 0 5 0 OUTPUT NODEFVAL "result[4..0]"
 // Retrieval info: USED_PORT: sel 0 0 0 0 INPUT NODEFVAL "sel"
-// Retrieval info: CONNECT: @data 0 0 8 0 data0x 0 0 8 0
-// Retrieval info: CONNECT: @data 0 0 8 8 data1x 0 0 8 0
+// Retrieval info: CONNECT: @data 0 0 5 0 data0x 0 0 5 0
+// Retrieval info: CONNECT: @data 0 0 5 5 data1x 0 0 5 0
 // Retrieval info: CONNECT: @sel 0 0 1 0 sel 0 0 0 0
-// Retrieval info: CONNECT: result 0 0 8 0 @result 0 0 8 0
+// Retrieval info: CONNECT: result 0 0 5 0 @result 0 0 5 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL muxlpm.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL muxlpm.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL muxlpm.cmp FALSE

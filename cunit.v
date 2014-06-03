@@ -17,7 +17,7 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_r
 	output        RF_W_wr   ; //write enable for RegisterFile.
 	output        RF_Ra_rd  ; //Read address A enable for RegisterFile.
 	output        RF_Rb_rd  ; //Read address B enable for RegisterFile.
-	output [7 :0] PC_Out    ; //PC current address
+	output [4 :0] PC_Out    ; //PC current address
 	output [15:0] IR_Out    ; //Current instruction
 	output [3 :0] StateO    ; //current state
 	
