@@ -22,8 +22,7 @@ The design of each module will be discussed below.
                     child {node [draw] (controller) {\hyperref[par:controller]{Controller}}}
                     child {node [draw] (PC) {\hyperref[par:pc]{PC}}
                         child {node [draw] (PCAdderer) {\hyperref[subpar:pcadder]{PC}\\\hyperref[subpar:pcadder]{Incrementer}}}
-                        child {node [draw] (PCUp) {\hyperref[subpar:pcup]{Add}\\\hyperref[subpar:pcup]{Multiplexer}}}
-                        child {node [draw] (PCClear) {\hyperref[subpar:pcclear]{Clear}\\\hyperref[subpar:pcclear]{Multiplexer}}}
+                        child {node [draw] (PCUp) {\hyperref[subpar:mux]{Multiplexer}}}
                     }
                     child {node [draw] (imemlpm) {\hyperref[par:imem]{Instruction}\\\hyperref[par:imem]{Memory}}}
                     child {node [draw] (IR) {\hyperref[par:ir]{IR}}}
@@ -153,32 +152,19 @@ The program counter module required a PC incrementer Verilog module with the pro
 The file \verb|PCAdder.v| contains the module \verb|PCAdder| which satisfies these properties.
 A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCAdder]{Listing \ref*{lst:PCAdder}}.
 
-\subparagraph{Add Multiplexer} \label{subpar:pcup}
+\subparagraph{Multiplexer} \label{subpar:mux}
 
-The program counter module required an add multiplexer Verilog module with the properties listed below.
+The program counter module required an multiplexer Verilog module with the properties listed below.
 
 \begin{itemize}
-    \item Two one-bit inputs $data0x$ and $data1x$ as the selectable inputs.
+    \item Two five-bit inputs $data0x$ and $data1x$ as the selectable inputs.
     \item One one-bit input $sel$ as the select signal.
     \item One one-bit output $result$ which passes $data0x$ or $data1x$ if $sel$ is 0 or 1 respectively.
 \end{itemize}
 
 
-The file \verb|PCUp.v| contains the module \verb|PCUp| which satisfies these properties from the \emph{Altera} library of parameterized modules.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCUp]{Listing \ref*{lst:PCUp}}.
-
-\subparagraph{Clear Multiplexer} \label{subpar:pcclear}
-
-The program counter module required a clear multiplexer Verilog module with the properties listed below.
-
-\begin{itemize}
-    \item Two one-bit inputs $data0x$ and $data1x$ as the selectable inputs.
-    \item One one-bit input $sel$ as the select signal.
-    \item One one-bit output $result$ which passes $data0x$ or $data1x$ if $sel$ is 0 or 1 respectively.
-\end{itemize}
-
-The file \verb|PCClear.v| contains the module \verb|PCClear| which satisfies these properties from the \emph{Altera} library of parameterized modules.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCClear]{Listing \ref*{lst:PCClear}}.
+The file \verb|muxlpm.v| contains the module \verb|muxlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
+A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:muxlpm]{Listing \ref*{lst:muxlpm}}.
 
 \paragraph{Instruction Register} \label{par:ir}
 
