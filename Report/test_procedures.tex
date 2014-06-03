@@ -6,19 +6,63 @@ The following test procedures will be used to verify that each part of this labo
 \subsection{PC Incrementer} % (fold)
 \label{sub:pc_incrementer}
 
+The following test procedure will be used to verify that the Verilog module \verb|PCAdder| satisfies the requirements for this part.
+
+%TODO test PCAdder
+\begin{itemize}
+    \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and outputs the output $O$.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}}.
+    \item Generate the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and verify the corresponding outputs, $O$.
+\end{itemize}
+
+\begin{table}[htbp]
+    \centering
+        \begin{tabular}{ll} \toprule
+            $I$     & $O$   \\\midrule
+            00000   & 00001 \\
+            00001   & 00010 \\
+            00010   & 00011 \\
+            00011   & 00100 \\
+            00100   & 00101 \\
+            00101   & 00110 \\
+            00110   & 00111 \\
+            00111   & 01000 \\
+            01000   & 01001 \\
+            01001   & 01010 \\
+            01010   & 01011 \\
+            01011   & 01100 \\
+            01100   & 01101 \\
+            01101   & 01110 \\
+            01110   & 01111 \\
+            01111   & 10000 \\
+            10000   & 10001 \\
+            10001   & 10010 \\
+            10010   & 10011 \\
+            10011   & 10100 \\
+            10100   & 10101 \\
+            10101   & 10110 \\
+            10110   & 10111 \\
+            10111   & 11000 \\
+            11000   & 11001 \\
+            11001   & 11010 \\
+            11010   & 11011 \\
+            11011   & 11100 \\
+            11100   & 11101 \\
+            11101   & 11110 \\
+            11110   & 11111 \\
+            11111   & 00000 \\\bottomrule
+        \end{tabular}
+    \caption{PC Incrementer Test Vectors\label{tab:pcadder_vectors}}
+\end{table}
 % subsection pc_incrementer (end)
 
-\subsection{Add Multiplexer} % (fold)
-\label{sub:add_multiplexer}
+\subsection{Multiplexer} % (fold)
+\label{sub:multiplexer}
 
-The add multiplexer module, \verb|PCUp|, was a simple LPM module and will therefore not be specifically tested.
-% subsection add_multiplexer (end)
+The multiplexer module, \verb|PCUp|, was a simple LPM module and will therefore not be specifically tested.
 
-\subsection{Clear Multiplexer} % (fold)
-\label{sub:clear_multiplexer}
-
-The clear multiplexer module, \verb|PCClear|, was a simple LPM module and will therefore not be specifically tested.
-% subsection clear_multiplexer (end)
+% subsection multimplexer (end)
 
 \subsection{Decoder} % (fold)
 \label{sub:decoder}
@@ -29,23 +73,53 @@ The decoder module, \verb|DecoderN|, has been previously used and tested for Hom
 \subsection{Register} % (fold)
 \label{sub:register}
 
-The register module, \verb|RegisterOEN|, has been previously used and tested for Homework 6  and only minimally modified.
+The register module, \verb|RegisterOEN|, has been previously used and tested for Homework 6 and only minimally modified.
 It will therefore not be specifically tested.
 % subsection register (end)
 
 \subsection{Controller} % (fold)
 \label{sub:controller}
 
+The following test procedure will be used to verify that the Verilog module \verb|controller| satisfies the requirements for this part.
+
+%TODO test controller
+\begin{itemize}
+    \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}} and outputs listed.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}}.
+    \item Verify that the RTL Viewer shows a state machine.
+    \item Generate the test vectors shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}} and verify the corresponding outputs.
+\end{itemize}
+
+\begin{sidewaystable}[htbp]
+    \centering\scriptsize
+        \begin{tabular}{llllllllllllllll} \toprule
+            instruction              & PC\_clr   & PC\_up    & IR\_ld    & D\_addr   & D\_wr & RF\_s & RF\_W\_addr  & RF\_W\_wr    & RF\_Ra\_addr & RF\_Ra\_rd   & RF\_Rb\_addr & RF\_Rb\_rd   & Alu\_s0     & State \\\midrule
+            $0000\,0000\,0000\,0000$ &   \\
+            $0001\,0000\,0000\,0000$ &   \\
+            $0010\,0000\,0000\,0000$ &   \\
+            $0011\,0000\,0000\,0000$ &   \\
+            $0100\,0000\,0000\,0000$ &   \\
+            $0101\,0000\,0000\,0000$ &   \\
+        \end{tabular}
+    \caption{Controller Test Vectors\label{tab:controller_vectors}}
+\end{sidewaystable}
 % subsection controller (end)
 
 \subsection{Program Counter} % (fold)
 \label{sub:program_counter}
+
+The following test procedure will be used to verify that the Verilog module \verb|PC| satisfies the requirements for this part.
+
+%TODO Test PC
 
 % subsection program_counter (end)
 
 \subsection{Instruction Memory} % (fold)
 \label{sub:instruction_memory}
 
+The instruction memory module, \verb|imemlpm.v| is implemented from the LPM.
+It will therefore not be specifically tested.
 % subsection instruction_memory (end)
 
 
@@ -57,6 +131,8 @@ It will therefore not be specifically tested.
 \subsection{Data Memory} % (fold)
 \label{sub:data_memory}
 
+The instruction memory module, \verb|ramlpm.v| is implemented from the LPM.
+It will therefore not be specifically tested.
 % subsection data_memory (end)
 
 \subsection{Register File} % (fold)
@@ -75,8 +151,7 @@ The arithmetic logic unit module, \verb|ALU|, has been previously used and teste
 \subsection{Control Unit} % (fold)
 \label{sub:control_unit}
 
-The following test procedure will be used to verify that the Verilog module \verb|cunit| satisfies
-the requirements for this part.
+The following test procedure will be used to verify that the Verilog module \verb|cunit| satisfies the requirements for this part.
 
 %TODO test control unit
 
@@ -85,8 +160,7 @@ the requirements for this part.
 \subsection{Datapath} % (fold)
 \label{sub:datapath}
 
-The following test procedure will be used to verify that the Verilog module \verb|Datapath| satisfies
-the requirements for this part.
+The following test procedure will be used to verify that the Verilog module \verb|Datapath| satisfies the requirements for this part.
 
 %TODO test datapath
 
@@ -95,8 +169,7 @@ the requirements for this part.
 \subsection{Processor} % (fold)
 \label{sub:processor}
 
-The following test procedure will be used to verify that the Verilog module \verb|Processor| satisfies
-the requirements for this part.
+The following test procedure will be used to verify that the Verilog module \verb|Processor| satisfies the requirements for this part.
 
 %TODO test processor
 
@@ -111,8 +184,7 @@ The hex display module, \verb|Hex7seg|, has been previously used and tested for 
 \subsection{Project} % (fold)
 \label{sub:project}
 
-The following test procedure will be used to verify that the \emph{Quartus II} project \verb|Lab6| satisfies
-the requirements for this lab.
+The following test procedure will be used to verify that the \emph{Quartus II} project \verb|Lab6| satisfies the requirements for this lab.
 
 %TODO write up project
 \begin{itemize}
