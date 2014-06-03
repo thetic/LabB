@@ -37,13 +37,9 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
 
       3 : HexMux = ALU_Out;
 
-      4 : HexMux = 16'd0;
-
       5 : HexMux = RQ;
 
       6 : HexMux = Mux_out;
-
-      7 : HexMux = 16'd0;
 
       default: HexMux = 16'd0;
 
