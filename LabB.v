@@ -11,14 +11,14 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   wire [15:0] ALU_A               ;
   wire [15:0] ALU_B               ;
   wire [15:0] ALU_Out             ;
-  wire [15:0] RQ0                 ;
+  wire [15:0] RQ                 ;
   wire [7 :0] PC_Out              ;
   wire [3 :0] StateO              ;
   wire [15:0] Mux_out             ;
   reg  [15:0] HexMux              ;
 
   //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
-  Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
+  Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ, Mux_out );
   
   //use a switch case statement to determine
   //what the top 4 hex displays show
@@ -39,7 +39,7 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
 
       4 : HexMux = 16'd0;
 
-      5 : HexMux = RQ0;
+      5 : HexMux = RQ;
 
       6 : HexMux = Mux_out;
 
