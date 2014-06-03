@@ -6,11 +6,11 @@
 */
 module PC(O, Clear, Up, Clock);
 	input Clear, Up, Clock; // Clear, Increment, Clock
-	output reg [4:0]O;      // PC Output
+	output reg [7:0]O;      // PC Output
 	
-	localparam zero = 5'b00000; // For clearing the PC
+	localparam zero = 8'b0; // For clearing the PC
 	
-	wire [4:0]m0i, mc, I; // Mux 0 Input, Mux 0-1 Connector, PC Input
+	wire [7:0]m0i, mc, I; // Mux 0 Input, Mux 0-1 Connector, PC Input
 	
 	PCAdder PCAdder (O, m0i); // Increments the PC
 	
