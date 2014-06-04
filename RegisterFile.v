@@ -3,17 +3,16 @@
 // Size: four 32-bit registers
 
 module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R_en1, R_data0, R_data1, RQ);
-  input Clk;           // system clock
-  input Reset;         // reset signal
-  input [15:0] W_data; // data to write
-  input [3:0] W_addr;  // write address
-  input W_en;          // write enable
-  input [3:0] R_addr0; // read address 0
-  input [3:0] R_addr1; // read address 1
-  input R_en0;         // read enable 0
-  input R_en1;         // read enable 1
-
-  output [15:0] RQ; //RF[0] contents.
+  input         Clk    ; // system clock
+  input         Reset  ; // reset signal
+  input  [15:0] W_data ; // data to write
+  input  [3 :0] W_addr ; // write address
+  input         W_en   ; // write enable
+  input  [3 :0] R_addr0; // read address 0
+  input  [3 :0] R_addr1; // read address 1
+  input         R_en0  ; // read enable 0
+  input         R_en1  ; // read enable 1
+  output [15:0] RQ     ; // RF[0] contents.
   
   // only uses data from enabled register
   output [15:0] R_data0 = rd0[0 ] | rd0[1 ] | rd0[2 ] | rd0[3 ]
