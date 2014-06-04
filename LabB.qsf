@@ -501,4 +501,6 @@ set_parameter -name CYCLONEII_SAFE_WRITE RESTRUCTURE
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name VERILOG_FILE muxlpm.v
+set_global_assignment -name MIF_FILE imem.mif
+set_global_assignment -name MIF_FILE ramlpm.mif
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

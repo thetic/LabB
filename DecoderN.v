@@ -1,5 +1,8 @@
-// TCES 330, Spring 2014
-// Implement an N to 2**N decoder
+/* 
+ * TCES 330, Spring 2014
+ *
+ * Implements an N to 2**N decoder
+ */
 
 module DecoderN( W, E, Y );
   parameter N = 16;

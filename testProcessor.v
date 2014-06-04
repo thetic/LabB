@@ -15,8 +15,10 @@ module testProcessor;
   wire [15:0] RQ0;
   wire [15:0] Mux_out;
 
-  //reference Processor(Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out);
-  Processor(Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out);
+  //reference Processor(Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, 
+  	//ALU_Out, RQ0, Mux_out);
+  Processor(Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, 
+	Mux_out);
 
   //Generate clock
   always begin
@@ -44,7 +46,9 @@ module testProcessor;
   end //test
   
   initial //output to monitor
-    $monitor($stime, , "Clk: ", Clk, , "IR_Out: ", IR_Out, , "PC_Out: ", PC_Out, , "StateO: ", StateO, , "ALU_A: ", ALU_A, , "ALU_B: ", ALU_B, , "ALU_Out: ", ALU_Out, , "RQ0: ", RQ0, , "Mux_out: ", Mux_out);
+    $monitor($stime, , "Clk: ", Clk, , "IR_Out: ", IR_Out, , "PC_Out: ", 
+	PC_Out, , "StateO: ", StateO, , "ALU_A: ", ALU_A, , "ALU_B: ", 
+	ALU_B, , "ALU_Out: ", ALU_Out, , "RQ0: ", RQ0, , "Mux_out: ", Mux_out);
 
 endmodule
   

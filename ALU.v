@@ -1,7 +1,6 @@
 /*
-  TCES HW6
-  Part 4
-  Spring 2014
+  TCES 330, Spring 2014
+  Lab B
   Chad Condon
   8 function ALU
 */

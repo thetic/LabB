@@ -1,3 +1,9 @@
+/*
+ * TCES 330, Spring 2014
+ * Lab B
+ * Top level module for lab B
+ */
+
 module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   input  [1 :0 ] KEY;	//Input KEYs
   input  [17:15] SW ;	//Input Switches
@@ -17,8 +23,10 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   wire [15:0] Mux_out             ;
   reg  [15:0] HexMux              ;
 
-  //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
-  Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ, Mux_out );
+  //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, 
+  	//ALU_Out, RQ0, Mux_out );
+  Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, 
+	RQ, Mux_out );
   
   //use a switch case statement to determine
   //what the top 4 hex displays show

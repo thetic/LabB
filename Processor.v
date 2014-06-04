@@ -1,4 +1,12 @@
-module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
+/*
+ * TCES 330, Spring 2014
+ * Lab B
+ *
+ * Processor module that ties together the control unit and datapath
+ */
+
+module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, 
+	RQ0, Mux_out );
   input         Clk    ;  // system clock
   input         Reset  ;  // system reset
   output [15:0] IR_Out ;  // Instruction register
@@ -22,10 +30,16 @@ module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0
   wire       RF_Rb_rd;
 
   //need to alter to include IR_Out, PC_Out, and State0.
-  //Reference cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
-  cunit UNI(Clk, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
+  //Reference cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
+  	// RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
+  cunit UNI(Clk, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd,
+	 RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
 
-  //reference Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out);
-  Datapath DP(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out);
+  //reference Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
+  	// RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B,
+  	// ALU_Out, RQ0, Mux_out);
+  Datapath DP(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
+	 RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B, ALU_Out, RQ0,
+	 Mux_out);
 
 endmodule

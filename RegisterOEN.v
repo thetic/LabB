@@ -27,11 +27,11 @@ module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1, RQ );
       Q <= 0;
     else if (Ld == 1)
       Q <= I;
-  end
-
+  end  
+  
   // Output
-  assign Qz0 = Oe0 ? Q : {N{1'bZ}};
-  assign Qz1 = Oe1 ? Q : {N{1'bZ}};
+  assign Qz0 = Oe0 ? Q : {N{1'b0}};
+  assign Qz1 = Oe1 ? Q : {N{1'b0}};
    
 endmodule
 
