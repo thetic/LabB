@@ -39,7 +39,7 @@ module controller (
   reg [3:0] current_state;
   reg [3:0] next_state   ;
 
-  assign State = current_state; //assign current state output to current state.
+  assign State = current_state; // output current state
 
   // state table:
   always @*
