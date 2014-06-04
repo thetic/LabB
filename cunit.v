@@ -8,7 +8,7 @@
 module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, 
 	RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
 
-	input Clock; //System Clock
+	input 				Clock 		; //System Clock
 	output [7 :0] D_addr    ; //Data Address.
 	output [3 :0] RF_W_addr ; //Write address for RegisterFile.
 	output [3 :0] RF_Ra_addr; //Read address A for RegisterFile.

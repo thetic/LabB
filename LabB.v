@@ -17,7 +17,7 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   wire [15:0] ALU_A               ;
   wire [15:0] ALU_B               ;
   wire [15:0] ALU_Out             ;
-  wire [15:0] RQ                 ;
+  wire [15:0] RQ                  ;
   wire [4 :0] PC_Out              ;
   wire [3 :0] StateO              ;
   wire [15:0] Mux_out             ;

@@ -47,8 +47,8 @@ module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R
   // reference: module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1, RQ );
   generate
     for(I = 0; I < 16; I = I + 1) begin : rgen
-      RegisterOEN #(.N(16)) U (Clk, Reset, W_d[I], W_data, R_d0[I], R_d1[I],
-        rd0[I][15:0], rd1[I][15:0], Q[I * 16 + 15 : I * 16]);
+      RegisterOEN #(.N(16)) U (Clk, Reset, W_d[I], W_data, R_d0[I],
+        R_d1[I], rd0[I][15:0], rd1[I][15:0], Q[I * 16 + 15 : I * 16]);
     end
   endgenerate
 

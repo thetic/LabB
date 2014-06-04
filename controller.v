@@ -9,7 +9,7 @@ module controller (
   input             clk        ,  // clock
   output reg [7 :0] D_addr     ,  // data memory address
   output reg        D_wr       ,  // data memory write enable signal
-  output reg        PC_clr      ,  // load instruction signal
+  output reg        PC_clr      , // load instruction signal
   output reg        PC_up      ,  // load instruction signal
   output reg        IR_ld      ,  // load instruction signal
   output reg        RF_s       ,  // register file select signal
