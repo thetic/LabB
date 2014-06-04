@@ -4,8 +4,8 @@
  * Implements an N to 2**N decoder
  */
 module DecoderN( W, E, Y );
-  parameter          N = 16  ;
-  localparam         M = 2**N;
+  parameter  N = 16  ;
+  localparam M = 2**N;
 
   input      [N-1:0]  W; // the inputs
   input               E; // enable

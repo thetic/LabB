@@ -1,7 +1,6 @@
 // TCES 330, Spring 2009
 // Implements a register file
 // Size: four 32-bit registers
-
 module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, R_en0, R_en1, R_data0, R_data1, RQ);
   input         Clk    ; // system clock
   input         Reset  ; // reset signal
