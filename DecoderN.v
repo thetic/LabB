@@ -3,13 +3,13 @@
  *
  * Implements an N to 2**N decoder
  */
-
 module DecoderN( W, E, Y );
-  parameter N = 16;
-  localparam M = 2**N;
-  input [N - 1:0] W;      // the inputs
-  input E;              // enable
-  output reg [M - 1:0] Y; // the outputs 
+  parameter          N = 16  ;
+  localparam         M = 2**N;
+
+  input      [N-1:0]  W; // the inputs
+  input               E; // enable
+  output reg [M-1:0]  Y; // the outputs 
   
   always @(W, E) begin
     if ( E ) begin
