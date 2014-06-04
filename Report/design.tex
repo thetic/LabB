@@ -1,9 +1,6 @@
 \section{Design} \label{sec:design}
 
-Analysis of the requirements described in
-\hyperref[sec:requirements]{Section \ref*{sec:requirements}} as well as those in
-\href{https://moodle.insttech.washington.edu/mod/resource/view.php?id=32929}{Lecture 16b} yielded the hierarchy shown in
-\hyperref[fig:hierarchy]{Figure \ref*{fig:hierarchy}}.
+Analysis of the requirements described in \hyperref[sec:requirements]{Section \ref*{sec:requirements}} as well as those in \href{https://moodle.insttech.washington.edu/mod/resource/view.php?id=32929}{Lecture 16b} yielded the hierarchy shown in \hyperref[fig:hierarchy]{Figure \ref*{fig:hierarchy}}.
 The design of each module will be discussed below.
 
 \begin{figure}[htbp]
@@ -187,8 +184,7 @@ The program counter module required an multiplexer Verilog module with the prope
 \end{itemize}
 
 
-The file \verb|muxlpm.v| contains the module \verb|muxlpm| which satisfies these properties
-from the \emph{Altera} library of parameterized modules.
+The file \verb|muxlpm.v| contains the module \verb|muxlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
 A listing can be found in \hyperref[lst:muxlpm]{Listing \ref*{lst:muxlpm}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Instruction Register} \label{par:ir}
@@ -260,8 +256,7 @@ The control unit module required an instruction memory Verilog module with the p
     \item Loaded with the instructions described in \hyperref[sec:requirements]{Section \ref*{sec:requirements}}
 \end{itemize}
 
-The file \verb|imemlpm.v| contains the module \verb|imemlpm| which satisfies these properties
-from the \emph{Altera} library of parameterized modules.
+The file \verb|imemlpm.v| contains the module \verb|imemlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
 A listing can be found in \hyperref[lst:imemlpm]{Listing \ref*{lst:imemlpm}} in the \hyperref[sec:appendix]{Appendix}.
 A listing of the Memory Instantiation File can be found in \hyperref[lst:imemmif]{Listing \ref*{lst:imemmif}} in the \hyperref[sec:appendix]{Appendix}.
 
