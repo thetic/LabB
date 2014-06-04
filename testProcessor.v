@@ -1,54 +1,40 @@
-`timescale 1ns/1ns
+// TCES 330, Spring 2014
+// Testbench  for the programmable processor
+// Robert Gutmann
+
+//`timescale 1 ns / 1 ns
 module testProcessor;
+ 
+  reg          Clk    ; // system clock
+  reg          Reset  ; // system reset
+  wire [15 :0] IR_Out ; // instruction register
+  wire [4  :0] PC_Out ; // program counter
+  wire [3  :0] StateO ; // state machine state
+  wire [15 :0] ALU_A  ; // ALU output 
+  wire [15 :0] ALU_B  ; // ALU output 
+  wire [15 :0] ALU_Out; // ALU output 
+  wire [15 :0] MuxOut ;
+  wire [255:0] RQ0    ; // register 0 value
+ 
+  Processor P2014( Clk, Reset, IR_Out, PC_Out, StateO,
+    ALU_A, ALU_B, ALU_Out, RQ0, MuxOut );
 
-  //inputs to Processor are regs
-  reg Clk;
-  reg Reset;
-  
-  //outputs from Processor are wires.
-  wire [15:0] IR_Out;
-  wire [4:0] PC_Out;
-  wire [3:0] StateO;
-  wire [15:0] ALU_A;
-  wire [15:0] ALU_B;
-  wire [15:0] ALU_Out;
-  wire [15:0] RQ0;
-  wire [15:0] Mux_out;
-
-  //reference Processor(Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, 
-    //ALU_Out, RQ0, Mux_out);
-  Processor(Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out,
-    RQ0, Mux_out);
-
-  //Generate clock
-  always begin
-    Clk = 1'b0;
-    #10;
-    Clk = 1'b1;
-    #10;
-  end //clock
-
-  initial //Test stimulus
+initial // Clock generator
   begin
+    Clk = 0;
+    forever #10 Clk = !Clk;
+  end
+  
+initial // Test stimulus
+  begin
+    Reset = 1;         // reset for one clock
+    @ ( posedge Clk ) 
+      Reset = 0;
+    #1000 $stop;      // then run for a while
+  end
+  
+initial
+    $monitor("Time is %d : Reset = %d  State = %d Reg0 = %h, MuxOut = %h",
+              $stime,      Reset,      StateO,    RQ0,       MuxOut); 
     
-    //clear
-    Reset = 1'b1;
-    #20 Reset = 1'b0;
-
-    //Since there are no other inputs besides
-    //the clock and the reset, then we need to
-    //wait some amount of time in order to let
-    //the processor do its thing.
-    #50000; //alter this based on actual wait time.
-
-    #20 $stop; //done
-
-  end //test
-  
-  initial //output to monitor
-    $monitor($stime, , "Clk: ", Clk, , "IR_Out: ", IR_Out, , "PC_Out: ", 
-      PC_Out, , "StateO: ", StateO, , "ALU_A: ", ALU_A, , "ALU_B: ", 
-      ALU_B, , "ALU_Out: ", ALU_Out, , "RQ0: ", RQ0, , "Mux_out: ", Mux_out);
-
-endmodule
-  
+endmodule  
