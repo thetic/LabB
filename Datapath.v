@@ -10,8 +10,8 @@
 module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, 
 	RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B, 
 	ALU_Out, RQ0, Mux_out);
-  input Clock; //System clock.
-  input Reset; //System Reset.
+  input         Clock     ; //System clock.
+  input         Reset     ; //System Reset.
   input  [7 :0] D_addr    ; //Data Address.
   input         D_wr      ; //Data write enable for ramlpm.
   input         RF_s      ; //Select line for data mux.
@@ -34,9 +34,9 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
   wire [15:0] ALUdata         ; //output data from the ALU.
   reg  [15:0] regFileData     ; //reg that is used in the mux.
 
-  assign ALU_A = Ra_data; //A input to ALU = RF Ra data.
-  assign ALU_B = Rb_data; //B input to ALU = RF Rb data.
-  assign ALU_Out = ALUdata; //output of ALU = ALUdata.
+  assign ALU_A   = Ra_data    ; //A input to ALU = RF Ra data.
+  assign ALU_B   = Rb_data    ; //B input to ALU = RF Rb data.
+  assign ALU_Out = ALUdata    ; //output of ALU = ALUdata.
   assign Mux_out = regFileData; //output of Mux = regFileData.
   
   //reference ramlpm (address, clock, data, wren, q);
@@ -63,7 +63,7 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
 	RF_Ra_addr, RF_Rb_addr, RF_Ra_rd, RF_Rb_rd, ALU_A, ALU_B, RQ0);
   
   ALU ALU (
-    .Sel(Alu_s0),
+    .Sel(Alu_s0 ),
     .A  (Ra_data),
     .B  (Rb_data),
     .Q  (ALUdata)
