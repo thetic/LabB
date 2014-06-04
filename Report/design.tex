@@ -1,6 +1,9 @@
 \section{Design} \label{sec:design}
 
-Analysis of the requirements described in \hyperref[sec:requirements]{Section \ref*{sec:requirements}} as well as those in \href{https://moodle.insttech.washington.edu/mod/resource/view.php?id=32929}{Lecture 16b} yielded the hierarchy shown in \hyperref[fig:hierarchy]{Figure \ref*{fig:hierarchy}}.
+Analysis of the requirements described in
+\hyperref[sec:requirements]{Section \ref*{sec:requirements}} as well as those in
+\href{https://moodle.insttech.washington.edu/mod/resource/view.php?id=32929}{Lecture 16b} yielded the hierarchy shown in
+\hyperref[fig:hierarchy]{Figure \ref*{fig:hierarchy}}.
 The design of each module will be discussed below.
 
 \begin{figure}[htbp]
@@ -16,24 +19,75 @@ The design of each module will be discussed below.
             edge from parent/.style = {draw,-latex},
             every child node/.style = {anchor = north}]
         \node [draw] (top) {Lab B}
-            child {node [draw] (Hex7Seg) {\hyperref[par:hex]{Hex}\\\hyperref[par:hex]{Display}}}
-            child {node [draw] (Processor) {\hyperref[subsec:processor]{Processor}}
-                child {node [draw] (cunit) {\hyperref[subsub:controlunit]{Control}\\\hyperref[subsub:controlunit]{Unit}}
-                    child {node [draw] (controller) {\hyperref[par:controller]{Controller}}}
-                    child {node [draw] (PC) {\hyperref[par:pc]{PC}}
-                        child {node [draw] (PCAdderer) {\hyperref[subpar:pcadder]{PC}\\\hyperref[subpar:pcadder]{Incrementer}}}
-                        child {node [draw] (PCUp) {\hyperref[subpar:mux]{Multiplexer}}}
-                    }
-                    child {node [draw] (imemlpm) {\hyperref[par:imem]{Instruction}\\\hyperref[par:imem]{Memory}}}
-                    child {node [draw] (IR) {\hyperref[par:ir]{IR}}}
+            child {node [draw] (Hex7Seg) {
+                    \hyperref[par:hex]{Hex} \\
+                    \hyperref[par:hex]{Display}
                 }
-                child {node [draw] (Datapath) {\hyperref[subsub:datapath]{Datapath}}
-                    child {node [draw] (RAM) {\hyperref[par:regmem]{Data}\\\hyperref[par:regmem]{Memory}}}
-                    child {node [draw] (RegisterFile) {\hyperref[par:regfile]{Register}\\\hyperref[par:regfile]{File}}
-                    child {node [draw] (PCClear) {\hyperref[subpar:decoder]{Decoder}}}
-                        child {node [draw] (PCClear) {\hyperref[subpar:register]{Register}}}
+            }
+            child {node [draw] (Processor) {
+                    \hyperref[subsec:processor]{Processor
+                }
+            }
+                child {node [draw] (cunit) {
+                        \hyperref[subsub:controlunit]{Control} \\
+                        \hyperref[subsub:controlunit]{Unit
                     }
-                    child {node [draw] (ALU) {\hyperref[par:alu]{ALU}}}
+                }
+                    child {node [draw] (controller) {
+                            \hyperref[par:controller]{Controller}
+                        }
+                    }
+                    child {node [draw] (PC) {
+                            \hyperref[par:pc]{PC
+                        }
+                    }
+                        child {node [draw] (PCAdderer) {
+                                \hyperref[subpar:pcadder]{PC} \\
+                                \hyperref[subpar:pcadder]{Incrementer}
+                            }
+                        }
+                        child {node [draw] (PCUp) {
+                                \hyperref[subpar:mux]{Multiplexer}
+                            }
+                        }
+                    }
+                    child {node [draw] (imemlpm) {
+                            \hyperref[par:imem]{Instruction} \\
+                            \hyperref[par:imem]{Memory}
+                        }
+                    }
+                    child {node [draw] (IR) {
+                            \hyperref[par:ir]{IR}
+                        }
+                    }
+                }
+                child {node [draw] (Datapath) {
+                        \hyperref[subsub:datapath]{Datapath
+                    }
+                }
+                    child {node [draw] (RAM) {
+                            \hyperref[par:regmem]{Data} \\
+                            \hyperref[par:regmem]{Memory}
+                        }
+                    }
+                    child {node [draw] (RegisterFile) {
+                            \hyperref[par:regfile]{Register} \\
+                            \hyperref[par:regfile]{File
+                        }
+                    }
+                    child {node [draw] (PCClear) {
+                            \hyperref[subpar:decoder]{Decoder}
+                        }
+                    }
+                        child {node [draw] (PCClear) {
+                                \hyperref[subpar:register]{Register}
+                            }
+                        }
+                    }
+                    child {node [draw] (ALU) {
+                            \hyperref[par:alu]{ALU}
+                        }
+                    }
                 }
             };
     \end{tikzpicture}
@@ -49,12 +103,13 @@ The top-level module must have the properties listed below.
     \item One two-bit input $SW_{17:15}$ as the display select signal.
     \item Four seven-bit outputs $HEX0$, $HEX1$, $HEX2$, and $HEX3$ as the instruction display.
     \item Four seven-bit outputs $HEX4$, $HEX5$, $HEX6$, and $HEX7$ as selectable display.
-    \item The value of $SW_{17:15}$ selects the value to be displayed on $HEX4$, $HEX5$, $HEX6$, and $HEX7$ as shown in \hyperref[tab:display]{Table \ref*{tab:display}}.
+    \item The value of $SW_{17:15}$ selects the value to be displayed on $HEX4$, $HEX5$, $HEX6$, and $HEX7$ as shown in
+    \hyperref[tab:display]{Table \ref*{tab:display}}.
 \end{itemize}
 
 \begin{table}[htbp] 
     \centering
-    \begin{tabular}{ll}                             \toprule
+    \begin{tabular}{ll}                                 \toprule
         $SW_{17:15}$    & Displayed Values              \\\midrule
         0               & Current State                 \\
         1               & A side input to ALU           \\
@@ -69,7 +124,7 @@ The top-level module must have the properties listed below.
 \end{table}
 
 The file \verb|LabB.v| contains the module \verb|LabB| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:LabB]{Listing \ref*{lst:LabB}}.
+A listing can be found in \hyperref[lst:LabB]{Listing \ref*{lst:LabB}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Hex Display} \label{par:hex}
 
@@ -83,7 +138,7 @@ This module was reused from Homework 2.
 \end{itemize}
 
 The file \verb|Hex7seg.v| contains the module \verb|Hex7seg| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:hex]{Listing \ref*{lst:hex}}.
+A listing can be found in \hyperref[lst:hex]{Listing \ref*{lst:hex}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subsection{Processor}  \label{subsec:processor}
 
@@ -102,7 +157,7 @@ The top-level module required a processesor Verilog modules with the properties 
 \end{itemize}
 
 The file \verb|Processor.v| contains the module \verb|Processor| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:processor]{Listing \ref*{lst:processor}}.
+A listing can be found in \hyperref[lst:processor]{Listing \ref*{lst:processor}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subsubsection{Control Unit} \label{subsub:controlunit}
 
@@ -112,19 +167,21 @@ The processor module required a control unit Verilog module with the properties 
     \item One one-bit input $Clock$ as the clock signal.
     \item One eight-bit output $D_text{addr}$ as the data memory address.
     \item One four-bit output $RF_{W_\text{addr}}$ as the register file write address.
-    \item Two four-bit outputs $RF_{Ra_\text{addr}}$ and $RF_{Rab_\text{addr}}$ as the register file A and B stream read addresses respectively.
+    \item Two four-bit outputs $RF_{Ra_\text{addr}}$ and $RF_{Rab_\text{addr}}$ as the register file A
+    and B stream read addresses respectively.
     \item One one-bit output $D_\text{wr}$ as the data memory write enable signal.
     \item One one-bit output $RF_s$ as the data multiplexer select signal.
     \item One three-bit output $Alu_{s0}$ as the ALU function select signal.
     \item One one-bit output $RF_{W_\text{wr}}$ as the register file write enable signal.
-    \item Two one-bit inputs $RF_{Ra_\text{rd}}$ and $RF_{Rab_\text{rd}}$ as the register file A and B stream read enable signals respectively.
+    \item Two one-bit inputs $RF_{Ra_\text{rd}}$ and $RF_{Rab_\text{rd}}$ as the register file A
+    and B stream read enable signals respectively.
     \item One One five-bit output $RC_\text{Out}$ as the program counter address.
     \item One sixteen-bit output $IR_\text{Out}$ as the current instruction.
     \item One four-bit output $State0$ as the controller state. 
 \end{itemize}
 
 The file \verb|cunit.v| contains the module \verb|cunit| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:cunit]{Listing \ref*{lst:cunit}}.
+A listing can be found in \hyperref[lst:cunit]{Listing \ref*{lst:cunit}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Program Counter} \label{par:pc}
 
@@ -138,7 +195,7 @@ The control unit module required a program counter Verilog module with the prope
 \end{itemize}
 
 The file \verb|PC.v| contains the module \verb|PC| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:pc]{Listing \ref*{lst:pc}}.
+A listing can be found in \hyperref[lst:pc]{Listing \ref*{lst:pc}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subparagraph{PC Incrementer} \label{subpar:pcadder}
 
@@ -150,7 +207,7 @@ The program counter module required a PC incrementer Verilog module with the pro
 \end{itemize}
 
 The file \verb|PCAdder.v| contains the module \verb|PCAdder| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:PCAdder]{Listing \ref*{lst:PCAdder}}.
+A listing can be found in \hyperref[lst:PCAdder]{Listing \ref*{lst:PCAdder}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subparagraph{Multiplexer} \label{subpar:mux}
 
@@ -164,7 +221,7 @@ The program counter module required an multiplexer Verilog module with the prope
 
 
 The file \verb|muxlpm.v| contains the module \verb|muxlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:muxlpm]{Listing \ref*{lst:muxlpm}}.
+A listing can be found in \hyperref[lst:muxlpm]{Listing \ref*{lst:muxlpm}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Instruction Register} \label{par:ir}
 
@@ -179,7 +236,7 @@ The control unit module required an instruction register Verilog module with the
 \end{itemize}
 
 The file \verb|instruction_register.v| contains the module \verb|instruction_register| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:ir]{Listing \ref*{lst:ir}}.
+A listing can be found in \hyperref[lst:ir]{Listing \ref*{lst:ir}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Controller} \label{par:controller}
 
@@ -204,7 +261,9 @@ The control unit module required controller Verilog module with the properties l
     \item One four-bit output $State$ which signals the current state,
     \item Positive edge triggered.
     \item Quartus recognized state machine.
-    \item Ten states representing each phase of each instruction.\footnote{See \hyperref[tab:instructions]{Table \ref*{tab:instructions}} for a list of instructions.}
+    \item Ten states representing each phase of each instruction.\footnote{%
+        See \hyperref[tab:instructions]{Table \ref*{tab:instructions}} for a list of instructions.
+    }
     \begin{itemize}
         \item \textbf{INIT}: Wait
         \item \textbf{FETCH}: Retrieve new instruction
@@ -220,7 +279,7 @@ The control unit module required controller Verilog module with the properties l
 \end{itemize}
 
 The file \verb|controller.v| contains the module \verb|controller| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:controller]{Listing \ref*{lst:controller}}.
+A listing can be found in \hyperref[lst:controller]{Listing \ref*{lst:controller}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Instruction Memory} \label{par:imem}
 
@@ -233,7 +292,7 @@ The control unit module required an instruction memory Verilog module with the p
 \end{itemize}
 
 The file \verb|imemlpm.v| contains the module \verb|imemlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:imemlpm]{Listing \ref*{lst:imemlpm}}.
+A listing can be found in \hyperref[lst:imemlpm]{Listing \ref*{lst:imemlpm}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subsubsection{Datapath} \label{subsub:datapath}
 
@@ -258,7 +317,7 @@ The processor module required datapath Verilog module with the properties listed
 \end{itemize}
 
 The file \verb|Datapath.v| contains the module \verb|Datapath| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:datapath]{Listing \ref*{lst:datapath}}.
+A listing can be found in \hyperref[lst:datapath]{Listing \ref*{lst:datapath}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Data Memory} \label{par:regmem}
 
@@ -276,7 +335,7 @@ This module was reused frome Homework 6.
 \end{itemize}
 
 The file \verb|ramlpm.v| contains the module \verb|ramlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:ramlpm]{Listing \ref*{lst:ramlpm}}.
+A listing can be found in \hyperref[lst:ramlpm]{Listing \ref*{lst:ramlpm}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Register File} \label{par:regfile}
 
@@ -297,7 +356,7 @@ This module was reused from Homework 6.
 \end{itemize}
 
 The file \verb|RegisterFile.v| contains the module \verb|RegisterFile| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:registerfile]{Listing \ref*{lst:registerfile}}.
+A listing can be found in \hyperref[lst:registerfile]{Listing \ref*{lst:registerfile}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subparagraph{Decoder} \label{subpar:decoder}
 
@@ -313,7 +372,7 @@ This module was reused from Homework 6.
 \end{itemize}
 
 The file \verb|DecoderN.v| contains the module \verb|DecoderN| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:DecoderN]{Listing \ref*{lst:DecoderN}}.
+A listing can be found in \hyperref[lst:DecoderN]{Listing \ref*{lst:DecoderN}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subparagraph{Register} \label{subpar:register}
 
@@ -338,7 +397,7 @@ This module was reused from Homework 6.
 \end{itemize}
 
 The file \verb|RegisterOEN.v| contains the module \verb|RegisterOEN| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:RegisterOEN]{Listing \ref*{lst:RegisterOEN}}.
+A listing can be found in \hyperref[lst:RegisterOEN]{Listing \ref*{lst:RegisterOEN}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Arithmetic Logic Unit} \label{par:alu}
 
@@ -369,4 +428,4 @@ This module was reused from Homework 6.
 \end{itemize}
 
 The file \verb|ALU.v| contains the module \verb|ALU| which satisfies these properties.
-A listing can be found in the \hyperref[sec:appendix]{Appendix}, \hyperref[lst:alu]{Listing \ref*{lst:alu}}.
+A listing can be found in \hyperref[lst:alu]{Listing \ref*{lst:alu}} in the \hyperref[sec:appendix]{Appendix}.

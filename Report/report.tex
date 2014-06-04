@@ -33,18 +33,18 @@
 \begin{titlepage}
     \center
     \qquad\\[7cm]
-    \textsc{\huge \bfseries Laboratory Exercise B} \\[.5cm]
-    \textsc{\huge \bfseries Programmable Processor} \\[1.0cm]
+    {\huge \bfseries Laboratory Exercise B} \\[.5cm]
+    {\huge \bfseries Programmable Processor} \\[1.0cm]
     {\large TCES330 Digital Systems Design} \\[.5cm]
     {\large Spring 2014} \\[1.5cm]
     
     \begin{tabular}{ll}
-        \multicolumn{2}{l}{\textbf{Authors:}}   \\
-        Chad Condon:        & \underline{\hspace{5cm}} \\
-        Brian Crabtree:     & \underline{\hspace{5cm}} \\
-        Ben Foster:         & \underline{\hspace{5cm}} \\
-        Aaron Stephens:     & \underline{\hspace{5cm}} \\
-        Submission Date:    & June 6, 2014
+        \multicolumn{2}{l}{\textbf{Authors:}}           \\
+        Chad Condon:        & \underline{\hspace{5cm}}  \\
+        Brian Crabtree:     & \underline{\hspace{5cm}}  \\
+        Ben Foster:         & \underline{\hspace{5cm}}  \\
+        Aaron Stephens:     & \underline{\hspace{5cm}}  \\
+        Submission Date:    & June 6, 2014              \\
     \end{tabular}
     
 \end{titlepage}
@@ -55,7 +55,9 @@
 \section*{Laboratory Assignment 2} \addcontentsline{toc}{section}{Laboratory Assignment 2} \FloatBarrier
 
 The purpose of this exercise is to build and implement a six-instruction programmable processor.
-The instructions set is as shown in \hyperref[tab:instructions]{Table \ref*{tab:instructions} }.\footnote{$r$'s and $d$'s represent register file locations and data memory locations respectively.}
+The instructions set is as shown in \hyperref[tab:instructions]{Table \ref*{tab:instructions} }.\footnote{%
+    $r$'s and $d$'s represent register file locations and data memory locations respectively.
+}
 
 \begin{table}[htbp]
     \centering
@@ -72,7 +74,8 @@ The instructions set is as shown in \hyperref[tab:instructions]{Table \ref*{tab:
     \label{tab:instructions}
 \end{table}
 
-The switches of the DE2 board are to be used as the circuit’s input, and the 7 segment displays are to be used for output.
+The switches of the DE2 board are to be used as the circuit’s input,
+and the 7 segment displays are to be used for output.
 
 \FloatBarrier \input{requirements.tex} \FloatBarrier \clearpage
 \FloatBarrier \input{design.tex} \FloatBarrier \clearpage

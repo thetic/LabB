@@ -1,8 +1,10 @@
 \section{Test Procedures} % (fold)
 \label{sec:test_procedures}
 
-The following test procedures will be used to verify that each part of this laboratory exercise satisfies the requirements given in \hyperref[sec:requirements]{Section \ref*{sec:requirements}}.
-Modules are to be tested beginning with lower-level modules and moving up so as to isolate issues in a module from those which may implement it.
+The following test procedures will be used to verify that each part of this laboratory exercise satisfies the requirements given in
+\hyperref[sec:requirements]{Section \ref*{sec:requirements}}.
+Modules are to be tested beginning with lower-level modules
+and moving up so as to isolate issues in a module dependencies.
 
 \subsection{PC Incrementer} % (fold)
 \label{sub:pc_incrementer}
@@ -12,9 +14,12 @@ The following test procedure will be used to verify that the Verilog module \ver
 %TODO test PCAdder
 \begin{enumerate}
     \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
-    This testbench generates the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and outputs the output $O$.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and verify the corresponding outputs, $O$.
+    This testbench generates the test vectors shown in
+    \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and outputs the output $O$.
+    Simulations will be run in order to verify the behavior shown in
+    \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}}.
+    \item Generate the test vectors shown in
+    \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and verify the corresponding outputs, $O$.
 \end{enumerate}
 
 \begin{table}[htbp]
@@ -61,14 +66,16 @@ The following test procedure will be used to verify that the Verilog module \ver
 \subsection{Multiplexer} % (fold)
 \label{sub:multiplexer}
 
-The multiplexer module, \verb|PCUp|, was a simple LPM module and will therefore not be specifically tested.
+The multiplexer module, \verb|PCUp|, was a simple LPM module.
+It will therefore not be specifically tested.
 
 % subsection multimplexer (end)
 
 \subsection{Decoder} % (fold)
 \label{sub:decoder}
 
-The decoder module, \verb|DecoderN|, has been previously used and tested for Homework 6 and will therefore not be specifically tested.
+The decoder module, \verb|DecoderN|, has been previously used and tested for Homework 6
+and will therefore not be specifically tested.
 % subsection decoder (end)
 
 \subsection{Register} % (fold)
@@ -86,10 +93,13 @@ The following test procedure will be used to verify that the Verilog module \ver
 %TODO test controller
 \begin{enumerate}
     \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
-    This testbench generates the test vectors shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}} and outputs listed.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}}.
+    This testbench generates the test vectors shown in
+    \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}} and outputs listed.
+    Simulations will be run in order to verify the behavior shown in
+    \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}}.
     \item Verify that the RTL Viewer shows a state machine.
-    \item Generate the test vectors shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}} and verify the corresponding outputs.
+    \item Generate the test vectors shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}}
+    and verify the corresponding outputs.
 \end{enumerate}
 
 %TODO write up
@@ -118,7 +128,8 @@ The following test procedure will be used to verify that the Verilog module \ver
     \item The program counter circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
     This testbench generates the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} and output $O$.
     Simulations will be run in order to verify the behavior shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} and verify the corresponding outputs.
+    \item Generate the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}}
+    and verify the corresponding outputs.
 \end{enumerate}
 
 \begin{table}[htbp]
@@ -152,14 +163,16 @@ It will therefore not be specifically tested.
 \subsection{Register File} % (fold)
 \label{sub:register_file}
 
-The register file module, \verb|RegisterFile|, has been previously used and tested for Homework 6 and only minimally modified.
+The register file module, \verb|RegisterFile|, has been previously used and tested for Homework 6
+and only minimally modified.
 It will therefore not be specifically tested.
 % subsection register_file (end)
 
 \subsection{Arithmetic Logic Unit} % (fold)
 \label{sub:arithmetic_logic_unit}
 
-The arithmetic logic unit module, \verb|ALU|, has been previously used and tested for Homework 6 and will therefore not be specifically tested.
+The arithmetic logic unit module, \verb|ALU|, has been previously used and tested for Homework 6.
+It will therefore not be specifically tested.
 % subsection arithmetic_logic_unit (end)
 
 \subsection{Control Unit} % (fold)
@@ -192,7 +205,8 @@ The following test procedure will be used to verify that the Verilog module \ver
 \subsection{Hex Display} % (fold)
 \label{sub:hex_display}
 
-The hex display module, \verb|Hex7seg|, has been previously used and tested for several assignments and will therefore not be specifically tested.
+The hex display module, \verb|Hex7seg|, has been previously used and tested for several assignments.
+It will therefore not be specifically tested.
 % subsection hex_display (end)
 
 \subsection{Project} % (fold)
@@ -203,11 +217,14 @@ The following test procedure will be used to verify that the \emph{Quartus II} p
 %TODO write up project
 \begin{enumerate}
     \item The eight instruction processor circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
-    This testbench generates the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}} and % TODO outputs the multiplexer output M.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}.
+    This testbench generates the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}
+    and % TODO outputs the multiplexer output M.
+    Simulations will be run in order to verify the behavior shown in
+    \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}.
     \item Open the project and verify that compilation produces no errors or unallowed warnings.
     \item Load the project onto the DE2 board without errors.
-    \item Generate the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}} and verify the corresponding outputs,% TODO M.
+    \item Generate the test vectors shown in\hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}
+    and verify the corresponding outputs,% TODO M.
 \end{enumerate}
 
 \begin{table}[htbp]
