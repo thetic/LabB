@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{SIunits}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{placeins}
+\usepackage{rotating}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usepackage{fullpage}
+\usepackage{rotating}
+
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+\definecolor{mygreen}{rgb}{0, 0.25, 0}
+\lstset{
+    tabsize = 2,
+    breaklines = true,
+    commentstyle = \color{mygreen} \bfseries,
+    keywordstyle = \color{blue}  \bfseries,
+    frame = single,
+    numberstyle = \color{red}  \bfseries,
+    captionpos = b,
+    basicstyle = \ttfamily\footnotesize,
+    language = verilog
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \center
+    \qquad\\[7cm]
+    \textsc{\huge \bfseries Laboratory Exercise B} \\[.5cm]
+    \textsc{\huge \bfseries Programmable Processor} \\[1.0cm]
+    {\large TCES330 Digital Systems Design} \\[.5cm]
+    {\large Spring 2014} \\[1.5cm]
+    
+    \begin{tabular}{ll}
+        \multicolumn{2}{l}{\textbf{Authors:}}   \\
+        Chad Condon:        & \underline{\hspace{5cm}} \\
+        Brian Crabtree:     & \underline{\hspace{5cm}} \\
+        Ben Foster:         & \underline{\hspace{5cm}} \\
+        Aaron Stephens:     & \underline{\hspace{5cm}} \\
+        Submission Date:    & June 6, 2014
+    \end{tabular}
+    
+\end{titlepage}
+
+\tableofcontents
+\pagebreak
+
+\section*{Laboratory Assignment 2} \addcontentsline{toc}{section}{Laboratory Assignment 2} \FloatBarrier
+
+The purpose of this exercise is to build and implement a six-instruction programmable processor.
+The instructions set is as shown in \hyperref[tab:instructions]{Table \ref*{tab:instructions} }.\footnote{$r$'s and $d$'s represent register file locations and data memory locations respectively.}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ll}                                                                                                                 \\\toprule
+        \textbf{Operation}  & \textbf{Instruction}                                                                                      \\\midrule
+        NOOP                & $0000 \;\: 0000 \;\: 0000 \;\: 0000$                                                                      \\
+        STORE               & $0001 \;\: r_3 r_2 r_1 r_0 \;\: d_7 d_6 d_5 d_4 d_3 d_2 d_1 d_0$                                          \\
+        LOAD                & $0010 \;\: d_7 d_6 d_5 d_4 d_3 d_2 d_1 d_0 \;\: r_3 r_2 r_1 r_0$                                          \\
+        ADD                 & $0011 \;\: r_{a3} r_{a2} r_{a1} r_{a0} \;\: r_{b3} r_{b2} r_{b1} r_{b0} \;\: r_{c3} r_{c2} r_{c1} r_{c0}$ \\
+        SUBTRACT            & $0100 \;\: r_{a3} r_{a2} r_{a1} r_{a0} \;\: r_{b3} r_{b2} r_{b1} r_{b0} \;\: r_{c3} r_{c2} r_{c1} r_{c0}$ \\
+        HALT                & $0101 \;\: 0000 \;\: 0000 \;\: 0000$                                                                      \\\bottomrule
+    \end{tabular}
+    \caption{Instruction Set}
+    \label{tab:instructions}
+\end{table}
+
+The switches of the DE2 board are to be used as the circuit’s input, and the 7 segment displays are to be used for output.
+
+\FloatBarrier \input{requirements.tex} \FloatBarrier \clearpage
+\FloatBarrier \input{design.tex} \FloatBarrier \clearpage
+\FloatBarrier \input{test_procedures.tex} \FloatBarrier \clearpage
+\FloatBarrier \input{test_results.tex} \FloatBarrier \clearpage
+\FloatBarrier \input{observations.tex} \FloatBarrier \clearpage
+
+\FloatBarrier \section{Conclusion} \clearpage
+
+\FloatBarrier \input{appendix.tex}
+
+\end{document}
