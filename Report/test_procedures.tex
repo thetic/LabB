@@ -9,7 +9,7 @@ and moving up so as to isolate issues in a module dependencies.
 \subsection{PC Incrementer} % (fold)
 \label{sub:pc_incrementer}
 
-The following test procedure will be used to verify that the Verilog module \verb|PCAdder| satisfies the requirements for this part.
+The following test procedure will be used to verify that the Verilog module, \verb|PCAdder|, satisfies the requirements for this part.
 
 %TODO test PCAdder
 \begin{enumerate}
@@ -66,7 +66,7 @@ The following test procedure will be used to verify that the Verilog module \ver
 \subsection{Multiplexer} % (fold)
 \label{sub:multiplexer}
 
-The multiplexer module, \verb|PCUp|, was a simple LPM module.
+The multiplexer module, \verb|PCUp|, was implemented from the \emph{Altera} library of parameterized modules (LPM).
 It will therefore not be specifically tested.
 
 % subsection multimplexer (end)
@@ -75,7 +75,7 @@ It will therefore not be specifically tested.
 \label{sub:decoder}
 
 The decoder module, \verb|DecoderN|, has been previously used and tested for Homework 6
-and will therefore not be specifically tested.
+It will therefore not be specifically tested.
 % subsection decoder (end)
 
 \subsection{Register} % (fold)
@@ -88,7 +88,7 @@ It will therefore not be specifically tested.
 \subsection{Controller} % (fold)
 \label{sub:controller}
 
-The following test procedure will be used to verify that the Verilog module \verb|controller| satisfies the requirements for this part.
+The following test procedure will be used to verify that the Verilog module, \verb|controller|, satisfies the requirements for this part.
 
 %TODO test controller
 \begin{enumerate}
@@ -97,7 +97,7 @@ The following test procedure will be used to verify that the Verilog module \ver
     \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}} and outputs listed.
     Simulations will be run in order to verify the behavior shown in
     \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}}.
-    \item Verify that the RTL Viewer shows a state machine.
+    \item Verify that the \emph{RTL Viewer} shows a state machine.
     \item Generate the test vectors shown in \hyperref[tab:controller_vectors]{Table \ref*{tab:controller_vectors}}
     and verify the corresponding outputs.
 \end{enumerate}
@@ -121,7 +121,7 @@ The following test procedure will be used to verify that the Verilog module \ver
 \subsection{Program Counter} % (fold)
 \label{sub:program_counter}
 
-The following test procedure will be used to verify that the Verilog module \verb|PC| satisfies the requirements for this part.
+The following test procedure will be used to verify that the Verilog module, \verb|PC|, satisfies the requirements for this part.
 
 %TODO Test PC
 \begin{enumerate}
@@ -151,6 +151,23 @@ It will therefore not be specifically tested.
 \subsection{Instruction Register} % (fold)
 \label{sub:instruction_register}
 
+The following test procedure will be used to verify that the Verilog module, \verb|instruction_register|, satisfies the requirements for this part.
+
+%TODO test control unit
+\begin{enumerate}
+    \item The instruction register circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}} and output %TODO $O$.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}}.
+    \item Generate the test vectors shown in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}}
+    and verify the corresponding outputs.
+\end{enumerate}
+
+\begin{table}[htbp]
+    \centering
+        %TODO tabular
+    \caption{Control Unit Test Vectors\label{tab:ir_vectors}}
+\end{table}
+
 % subsection instruction_register (end)
 
 \subsection{Data Memory} % (fold)
@@ -178,27 +195,66 @@ It will therefore not be specifically tested.
 \subsection{Control Unit} % (fold)
 \label{sub:control_unit}
 
-The following test procedure will be used to verify that the Verilog module \verb|cunit| satisfies the requirements for this part.
+The following test procedure will be used to verify that the Verilog module, \verb|cunit|, satisfies the requirements for this part.
 
 %TODO test control unit
+\begin{enumerate}
+    \item The control unit circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}} and output %TODO $O$.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}}.
+    \item Generate the test vectors shown in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}}
+    and verify the corresponding outputs.
+\end{enumerate}
+
+\begin{table}[htbp]
+    \centering
+        %TODO tabular
+    \caption{Control Unit Test Vectors\label{tab:cunit_vectors}}
+\end{table}
 
 % subsection control_unit (end)
 
 \subsection{Datapath} % (fold)
 \label{sub:datapath}
 
-The following test procedure will be used to verify that the Verilog module \verb|Datapath| satisfies the requirements for this part.
+The following test procedure will be used to verify that the Verilog module, \verb|Datapath|, satisfies the requirements for this part.
 
 %TODO test datapath
+\begin{enumerate}
+    \item The datapath circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}} and output %TODO $O$.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}}.
+    \item Generate the test vectors shown in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}}
+    and verify the corresponding outputs.
+\end{enumerate}
+
+\begin{table}[htbp]
+    \centering
+        %TODO tabular
+    \caption{Datapath Test Vectors\label{tab:datapath_vectors}}
+\end{table}
 
 % subsection datapath (end)
 
 \subsection{Processor} % (fold)
 \label{sub:processor}
 
-The following test procedure will be used to verify that the Verilog module \verb|Processor| satisfies the requirements for this part.
+The following test procedure will be used to verify that the Verilog module, \verb|Processor|, satisfies the requirements for this part.
 
 %TODO test processor
+\begin{enumerate}
+    \item The processor circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    This testbench generates the test vectors shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} and output %TODO $O$.
+    Simulations will be run in order to verify the behavior shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}}.
+    \item Generate the test vectors shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}}
+    and verify the corresponding outputs.
+\end{enumerate}
+
+\begin{table}[htbp]
+    \centering
+        %TODO tabular
+    \caption{Processor Test Vectors\label{tab:processor_vectors}}
+\end{table}
 
 % subsection processor (end)
 
@@ -216,7 +272,7 @@ The following test procedure will be used to verify that the \emph{Quartus II} p
 
 %TODO write up project
 \begin{enumerate}
-    \item The eight instruction processor circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    \item The eight instruction processor circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testProcessor]{Table \ref*{lst:testProcessor}} in the \hyperref[sec:appendix]{Appendix}.
     This testbench generates the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}
     and % TODO outputs the multiplexer output M.
     Simulations will be run in order to verify the behavior shown in

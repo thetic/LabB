@@ -10,7 +10,7 @@ The design of each module will be discussed below.
     \centering
     \begin{center}
     \begin{tikzpicture}[
-            every node/.style = {rectangle, align=center},
+            every node/.style = {rectangle, align = center},
             level/.style = {growth parent anchor = south, level distance = 1cm},
             level 1/.style = {sibling distance = 5cm},
             level 2/.style = {sibling distance = 8cm},
@@ -20,74 +20,41 @@ The design of each module will be discussed below.
             every child node/.style = {anchor = north}]
         \node [draw] (top) {Lab B}
             child {node [draw] (Hex7Seg) {
-                    \hyperref[par:hex]{Hex} \\
-                    \hyperref[par:hex]{Display}
-                }
+                \hyperref[par:hex]{Hex} \\
+                \hyperref[par:hex]{Display}}
             }
-            child {node [draw] (Processor) {
-                    \hyperref[subsec:processor]{Processor
-                }
-            }
+            child {node [draw] (Processor) {\hyperref[subsec:processor]{Processor}}
                 child {node [draw] (cunit) {
-                        \hyperref[subsub:controlunit]{Control} \\
-                        \hyperref[subsub:controlunit]{Unit
-                    }
+                    \hyperref[subsub:controlunit]{Control} \\
+                    \hyperref[subsub:controlunit]{Unit}
                 }
-                    child {node [draw] (controller) {
-                            \hyperref[par:controller]{Controller}
-                        }
-                    }
-                    child {node [draw] (PC) {
-                            \hyperref[par:pc]{PC
-                        }
-                    }
+                    child {node [draw] (controller) {\hyperref[par:controller]{Controller}}}
+                    child {node [draw] (PC) {\hyperref[par:pc]{PC}}
                         child {node [draw] (PCAdderer) {
-                                \hyperref[subpar:pcadder]{PC} \\
-                                \hyperref[subpar:pcadder]{Incrementer}
-                            }
+                            \hyperref[subpar:pcadder]{PC} \\
+                            \hyperref[subpar:pcadder]{Incrementer}}
                         }
-                        child {node [draw] (PCUp) {
-                                \hyperref[subpar:mux]{Multiplexer}
-                            }
-                        }
+                        child {node [draw] (PCUp) {\hyperref[subpar:mux]{Multiplexer}}}
                     }
                     child {node [draw] (imemlpm) {
-                            \hyperref[par:imem]{Instruction} \\
-                            \hyperref[par:imem]{Memory}
-                        }
+                        \hyperref[par:imem]{Instruction} \\
+                        \hyperref[par:imem]{Memory}}
                     }
-                    child {node [draw] (IR) {
-                            \hyperref[par:ir]{IR}
-                        }
-                    }
+                    child {node [draw] (IR) {\hyperref[par:ir]{IR}}}
                 }
-                child {node [draw] (Datapath) {
-                        \hyperref[subsub:datapath]{Datapath
-                    }
-                }
+                child {node [draw] (Datapath) {\hyperref[subsub:datapath]{Datapath}}
                     child {node [draw] (RAM) {
-                            \hyperref[par:regmem]{Data} \\
-                            \hyperref[par:regmem]{Memory}
-                        }
+                        \hyperref[par:regmem]{Data} \\
+                        \hyperref[par:regmem]{Memory}}
                     }
                     child {node [draw] (RegisterFile) {
-                            \hyperref[par:regfile]{Register} \\
-                            \hyperref[par:regfile]{File
-                        }
+                        \hyperref[par:regfile]{Register} \\
+                        \hyperref[par:regfile]{File}
                     }
-                    child {node [draw] (PCClear) {
-                            \hyperref[subpar:decoder]{Decoder}
-                        }
+                    child {node [draw] (PCClear) {\hyperref[subpar:decoder]{Decoder}}}
+                        child {node [draw] (Register) {\hyperref[subpar:register]{Register}}}
                     }
-                        child {node [draw] (PCClear) {
-                                \hyperref[subpar:register]{Register}
-                            }
-                        }
-                    }
-                    child {node [draw] (ALU) {
-                            \hyperref[par:alu]{ALU}
-                        }
-                    }
+                    child {node [draw] (ALU) {\hyperref[par:alu]{ALU}}}
                 }
             };
     \end{tikzpicture}
@@ -109,7 +76,7 @@ The top-level module must have the properties listed below.
 
 \begin{table}[htbp] 
     \centering
-    \begin{tabular}{ll}                                 \toprule
+    \begin{tabular}{ll}                             \toprule
         $SW_{17:15}$    & Displayed Values              \\\midrule
         0               & Current State                 \\
         1               & A side input to ALU           \\
@@ -134,7 +101,7 @@ This module was reused from Homework 2.
 \begin{itemize}
     \item One four-bit input $C$ as the displayed value.
     \item One seven-bit output $Display$ as the seven segment display.
-    \item Assigns $Display$ to the appropriate value to display the hexadecimal character representing $C$'s value on a seven segment display.
+    \item Assigns $Display$ to the value that displays the hexadecimal character representing $C$'s value on a seven segment display.
 \end{itemize}
 
 The file \verb|Hex7seg.v| contains the module \verb|Hex7seg| which satisfies these properties.
@@ -173,8 +140,8 @@ The processor module required a control unit Verilog module with the properties 
     \item One one-bit output $RF_s$ as the data multiplexer select signal.
     \item One three-bit output $Alu_{s0}$ as the ALU function select signal.
     \item One one-bit output $RF_{W_\text{wr}}$ as the register file write enable signal.
-    \item Two one-bit inputs $RF_{Ra_\text{rd}}$ and $RF_{Rab_\text{rd}}$ as the register file A
-    and B stream read enable signals respectively.
+    \item Two one-bit inputs $RF_{Ra_\text{rd}}$ and $RF_{Rab_\text{rd}}$ as the register file A and B
+    stream read enable signals respectively.
     \item One One five-bit output $RC_\text{Out}$ as the program counter address.
     \item One sixteen-bit output $IR_\text{Out}$ as the current instruction.
     \item One four-bit output $State0$ as the controller state. 
@@ -220,7 +187,8 @@ The program counter module required an multiplexer Verilog module with the prope
 \end{itemize}
 
 
-The file \verb|muxlpm.v| contains the module \verb|muxlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
+The file \verb|muxlpm.v| contains the module \verb|muxlpm| which satisfies these properties
+from the \emph{Altera} library of parameterized modules.
 A listing can be found in \hyperref[lst:muxlpm]{Listing \ref*{lst:muxlpm}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Instruction Register} \label{par:ir}
@@ -289,10 +257,13 @@ The control unit module required an instruction memory Verilog module with the p
     \item One five-bit input $address$ as the data address.
     \item One one-bit input $clock$ as the clock signal.
     \item One sixteen-bit output $q$ as the data read signal.
+    \item Loaded with the instructions described in \hyperref[sec:requirements]{Section \ref*{sec:requirements}}
 \end{itemize}
 
-The file \verb|imemlpm.v| contains the module \verb|imemlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
+The file \verb|imemlpm.v| contains the module \verb|imemlpm| which satisfies these properties
+from the \emph{Altera} library of parameterized modules.
 A listing can be found in \hyperref[lst:imemlpm]{Listing \ref*{lst:imemlpm}} in the \hyperref[sec:appendix]{Appendix}.
+A listing of the Memory Instantiation File can be found in \hyperref[lst:imemmif]{Listing \ref*{lst:imemmif}} in the \hyperref[sec:appendix]{Appendix}.
 
 \subsubsection{Datapath} \label{subsub:datapath}
 
@@ -332,10 +303,12 @@ This module was reused frome Homework 6.
     \item One sixteen-bit output $q$ as the read data stream.
     \item Positive edge-triggered.
     \item $256 \times 16$ Quartus RAM LPM with Memory Content Editor enabled.
+    \item Loaded with the data described in \hyperref[sec:requirements]{Section \ref*{sec:requirements}}
 \end{itemize}
 
 The file \verb|ramlpm.v| contains the module \verb|ramlpm| which satisfies these properties from the \emph{Altera} library of parameterized modules.
 A listing can be found in \hyperref[lst:ramlpm]{Listing \ref*{lst:ramlpm}} in the \hyperref[sec:appendix]{Appendix}.
+A listing of the Memory Instantiation File can be found in \hyperref[lst:rammif]{Listing \ref*{lst:rammif}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Register File} \label{par:regfile}
 

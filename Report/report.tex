@@ -8,24 +8,25 @@
 \usepackage{color}
 \usepackage{placeins}
 \usepackage{rotating}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref} %TODO hidelinks
 \usepackage{tikz}
 \usepackage{fullpage}
 \usepackage{rotating}
 \usepackage{upquote}
 
-\usetikzlibrary{shapes.geometric, arrows, positioning}
+\usetikzlibrary{shapes.geometric, arrows, positioning} 
 \definecolor{mygreen}{rgb}{0, 0.25, 0}
 \lstset{
-    tabsize = 2,
-    breaklines = true,
-    commentstyle = \color{mygreen} \bfseries,
-    keywordstyle = \color{blue}  \bfseries,
-    frame = single,
-    numberstyle = \color{red}  \bfseries,
-    captionpos = b,
     basicstyle = \ttfamily\footnotesize,
-    language = verilog
+    breaklines = true,
+    captionpos = b,
+    commentstyle = \color{mygreen} \bfseries,
+    frame = single,
+    keywordstyle = \color{blue}  \bfseries,
+    language = verilog,
+    numberstyle = \color{red}  \bfseries,
+    showstringspaces=false,
+    tabsize = 2
 }
 
 \begin{document}
@@ -52,7 +53,7 @@
 \tableofcontents
 \pagebreak
 
-\section*{Laboratory Assignment 2} \addcontentsline{toc}{section}{Laboratory Assignment 2} \FloatBarrier
+\section*{Laboratory Assignment B} \addcontentsline{toc}{section}{Laboratory Assignment 2} \FloatBarrier
 
 The purpose of this exercise is to build and implement a six-instruction programmable processor.
 The instructions set is as shown in \hyperref[tab:instructions]{Table \ref*{tab:instructions} }.\footnote{%
@@ -77,14 +78,19 @@ The instructions set is as shown in \hyperref[tab:instructions]{Table \ref*{tab:
 The switches of the DE2 board are to be used as the circuit’s input,
 and the 7 segment displays are to be used for output.
 
-\FloatBarrier \input{requirements.tex} \FloatBarrier \clearpage
-\FloatBarrier \input{design.tex} \FloatBarrier \clearpage
-\FloatBarrier \input{test_procedures.tex} \FloatBarrier \clearpage
-\FloatBarrier \input{test_results.tex} \FloatBarrier \clearpage
-\FloatBarrier \input{observations.tex} \FloatBarrier \clearpage
+\FloatBarrier \input{requirements.tex}
+\FloatBarrier \clearpage
+\FloatBarrier \input{design.tex}
+\FloatBarrier \clearpage
+\FloatBarrier \input{test_procedures.tex}
+\FloatBarrier \clearpage
+\FloatBarrier \input{test_results.tex}
+\FloatBarrier \clearpage
+\FloatBarrier \input{observations.tex}
+\FloatBarrier \clearpage
+\FloatBarrier \section{Conclusion}
 
-\FloatBarrier \section{Conclusion} \clearpage
-
+\clearpage
 \FloatBarrier \input{appendix.tex}
 
 \end{document}
