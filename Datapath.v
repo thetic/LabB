@@ -6,7 +6,6 @@
  * This module takes in inputs from the Controller state machine
  * and does stuff to it depending on what goes into the ALU.
  */
-
 module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, 
 	RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B, 
 	ALU_Out, RQ0, Mux_out);
@@ -39,7 +38,6 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
   assign ALU_Out = ALUdata    ; //output of ALU = ALUdata.
   assign Mux_out = regFileData; //output of Mux = regFileData.
   
-  //reference ramlpm (address, clock, data, wren, q);
   ramlpm RLPM(D_addr, Clock, Ra_data, D_wr, R_data);
   
   //two to one mux.
@@ -57,8 +55,6 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
 
   end //always mux.
 	
-  //regerence RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1, 
-  	//R_en0, R_en1, R_data0, R_data1, RQ0);
   RegisterFile RegFile(Clock, Reset, regFileData, RF_W_addr, RF_W_wr, 
 	RF_Ra_addr, RF_Rb_addr, RF_Ra_rd, RF_Rb_rd, ALU_A, ALU_B, RQ0);
   
