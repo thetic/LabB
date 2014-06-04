@@ -34,9 +34,9 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
     case(switch)
 
       0 : begin
-        HexMux[15:12] = 4'b0000;
-        HexMux[11:4] = PC_Out;
-        HexMux[3:0] = StateO;
+        HexMux [15:12] = 4'b0  ;
+        HexMux [11:4 ] = PC_Out;
+        HexMux [3 :0 ] = StateO;
       end
 
       1 : HexMux = ALU_A;
