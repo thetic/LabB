@@ -4,7 +4,7 @@ Analysis of the requirements described in \hyperref[sec:requirements]{Section \r
 The design of each module will be discussed below.
 
 \begin{figure}[htbp]
-    \centering
+    \center
     \begin{center}
     \begin{tikzpicture}[
             every node/.style = {rectangle, align = center},
@@ -72,7 +72,7 @@ The top-level module must have the properties listed below.
 \end{itemize}
 
 \begin{table}[htbp] 
-    \centering
+    \center
     \begin{tabular}{ll}                             \toprule
         $SW_{17:15}$    & Displayed Values              \\\midrule
         0               & Current State                 \\
@@ -378,7 +378,7 @@ This module was reused from Homework 6.
     \item One sixteen-bit output: $Q$.
     \item $Q$ is a function of $A$ and $B$ as selected by $Sel$ as shown in \hyperref[tab:alu]{Table \ref*{tab:alu}}..
         \begin{table}[htbp]
-            \centering
+            \center
             \begin{tabular}{ll}             \toprule
                 $Sel$       & $Q$           \\\midrule
                 0           & $0$           \\
@@ -397,3 +397,5 @@ This module was reused from Homework 6.
 
 The file \verb|ALU.v| contains the module \verb|ALU| which satisfies these properties.
 A listing can be found in \hyperref[lst:alu]{Listing \ref*{lst:alu}} in the \hyperref[sec:appendix]{Appendix}.
+Also note that the necessary pin assignments can be found in %TODO pin assignments
+in the \hyperref[sec:appendix]{Appendix}.

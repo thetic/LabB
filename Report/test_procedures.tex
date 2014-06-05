@@ -224,7 +224,7 @@ The following test procedure will be used to verify that the Verilog module, \ve
 
 %TODO test processor
 \begin{enumerate}
-    \item The processor circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    \item The processor circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testProcessor]{Listing \ref*{lst:testProcessor}}.
     This testbench generates the test vectors shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} and output %TODO $O$.
     Simulations will be run in order to verify the behavior shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}}.
     \item Generate the test vectors shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} and verify the corresponding outputs.
@@ -252,19 +252,11 @@ The following test procedure will be used to verify that the \emph{Quartus II} p
 
 %TODO write up project
 \begin{enumerate}
-    \item The eight instruction processor circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testProcessor]{Table \ref*{lst:testProcessor}} in the \hyperref[sec:appendix]{Appendix}.
-    This testbench generates the test vectors shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}} and % TODO outputs the multiplexer output M.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}}.
     \item Open the project and verify that compilation produces no errors or unallowed warnings.
     \item Load the project onto the DE2 board without errors.
-    \item Generate the test vectors shown in\hyperref[tab:project_vectors]{Table \ref*{tab:project_vectors}} and verify the corresponding outputs,% TODO M.
+    \item Verify that the displayed output is selected as described in \hyperref[tab:display]{Table \ref*{tab:display}}.
 \end{enumerate}
 
-\begin{table}[htbp]
-    \centering
-    %TODO tabular
-    \caption{Project Test Vectors\label{tab:project_vectors}}
-\end{table}
 % subsection project (end)
 
 % section test_procedures (end)
