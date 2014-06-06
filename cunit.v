@@ -5,10 +5,11 @@
  * Control Unit module
  */
 
-module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, 
+module cunit (Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, 
 	RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
 
-	input 				Clock 		; //System Clock
+	input 		  Clock 		; //System Clock
+	input         Reset     ; //System reset
 	output [7 :0] D_addr    ; //Data Address.
 	output [3 :0] RF_W_addr ; //Write address for RegisterFile.
 	output [3 :0] RF_Ra_addr; //Read address A for RegisterFile.
@@ -24,10 +25,10 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
 	output [3 :0] StateO    ; //current state
 	
 	// internal wires
-	wire pc_clr; // clears pc
 	wire pc_up;	// pc increment
 	wire ir_ld; // load instruction
 	wire [15:0] mem_instruction_out;
+	wire pc_clr;
 
 	// Reference PC(O, Clear, Up, Clock);
 	PC pc0(PC_Out, pc_clr, pc_up, Clock);
@@ -36,7 +37,7 @@ module cunit (Clock, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
 	instruction_register #(.N(16)) instruction_register0 (Clock, 
 		mem_instruction_out, IR_Out, ir_ld);
 	
-	controller state_machine0(IR_Out, Clock, D_addr, D_wr, pc_clr, pc_up, 
+	controller state_machine0(IR_Out, Clock, Reset, D_addr, D_wr, pc_clr, pc_up, 
 		ir_ld, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, 
 		RF_Rb_addr, RF_Rb_rd, Alu_s0, StateO);
 	
