@@ -7,6 +7,7 @@
 module controller (
   input      [15:0] instruction,  // instruction
   input             clk        ,  // clock
+  input             Reset      ,  // Reset
   output reg [7 :0] D_addr     ,  // data memory address
   output reg        D_wr       ,  // data memory write enable signal
   output reg        PC_clr      , // load instruction signal
@@ -179,7 +180,10 @@ module controller (
     // flop:
     always @(posedge clk)
       begin
-        current_state = next_state;
+		  if(Reset) begin 
+			current_state <= INIT;
+		  end
+        else current_state <= next_state;
       end
 
 endmodule

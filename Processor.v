@@ -29,7 +29,7 @@ module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out,
   wire       RF_Ra_rd;
   wire       RF_Rb_rd;
 
-  cunit UNI(Clk, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
+  cunit UNI(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
     RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
 
   Datapath DP(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
