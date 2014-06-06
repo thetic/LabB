@@ -14,7 +14,7 @@ module testPCAdder;
 
 	initial //Test stimulus
 		begin
-			for(J = 0; J < 16; J = J + 1) begin
+			for(J = 0; J < 32; J = J + 1) begin
 				I = J;
 				#10;
 			end
