@@ -142,28 +142,56 @@ module controller (
           
         LOAD_A:
           begin
-            next_state = FETCH;
+				RF_W_addr  = instruction[3:0];
+				D_addr     = instruction[11:4];
+				RF_s       = 1;
+
+            next_state = LOAD_B;
           end
           
         LOAD_B:
           begin
+				RF_W_wr    = 1;
+				RF_W_addr  = instruction[3:0];
+				D_addr     = instruction[11:4];
+				RF_s       = 1;
+
             next_state = FETCH;
           end
           
         STORE:
           begin
+				RF_Ra_addr = instruction[11:8];
+				RF_Ra_rd   = 1;
+				D_addr     = instruction[7:0];
+				D_wr       = 1;
+
             next_state = FETCH;
           end
           
         ADD:
           begin
+				RF_W_addr = instruction[3:0];
+				RF_W_wr    = 1;
+				RF_Ra_addr = instruction[11:8];
+				RF_Ra_rd   = 1;
+				RF_Rb_addr = instruction[7:4];
+				RF_Rb_rd   = 1;
+				Alu_s0     = 1;
             next_state = FETCH;
           end
           
         SUB:
           begin
-            next_state = FETCH;
-          end
+				RF_W_addr = instruction[3:0];
+				RF_W_wr = 1;
+				RF_Ra_addr = instruction[11:8];
+				RF_Ra_rd = 1;
+				RF_Rb_addr = instruction[7:4];
+				RF_Rb_rd = 1;
+				Alu_s0 = 2;
+            next_state = FETCH;	
+			 end
           
         HALT:
           begin

@@ -5,13 +5,13 @@ The following test procedures will be used to verify that each part of this labo
 Modules are to be tested beginning with lower-level modules and moving up so as to isolate issues in a module dependencies.
 
 \subsection{PC Incrementer} % (fold)
-\label{sub:pc_incrementer}
+\label{sub:pc_incrementer_procedure}
 
 The following test procedure will be used to verify that the Verilog module, \verb|PCAdder|, satisfies the requirements for this part.
 
 %TODO test PCAdder
 \begin{enumerate}
-    \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testPCAdder]{Listing \ref*{lst:testPCAdder}}.
     This testbench generates the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and outputs the output $O$.
     Simulations will be run in order to verify the behavior shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}}.
     \item Generate the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and verify the corresponding outputs, $O$.
@@ -80,19 +80,34 @@ The register module, \verb|RegisterOEN|, has been previously used and tested for
 It will therefore not be specifically tested.
 % subsection register (end)
 
-\subsection{Controller} % (fold)
-\label{sub:controller}
+\FloatBarrier \subsection{Controller} % (fold)
+\label{sub:controller_pro}
 
 The following test procedure will be used to verify that the Verilog module, \verb|controller|, satisfies the requirements for this part.
 
 %TODO test controller
 \begin{enumerate}
-    \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    \item The PC incrementer circuit will be tested by intputting the instrunctions shown in \hyperref[tab:controller_test_instructions]{Table \ref*{tab:controller_test_instructions}}
+    each followed by a reset signal.
     Simulations will be run in order to verify the behavior shown in
     \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}}.
     \item Verify that the \emph{RTL Viewer} shows a state machine.
     \item Generate the behavior shown in \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}} and verify the corresponding outputs.
 \end{enumerate}
+
+\begin{table}
+    \centering
+    \begin{tabular}{ll}                                             \toprule
+        \textbf{Instruction Type}   & \textbf{Instruction}          \\\midrule
+        NOOP                        & $0000 \; 0000 \; 0000 \; 0000$  \\
+        STORE                       & $0001 \;                     $  \\  %TODO instruction
+        LOAD                        & $0010 \;                     $  \\  %TODO instruction
+        ADD                         & $0011 \;                     $  \\  %TODO instruction
+        SUBTRACT                    & $0100 \;                     $  \\  %TODO instruction
+        HALT                        & $0101 \; 0000 \; 0000 \; 0000$ \\\bottomrule
+    \end{tabular}
+    \caption{Controller Test Instructions\label{tab:controller_test_instructions}}
+\end{table}
 
 \begin{figure}
     \includegraphics[width=\textwidth]{images/state_diagram.png}
@@ -102,7 +117,7 @@ The following test procedure will be used to verify that the Verilog module, \ve
 % subsection controller (end)
 
 \subsection{Program Counter} % (fold)
-\label{sub:program_counter}
+\label{sub:program_counter_pro}
 
 The following test procedure will be used to verify that the Verilog module, \verb|PC|, satisfies the requirements for this part.
 
@@ -132,7 +147,7 @@ It will therefore not be specifically tested.
 
 
 \subsection{Instruction Register} % (fold)
-\label{sub:instruction_register}
+\label{sub:instruction_register_pro}
 
 The following test procedure will be used to verify that the Verilog module, \verb|instruction_register|, satisfies the requirements for this part.
 
@@ -175,7 +190,7 @@ It will therefore not be specifically tested.
 % subsection arithmetic_logic_unit (end)
 
 \subsection{Control Unit} % (fold)
-\label{sub:control_unit}
+\label{sub:control_unit_pro}
 
 The following test procedure will be used to verify that the Verilog module, \verb|cunit|, satisfies the requirements for this part.
 
@@ -196,29 +211,16 @@ The following test procedure will be used to verify that the Verilog module, \ve
 % subsection control_unit (end)
 
 \subsection{Datapath} % (fold)
-\label{sub:datapath}
+\label{sub:datapath_pro}
 
-The following test procedure will be used to verify that the Verilog module, \verb|Datapath|, satisfies the requirements for this part.
-
-%TODO test datapath
-\begin{enumerate}
-    \item The datapath circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
-    This testbench generates the test vectors shown in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}} and output %TODO $O$.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}}
-    and verify the corresponding outputs.
-\end{enumerate}
-
-\begin{table}[htbp]
-    \centering
-        %TODO tabular
-    \caption{Datapath Test Vectors\label{tab:datapath_vectors}}
-\end{table}
+The datapath module, \verb|datapath| serves only to instantiate the data memory, the register file, and the arithmetic logic unit.
+The only logic contained within the module is a simple two-to-one multiplexer.
+It will therefore not be specifically tested.
 
 % subsection datapath (end)
 
 \subsection{Processor} % (fold)
-\label{sub:processor}
+\label{sub:processor_pro}
 
 The following test procedure will be used to verify that the Verilog module, \verb|Processor|, satisfies the requirements for this part.
 
@@ -246,11 +248,10 @@ It will therefore not be specifically tested.
 % subsection hex_display (end)
 
 \subsection{Project} % (fold)
-\label{sub:project}
+\label{sub:project_pro}
 
 The following test procedure will be used to verify that the \emph{Quartus II} project \verb|Lab6| satisfies the requirements for this lab.
 
-%TODO write up project
 \begin{enumerate}
     \item Open the project and verify that compilation produces no errors or unallowed warnings.
     \item Load the project onto the DE2 board without errors.
