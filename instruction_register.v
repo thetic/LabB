@@ -9,15 +9,13 @@ module instruction_register #(
 )(
   input              clk  , // clock
   input      [N-1:0] d    , // input data
-  input					rst  , // reset
   output reg [N-1:0] q    , // output data
   input              ir_ld  //load instruction signal
 );
 
   always @(posedge clk)
     begin
-		if(rst) q <= 0;
-		else if(ir_ld) q <= d;
+      if(ir_ld) q <= d;
     end
 
 endmodule
