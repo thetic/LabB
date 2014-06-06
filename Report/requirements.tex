@@ -43,13 +43,13 @@ module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0
     \end{lstlisting}
     Feel free to add debug outputs to your processor module.
     \item Turn in the following sample program compiled and loaded into Instruction Memory:
-    \begin{lstlisting}
+    \begin{lstlisting}[numbers=none]
 RF[0] = D[A] - D[1A] + D[3] - D[8A];
 D[BB] = RF[0];
 HALT
     \end{lstlisting}
     Data memory should contain:
-    \begin{lstlisting}
+    \begin{lstlisting}[numbers=none]
 D[3] = 0x10AA
 D[A] = 0xB0C5
 D[1A] = 0x00DC
