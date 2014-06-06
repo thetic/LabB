@@ -23,8 +23,10 @@ module testinstruction_register;
 	initial //Test stimulus
 		begin
 			ir_ld = 1'b1; //Set ir_ld to 1 in order to test
-			for(I = 0; I < 65536; I = I + 1) begin
-				d = I;
+			#20 q = 16'hb0b0;
+			#20 ir_ld = 1'b1; //make sure d isn't changed
+			#20 q = 16'hd0d0;
+			#20 $stop;
 		end
 
 	initial
