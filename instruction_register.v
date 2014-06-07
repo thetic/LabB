@@ -13,6 +13,8 @@ module instruction_register #(
   input              ir_ld  //load instruction signal
 );
 
+  initial q = 0;
+
   always @(posedge clk)
     begin
       if(ir_ld) q <= d;

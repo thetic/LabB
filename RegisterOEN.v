@@ -17,7 +17,7 @@ module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1, RQ );
 
   reg    [N-1:0] Q  ; // standard (unswitched) output
 
-  initial RQ = 0;
+  initial Q = 0;
 
   assign RQ = Q;
 

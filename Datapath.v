@@ -38,6 +38,8 @@ module Datapath(Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
   assign ALU_Out = ALUdata    ; //output of ALU = ALUdata.
   assign Mux_out = regFileData; //output of Mux = regFileData.
 
+  initial regFileData = 0;
+
   ramlpm RLPM(D_addr, Clock, Ra_data, D_wr, R_data);
 
   //two to one mux.

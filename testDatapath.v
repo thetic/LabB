@@ -3,7 +3,7 @@
 // Ben Foster
 `timescale 1ns / 1 ns
 module testDatapath;
-  	reg 			Clock     ; //System clock.
+  	reg 			    Clock     ; //System clock.
   	reg         	Reset     ; //System Reset.
   	reg		[7 :0]	D_addr    ; //Data Address.
   	reg         	D_wr      ; //Data write enable for ramlpm.
