@@ -20,7 +20,7 @@ module ALU(
   input      [15:0] B  ,    // input data
   output reg [15:0] Q       // ALU output (result)
 );
-  
+
   localparam ZERO      = 3'd0;
   localparam ADD       = 3'd1;
   localparam SUBTRACT  = 3'd2;
@@ -29,7 +29,9 @@ module ALU(
   localparam OR        = 3'd5;
   localparam AND       = 3'd6;
   localparam INCREMENT = 3'd7;
-  
+
+  initial Q = 0;
+
   always @(Sel, A, B)
     begin
       case (Sel)
@@ -37,42 +39,42 @@ module ALU(
           begin
             Q = 0;
           end
-        
+
         ADD:
           begin
             Q = A + B;
           end
-        
+
         SUBTRACT:
           begin
             Q = A - B;
           end
-        
+
         PASSTHRU:
           begin
             Q = A;
           end
-        
+
         XOR:
           begin
             Q = A ^ B;
           end
-        
+
         OR:
           begin
             Q = A | B;
           end
-          
+
         AND:
           begin
             Q = A & B;
           end
-          
+
         INCREMENT:
           begin
             Q = A + 16'b1;
           end
         endcase
     end
-  
+
 endmodule
