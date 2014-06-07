@@ -97,14 +97,14 @@ The following test procedure will be used to verify that the Verilog module, \ve
 
 \begin{table}
     \centering
-    \begin{tabular}{ll}                                             \toprule
-        \textbf{Instruction Type}   & \textbf{Instruction}          \\\midrule
-        NOOP                        & $0000 \; 0000 \; 0000 \; 0000$  \\
-        STORE                       & $0001 \;                     $  \\  %TODO instruction
-        LOAD                        & $0010 \;                     $  \\  %TODO instruction
-        ADD                         & $0011 \;                     $  \\  %TODO instruction
-        SUBTRACT                    & $0100 \;                     $  \\  %TODO instruction
-        HALT                        & $0101 \; 0000 \; 0000 \; 0000$ \\\bottomrule
+    \begin{tabular}{ll}                                                 \toprule
+        \textbf{Instruction Type}   & \textbf{Instruction}              \\\midrule
+        NOOP                        & $0000 \; 0000 \; 0000 \; 0000$    \\
+        STORE                       & $0001 \; 0100 \; 0000 \; 0101$    \\
+        LOAD                        & $0010 \; 0000 \; 0011 \; 0100$    \\
+        ADD                         & $0011 \; 0001 \; 0010 \; 0011$    \\
+        SUBTRACT                    & $0100 \; 0110 \; 0101 \; 0100$    \\
+        HALT                        & $0101 \; 0000 \; 0000 \; 0000$    \\\bottomrule
     \end{tabular}
     \caption{Controller Test Instructions\label{tab:controller_test_instructions}}
 \end{table}
@@ -123,7 +123,7 @@ The following test procedure will be used to verify that the Verilog module, \ve
 
 %TODO Test PC
 \begin{enumerate}
-    \item The program counter circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
+    \item The program counter circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testPC]{Listing \ref*{lst:testPC}}.
     This testbench generates the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} and output $O$.
     Simulations will be run in order to verify the behavior shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}}.
     \item Generate the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}}
@@ -192,21 +192,9 @@ It will therefore not be specifically tested.
 \subsection{Control Unit} % (fold)
 \label{sub:control_unit_pro}
 
-The following test procedure will be used to verify that the Verilog module, \verb|cunit|, satisfies the requirements for this part.
-
-%TODO test control unit
-\begin{enumerate}
-    \item The control unit circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
-    This testbench generates the test vectors shown in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}} and output %TODO $O$.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}} and verify the corresponding outputs.
-\end{enumerate}
-
-\begin{table}[htbp]
-    \centering
-        %TODO tabular
-    \caption{Control Unit Test Vectors\label{tab:cunit_vectors}}
-\end{table}
+The control unit module, \verb|cunit| serves only to instantiate the controller, the program counter, the intruction memory, and the instruction register.
+There is no logic contained in the module.
+It will therefore not be specifically tested.
 
 % subsection control_unit (end)
 
