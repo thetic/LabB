@@ -20,14 +20,16 @@ module testPC;
 
 	initial //Test stimulus
 		begin
-			Reset = 1; //Reset for one clock
-			@(posedge Clock)
-				Reset = 0;
-			#1000 $stop; //then run for a while
+			Up = 1'b1;
+			#30;
+			Up = 1'b0;
+			#30;
+			Clear = 1'b1;
+			#30 $stop;
 		end
 
 	initial
-		$monitor("Time is %d | Reset = %d | D_addr = %h", $stime, Reset, D_addr);
+		$monitor("Time is %d | Clock = %d | Clear = %d | O = %h", $stime, Clock, Clear, O);
 
 
 
