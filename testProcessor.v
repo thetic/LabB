@@ -12,7 +12,7 @@ module testProcessor;
 	wire [3:0] StateO; //State machine state
 	wire [15:0] ALU_A, ALU_B, ALU_Out; //ALU inputs and output
 	wire [15:0] MuxOut; //Mux output
-	wire [255:0] RQ0; //Register 0 value (you might want to change this)
+	wire [15:0] RQ0; //Register 0 value (you might want to change this)
 	
 	//reference: module Porcessor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, Mux_out );
 	Processor P2014( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, RQ0, MuxOut );
