@@ -5,8 +5,8 @@
  * Processor module that ties together the control unit and datapath
  */
 
-module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, 
-  RQ0, Mux_out );
+module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B,
+  ALU_Out, RQ0, Mux_out );
   input         Clk    ;  // system clock
   input         Reset  ;  // system reset
   output [15:0] IR_Out ;  // Instruction register
@@ -29,8 +29,9 @@ module Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out,
   wire       RF_Ra_rd;
   wire       RF_Rb_rd;
 
-  cunit UNI(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
-    RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, IR_Out, PC_Out, StateO);
+  cunit UNI(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr,
+    RF_W_wr, RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd,
+    Alu_s0, IR_Out, PC_Out, StateO);
 
   Datapath DP(Clk, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
     RF_Ra_addr, RF_Ra_rd, RF_Rb_addr, RF_Rb_rd, Alu_s0, ALU_A, ALU_B,

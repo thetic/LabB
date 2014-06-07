@@ -58,7 +58,7 @@ module controller (
       D_addr     = 0;
       D_wr       = 0;
       RF_s       = 0;
-   
+
       case (current_state)
         INIT:
           begin
@@ -72,7 +72,7 @@ module controller (
             IR_ld      = 1     ;
             PC_up      = 1     ;
           end
-          
+
         DECODE:
           begin
             case (instruction[15:12])
@@ -80,7 +80,7 @@ module controller (
                 begin
                   next_state = NOOP;
                 end
-                
+
               4'b0010:
                 begin
                   next_state = LOAD_A           ;
@@ -134,65 +134,65 @@ module controller (
 
             endcase
           end
-          
+
         NOOP:
           begin
             next_state = FETCH;
           end
-          
+
         LOAD_A:
           begin
-				RF_W_addr  = instruction[3:0];
-				D_addr     = instruction[11:4];
-				RF_s       = 1;
+        RF_W_addr  = instruction[3:0];
+        D_addr     = instruction[11:4];
+        RF_s       = 1;
 
             next_state = LOAD_B;
           end
-          
+
         LOAD_B:
           begin
-				RF_W_wr    = 1;
-				RF_W_addr  = instruction[3:0];
-				D_addr     = instruction[11:4];
-				RF_s       = 1;
+        RF_W_wr    = 1;
+        RF_W_addr  = instruction[3:0];
+        D_addr     = instruction[11:4];
+        RF_s       = 1;
 
             next_state = FETCH;
           end
-          
+
         STORE:
           begin
-				RF_Ra_addr = instruction[11:8];
-				RF_Ra_rd   = 1;
-				D_addr     = instruction[7:0];
-				D_wr       = 1;
+        RF_Ra_addr = instruction[11:8];
+        RF_Ra_rd   = 1;
+        D_addr     = instruction[7:0];
+        D_wr       = 1;
 
             next_state = FETCH;
           end
-          
+
         ADD:
           begin
-				RF_W_addr = instruction[3:0];
-				RF_W_wr    = 1;
-				RF_Ra_addr = instruction[11:8];
-				RF_Ra_rd   = 1;
-				RF_Rb_addr = instruction[7:4];
-				RF_Rb_rd   = 1;
-				Alu_s0     = 1;
+        RF_W_addr = instruction[3:0];
+        RF_W_wr    = 1;
+        RF_Ra_addr = instruction[11:8];
+        RF_Ra_rd   = 1;
+        RF_Rb_addr = instruction[7:4];
+        RF_Rb_rd   = 1;
+        Alu_s0     = 1;
             next_state = FETCH;
           end
-          
+
         SUB:
           begin
-				RF_W_addr = instruction[3:0];
-				RF_W_wr = 1;
-				RF_Ra_addr = instruction[11:8];
-				RF_Ra_rd = 1;
-				RF_Rb_addr = instruction[7:4];
-				RF_Rb_rd = 1;
-				Alu_s0 = 2;
-            next_state = FETCH;	
-			 end
-          
+        RF_W_addr = instruction[3:0];
+        RF_W_wr = 1;
+        RF_Ra_addr = instruction[11:8];
+        RF_Ra_rd = 1;
+        RF_Rb_addr = instruction[7:4];
+        RF_Rb_rd = 1;
+        Alu_s0 = 2;
+            next_state = FETCH;
+       end
+
         HALT:
           begin
             next_state = HALT;
@@ -208,10 +208,14 @@ module controller (
     // flop:
     always @(posedge clk)
       begin
-		  if(Reset) begin 
-			current_state <= INIT;
-		  end
-        else current_state <= next_state;
+      if(Reset)
+        begin
+          current_state <= INIT;
+        end
+      else
+        begin
+          current_state <= next_state;
+        end
       end
 
 endmodule

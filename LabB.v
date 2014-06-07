@@ -5,8 +5,8 @@
  */
 
 module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
-  input  [1 :0 ] KEY;	//Input KEYs
-  input  [17:15] SW ;	//Input Switches
+  input  [1 :0 ] KEY; //Input KEYs
+  input  [17:15] SW ; //Input Switches
   //7 segment hex displays
   output [0 :6 ] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
 
@@ -23,11 +23,11 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   wire [15:0] Mux_out             ;
   reg  [15:0] HexMux              ;
 
-  //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, 
-  	//ALU_Out, RQ0, Mux_out );
-  Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out, 
-	RQ, Mux_out );
-  
+  //Reference Processor( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B,
+    //ALU_Out, RQ0, Mux_out );
+  Processor P0( Clk, Reset, IR_Out, PC_Out, StateO, ALU_A, ALU_B, ALU_Out,
+    RQ, Mux_out );
+
   //use a switch case statement to determine
   //what the top 4 hex displays show
   always @* begin
@@ -53,7 +53,7 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
 
     endcase
   end//always
-  
+
   //Reference Hex7Seg(in, HEX);
   //Display IR
   Hex7seg H0(IR_Out[3:0], HEX0);
@@ -67,5 +67,5 @@ module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
   Hex7seg H6(HexMux[11:8], HEX6);
   Hex7seg H7(HexMux[15:12], HEX7);
 
-  
+
 endmodule
