@@ -9,7 +9,6 @@ Modules are to be tested beginning with lower-level modules and moving up so as 
 
 The following test procedure will be used to verify that the Verilog module, \verb|PCAdder|, satisfies the requirements for this part.
 
-%TODO test PCAdder
 \begin{enumerate}
     \item The PC incrementer circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testPCAdder]{Listing \ref*{lst:testPCAdder}}.
     This testbench generates the test vectors shown in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} and outputs the output $O$.
@@ -86,7 +85,7 @@ It will therefore not be specifically tested.
 The following test procedure will be used to verify that the Verilog module, \verb|controller|, satisfies the requirements for this part.
 
 \begin{enumerate}
-    \item Ensure that the RTL view shows a state machine similar to that shown in \hyperref[fig:state_digram]{Figure \ref*{fig:state_digram}}.
+    \item Ensure that the RTL view shows a state machine similar to that shown in \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}}.
 \end{enumerate}
 
 \begin{figure}[htbp]
@@ -101,7 +100,6 @@ The following test procedure will be used to verify that the Verilog module, \ve
 
 The following test procedure will be used to verify that the Verilog module, \verb|PC|, satisfies the requirements for this part.
 
-%TODO Test PC
 \begin{enumerate}
     \item The program counter circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testPC]{Listing \ref*{lst:testPC}}.
     \item Generate sequantial values when the count enable signal is high and reset to zero on a high reset signal.
@@ -122,7 +120,6 @@ It will therefore not be specifically tested.
 
 The following test procedure will be used to verify that the Verilog module, \verb|instruction_register|, satisfies the requirements for this part.
 
-%TODO test control unit
 \begin{enumerate}
     \item The instruction register circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testir]{Listing \ref*{lst:testir}}.
     \item Ensure that a load is only succesful when the load enable signal is high.
@@ -174,7 +171,6 @@ It will therefore not be specifically tested.
 
 The following test procedure will be used to verify that the Verilog module, \verb|Processor|, satisfies the requirements for this part.
 
-%TODO test processor
 \begin{enumerate}
     \item The processor circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testProcessor]{Listing \ref*{lst:testProcessor}}.
     This testbench executes the program in the processor and reports its values.

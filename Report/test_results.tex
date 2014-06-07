@@ -1,7 +1,7 @@
 \section{Test Results} % (fold)
 \label{sec:test_results}
 
-\subsection{PC Incrementer} % (fold)
+\FloatBarrier \subsection{PC Incrementer} % (fold)
 \label{sub:pc_incrementer}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
@@ -52,12 +52,12 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection pc_incrementer (end)
 
-\subsection{Controller} % (fold)
+\FloatBarrier \subsection{Controller} % (fold)
 \label{sub:controller}
 
 \begin{enumerate}
     \item The Quartus generated the RTL view shown in \hyperref[fig:controller_rtl]{Figure \ref*{fig:controller_rtl}}.
-    This corresponds with that shown in \hyperref[fig:state_digram]{Figure \ref*{fig:state_digram}}.
+    This corresponds with that shown in \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}}.
 \end{enumerate}
 
 \begin{sidewaysfigure}[htbp]
@@ -67,7 +67,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection controller (end)
 
-\subsection{Program Counter} % (fold)
+\FloatBarrier \subsection{Program Counter} % (fold)
 \label{sub:program_counter}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
@@ -115,7 +115,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection program_counter (end)
 
-\subsection{Instruction Register} % (fold)
+\FloatBarrier \subsection{Instruction Register} % (fold)
 \label{sub:instruction_register}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
@@ -137,16 +137,15 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection instruction_register (end)
 
-\subsection{Processor} % (fold)
+\FloatBarrier \subsection{Processor} % (fold)
 \label{sub:processor}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
 \begin{enumerate}
     \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:processor_output]{Figure \ref*{fig:processor_output}}.
-    This output is inconsistent with that expected.
-    ALU
-    \item All test vectors as specified in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} produced the corresponding outputs
+    \item  This output is inconsistent with that expected.
+    The correct states are generated in sequence and correct register values are loaded, but the ALU does not generate proper output.
 \end{enumerate}
 
 \begin{sidewaysfigure}[htbp]
@@ -156,7 +155,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection processor (end)
 
-\subsection{Project} % (fold)
+\FloatBarrier \subsection{Project} % (fold)
 \label{sub:projects}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
@@ -165,9 +164,16 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item Compilation was successful, with the Flow Summary shown in \hyperref[lst:flow_summary]{Listing \ref*{lst:flow_summary}}.
     \item The project was downloaded to the DE2 board without errors.
     \item The displayed output was selectable as described in \hyperref[tab:display]{Table \ref*{tab:display}}.
+    The program executed as expected with a final value of \verb|xBF1A| in register 0 as shown in \hyperref[fig:de2]{Figure \ref*{fig:de2}}.
 \end{enumerate}
 
 \lstinputlisting[basicstyle = \ttfamily\scriptsize, caption = \texttt{Flow Summary}, label = lst:flow_summary, numbers=none, keywords ={}]{flow_summary.rpt}
+
+\FloatBarrier
+\begin{figure}
+    \includegraphics[width=\textwidth]{images/photo.png}
+    \caption{DE2 Register Output\label{fig:de2}}
+\end{figure}
 
 % subsection projects (end)
 

@@ -71,7 +71,7 @@ The top-level module must have the properties listed below.
     \hyperref[tab:display]{Table \ref*{tab:display}}.
 \end{itemize}
 
-\begin{table}[htbp] 
+\begin{table}[htbp]
     \center
     \begin{tabular}{ll}                             \toprule
         $SW_{17:15}$    & Displayed Values              \\\midrule
@@ -88,7 +88,7 @@ The top-level module must have the properties listed below.
 \end{table}
 
 The file \verb|LabB.v| contains the module \verb|LabB| which satisfies these properties.
-A listing can be found in \hyperref[lst:LabB]{Listing \ref*{lst:LabB}} in the \hyperref[sec:appendix]{Appendix}.
+A listing can be found in \hyperref[lst:LabB]{Listing \ref*{lst:LabB}} in the \hyperref[sec:appendix]{Appendix}.Also note that the necessary pin assignments can be found in\hyperref[lst:pins]{Listing \ref*{lst:pins}} in the \hyperref[sec:appendix]{Appendix}.
 
 \paragraph{Hex Display} \label{par:hex}
 
@@ -141,7 +141,7 @@ The processor module required a control unit Verilog module with the properties 
     stream read enable signals respectively.
     \item One One five-bit output $RC_\text{Out}$ as the program counter address.
     \item One sixteen-bit output $IR_\text{Out}$ as the current instruction.
-    \item One four-bit output $State0$ as the controller state. 
+    \item One four-bit output $State0$ as the controller state.
 \end{itemize}
 
 The file \verb|cunit.v| contains the module \verb|cunit| which satisfies these properties.
@@ -357,7 +357,7 @@ This module was reused from Homework 6.
     \item One $N$-bit input $I$ as the data to load.
     \item One $N$-bit output $Qz0$ as the switched A stream switched output.
     \item One $N$-bit output $Qz1$ as the switched B stream switched output.
-    \item One $N$-bit output $QR$ as the the unswitched output. 
+    \item One $N$-bit output $QR$ as the the unswitched output.
     \item Positive edge triggered.
     \item Holds the value of $I$ when $Ld = 1$.
     \item Outputs the data to $Qz0$ and $Qz1$ when $Oe0$ and $Oe1$ are high respectively.
@@ -397,5 +397,3 @@ This module was reused from Homework 6.
 
 The file \verb|ALU.v| contains the module \verb|ALU| which satisfies these properties.
 A listing can be found in \hyperref[lst:alu]{Listing \ref*{lst:alu}} in the \hyperref[sec:appendix]{Appendix}.
-Also note that the necessary pin assignments can be found in %TODO pin assignments
-in the \hyperref[sec:appendix]{Appendix}.
