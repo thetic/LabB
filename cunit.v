@@ -30,11 +30,14 @@ module cunit (Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr,
     wire ir_ld; // load instruction
     wire [15:0] mem_instruction_out;
     wire pc_clr;
+	 wire ir_ld_wire = Reset ? 1'b1 : ir_ld;
+	 wire [15:0] IR_in = Reset ? 16'b0 : mem_instruction_out;
+	 wire pc_clr_wire = Reset ? 1'b1 : pc_clr;
 
-    PC pc0(PC_Out, pc_clr, pc_up, Clock);
+    PC pc0(PC_Out, pc_clr_wire, pc_up, Clock);
 
     instruction_register #(.N(16)) instruction_register0 (Clock,
-        mem_instruction_out, IR_Out, ir_ld);
+        IR_in, IR_Out, ir_ld_wire);
 
     controller state_machine0(IR_Out, Clock, Reset, D_addr, D_wr, pc_clr,
         pc_up, ir_ld, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd,
