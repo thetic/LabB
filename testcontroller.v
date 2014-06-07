@@ -1,5 +1,6 @@
 // TCES 330, Spring 2014
 // Testbench for the controller module
+// Simulation should be run in ModelSim
 // Ben Foster
 `timescale 1ns / 1 ns
 module testcontroller;

@@ -1,5 +1,6 @@
 // TCES 330, Spring 2014
 // Testbench for the programmables processor
+// Simiulation should be run in ModelSim
 // Robert Gutmann
 
 //'timescale 1 ns / 1 ns
