@@ -55,26 +55,14 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 \subsection{Controller} % (fold)
 \label{sub:controller}
 
-The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
-
 \begin{enumerate}
-    \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:controller_output]{Figure \ref*{fig:controller_output}}.
-    This output corresponds to \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}} for each row, indicating the simulation passes.
-    \item The \emph{RTL Viewer} produced the result shown in \hyperref[fig:controller_rtl]{Figure \ref*{fig:controller_rtl}}.
-    This is a reasonable result as it depicts a state machine with correct number and arrangement of states.
-    \item All test vectors as specified in \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}} produced the corresponding outputs
+    \item The Quartus generated the RTL view shown in \hyperref[fig:controller_rtl]{Figure \ref*{fig:controller_rtl}}.
+    This corresponds with that shown in \hyperref[fig:state_digram]{Figure \ref*{fig:state_digram}}.
 \end{enumerate}
 
-\begin{figure}[htbp]
-    %TODO output
-    \includegraphics[width=\textwidth]{images/controller_output.png}
-    \caption{Controller \emph{ModelSim} Output\label{fig:controller_output}}
-\end{figure}
-
-\begin{sidewaysfigure}
-    %TODO RTL
+\begin{sidewaysfigure}[htbp]
     \includegraphics[width=\textwidth]{images/controller_rtl.png}
-    \caption{Controller RTL View\label{fig:controller_rtl}}
+    \caption{Controller RTL View \label{fig:controller_rtl}}
 \end{sidewaysfigure}
 
 % subsection controller (end)
@@ -86,8 +74,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 \begin{enumerate}
     \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:pc_output]{Figure \ref*{fig:pc_output}}.
-    This output corresponds to \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} for each row, indicating the simulation passes.
-    \item All test vectors as specified in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} produced the corresponding outputs
+    \item Sequantial values were generated when the count enable signal was high and the value was set to zero on a high reset signal.
 \end{enumerate}
 
 \begin{figure}[htbp]
@@ -135,12 +122,16 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 \begin{enumerate}
     \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:ir_output]{Figure \ref*{fig:ir_output}}.
-    This output corresponds to \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}} for each row, indicating the simulation passes.
-    \item All test vectors as specified in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}} produced the corresponding outputs
+    \item The register was loaded when the load enable signal was high and not when the load signal was low as expected.
 \end{enumerate}
 
 \begin{figure}[htbp]
-    %TODO output
+    \begin{lstlisting}[numbers=none, basicstyle = \ttfamily\scriptsize]
+# Time is          0 | input = 0000 | output = 0000
+# Time is         20 | input = b0b0 | output = 0000
+# Time is         30 | input = b0b0 | output = b0b0
+# Time is         60 | input = d0d0 | output = b0b0
+    \end{lstlisting}
     \caption{Instruction Register \emph{ModelSim} Output\label{fig:ir_output}}
 \end{figure}
 
@@ -153,14 +144,15 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 \begin{enumerate}
     \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:processor_output]{Figure \ref*{fig:processor_output}}.
-    This output corresponds to \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} for each row, indicating the simulation passes.
+    This output is inconsistent with that expected.
+    ALU
     \item All test vectors as specified in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} produced the corresponding outputs
 \end{enumerate}
 
-\begin{figure}[htbp]
-    %TODO output
+\begin{sidewaysfigure}[htbp]
+    \includegraphics[width=\textwidth]{images/wave.png}
     \caption{Processor \emph{ModelSim} Output\label{fig:processor_output}}
-\end{figure}
+\end{sidewaysfigure}
 
 % subsection processor (end)
 

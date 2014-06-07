@@ -85,33 +85,13 @@ It will therefore not be specifically tested.
 
 The following test procedure will be used to verify that the Verilog module, \verb|controller|, satisfies the requirements for this part.
 
-%TODO test controller
 \begin{enumerate}
-    \item The PC incrementer circuit will be tested by intputting the instrunctions shown in \hyperref[tab:controller_test_instructions]{Table \ref*{tab:controller_test_instructions}}
-    each followed by a reset signal.
-    Simulations will be run in order to verify the behavior shown in
-    \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}}.
-    \item Verify that the \emph{RTL Viewer} shows a state machine.
-    \item Generate the behavior shown in \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}} and verify the corresponding outputs.
+    \item Ensure that the RTL view shows a state machine similar to that shown in \hyperref[fig:state_digram]{Figure \ref*{fig:state_digram}}.
 \end{enumerate}
 
-\begin{table}
-    \centering
-    \begin{tabular}{ll}                                                 \toprule
-        \textbf{Instruction Type}   & \textbf{Instruction}              \\\midrule
-        NOOP                        & $0000 \; 0000 \; 0000 \; 0000$    \\
-        STORE                       & $0001 \; 0100 \; 0000 \; 0101$    \\
-        LOAD                        & $0010 \; 0000 \; 0011 \; 0100$    \\
-        ADD                         & $0011 \; 0001 \; 0010 \; 0011$    \\
-        SUBTRACT                    & $0100 \; 0110 \; 0101 \; 0100$    \\
-        HALT                        & $0101 \; 0000 \; 0000 \; 0000$    \\\bottomrule
-    \end{tabular}
-    \caption{Controller Test Instructions\label{tab:controller_test_instructions}}
-\end{table}
-
-\begin{figure}
+\begin{figure}[htbp]
     \includegraphics[width=\textwidth]{images/state_diagram.png}
-    \caption{Controller State Diagram \label{fig:state_diagram}}
+    \caption{Controller State Diagram\label{fig:state_diagram}}
 \end{figure}
 
 % subsection controller (end)
@@ -124,17 +104,8 @@ The following test procedure will be used to verify that the Verilog module, \ve
 %TODO Test PC
 \begin{enumerate}
     \item The program counter circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testPC]{Listing \ref*{lst:testPC}}.
-    This testbench generates the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} and output $O$.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}}
-    and verify the corresponding outputs.
+    \item Generate sequantial values when the count enable signal is high and reset to zero on a high reset signal.
 \end{enumerate}
-
-\begin{table}[htbp]
-    \centering
-        %TODO tabular
-    \caption{Program Counter Test Vectors\label{tab:pc_vectors}}
-\end{table}
 
 % subsection program_counter (end)
 
@@ -153,18 +124,9 @@ The following test procedure will be used to verify that the Verilog module, \ve
 
 %TODO test control unit
 \begin{enumerate}
-    \item The instruction register circuit will be tested using \emph{ModelSim} and the testbench shown in %TODO Figure 9, Appendix A.
-    This testbench generates the test vectors shown in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}} and output %TODO $O$.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}}
-    and verify the corresponding outputs.
+    \item The instruction register circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testir]{Listing \ref*{lst:testir}}.
+    \item Ensure that a load is only succesful when the load enable signal is high.
 \end{enumerate}
-
-\begin{table}[htbp]
-    \centering
-        %TODO tabular
-    \caption{Control Unit Test Vectors\label{tab:ir_vectors}}
-\end{table}
 
 % subsection instruction_register (end)
 
@@ -215,16 +177,9 @@ The following test procedure will be used to verify that the Verilog module, \ve
 %TODO test processor
 \begin{enumerate}
     \item The processor circuit will be tested using \emph{ModelSim} and the testbench shown in \hyperref[lst:testProcessor]{Listing \ref*{lst:testProcessor}}.
-    This testbench generates the test vectors shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} and output %TODO $O$.
-    Simulations will be run in order to verify the behavior shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}}.
-    \item Generate the test vectors shown in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} and verify the corresponding outputs.
+    This testbench executes the program in the processor and reports its values.
+    \item Verify the output based on the programming of the processor.
 \end{enumerate}
-
-\begin{table}[htbp]
-    \centering
-        %TODO tabular
-    \caption{Processor Test Vectors\label{tab:processor_vectors}}
-\end{table}
 
 % subsection processor (end)
 
