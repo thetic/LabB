@@ -12,8 +12,8 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item All test vectors as specified in \hyperref[tab:pcadder_vectors]{Table \ref*{tab:pcadder_vectors}} produced the corresponding outputs
 \end{enumerate}
 
-\begin{figure}
-    \begin{lstlisting}[numbers=none]
+\begin{figure}[htbp]
+    \begin{lstlisting}[numbers=none, basicstyle = \ttfamily\scriptsize]
 # Time is          0 | I = 00 | O = 01
 # Time is         10 | I = 01 | O = 02
 # Time is         20 | I = 02 | O = 03
@@ -65,7 +65,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item All test vectors as specified in \hyperref[fig:state_diagram]{Figure \ref*{fig:state_diagram}} produced the corresponding outputs
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[htbp]
     %TODO output
     \includegraphics[width=\textwidth]{images/controller_output.png}
     \caption{Controller \emph{ModelSim} Output\label{fig:controller_output}}
@@ -90,8 +90,39 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item All test vectors as specified in \hyperref[tab:pc_vectors]{Table \ref*{tab:pc_vectors}} produced the corresponding outputs
 \end{enumerate}
 
-\begin{figure}
-    %TODO output
+\begin{figure}[htbp]
+    \begin{lstlisting}[numbers=none, basicstyle = \ttfamily\scriptsize]
+# Time is          0 | Clock = 0 | Clear = 0 | O = 00
+# Time is         10 | Clock = 1 | Clear = 0 | O = 01
+# Time is         20 | Clock = 0 | Clear = 0 | O = 01
+# Time is         30 | Clock = 1 | Clear = 0 | O = 02
+# Time is         40 | Clock = 0 | Clear = 0 | O = 02
+# Time is         50 | Clock = 1 | Clear = 0 | O = 03
+# Time is         60 | Clock = 0 | Clear = 0 | O = 03
+# Time is         70 | Clock = 1 | Clear = 0 | O = 04
+# Time is         80 | Clock = 0 | Clear = 0 | O = 04
+# Time is         90 | Clock = 1 | Clear = 0 | O = 05
+# Time is        100 | Clock = 0 | Clear = 0 | O = 05
+# Time is        110 | Clock = 1 | Clear = 0 | O = 05
+# Time is        120 | Clock = 0 | Clear = 0 | O = 05
+# Time is        130 | Clock = 1 | Clear = 0 | O = 05
+# Time is        140 | Clock = 0 | Clear = 0 | O = 05
+# Time is        150 | Clock = 1 | Clear = 0 | O = 05
+# Time is        160 | Clock = 0 | Clear = 0 | O = 05
+# Time is        170 | Clock = 1 | Clear = 0 | O = 05
+# Time is        180 | Clock = 0 | Clear = 0 | O = 05
+# Time is        190 | Clock = 1 | Clear = 0 | O = 05
+# Time is        200 | Clock = 0 | Clear = 1 | O = 05
+# Time is        210 | Clock = 1 | Clear = 1 | O = 00
+# Time is        220 | Clock = 0 | Clear = 1 | O = 00
+# Time is        230 | Clock = 1 | Clear = 1 | O = 00
+# Time is        240 | Clock = 0 | Clear = 1 | O = 00
+# Time is        250 | Clock = 1 | Clear = 1 | O = 00
+# Time is        260 | Clock = 0 | Clear = 1 | O = 00
+# Time is        270 | Clock = 1 | Clear = 1 | O = 00
+# Time is        280 | Clock = 0 | Clear = 1 | O = 00
+# Time is        290 | Clock = 1 | Clear = 1 | O = 00
+    \end{lstlisting}
     \caption{Program Counter \emph{ModelSim} Output\label{fig:pc_output}}
 \end{figure}
 
@@ -108,7 +139,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item All test vectors as specified in \hyperref[tab:ir_vectors]{Table \ref*{tab:ir_vectors}} produced the corresponding outputs
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[htbp]
     %TODO output
     \caption{Instruction Register \emph{ModelSim} Output\label{fig:ir_output}}
 \end{figure}
@@ -126,7 +157,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item All test vectors as specified in \hyperref[tab:processor_vectors]{Table \ref*{tab:processor_vectors}} produced the corresponding outputs
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[htbp]
     %TODO output
     \caption{Processor \emph{ModelSim} Output\label{fig:processor_output}}
 \end{figure}
@@ -144,7 +175,7 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \item The displayed output was selectable as described in \hyperref[tab:display]{Table \ref*{tab:display}}.
 \end{enumerate}
 
-\lstinputlisting[basicstyle = \ttfamily\scriptsize, numbers=none, keywords ={}]{flow_summary.rpt}
+\lstinputlisting[basicstyle = \ttfamily\scriptsize, caption = \texttt{Flow Summary}, label = lst:flow_summary, numbers=none, keywords ={}]{flow_summary.rpt}
 
 % subsection projects (end)
 
