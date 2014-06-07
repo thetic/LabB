@@ -35,7 +35,7 @@ module cunit (Clock, Reset, D_addr, D_wr, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr,
 	
 	// Reference instruction_register #(param N)(Clk, d, q);
 	instruction_register #(.N(16)) instruction_register0 (Clock, 
-		mem_instruction_out, pc_clr, IR_Out, ir_ld);
+		mem_instruction_out, IR_Out, ir_ld);
 	
 	controller state_machine0(IR_Out, Clock, Reset, D_addr, D_wr, pc_clr, pc_up, 
 		ir_ld, RF_s, RF_W_addr, RF_W_wr, RF_Ra_addr, RF_Ra_rd, 
