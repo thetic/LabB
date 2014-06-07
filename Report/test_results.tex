@@ -1,8 +1,8 @@
 \section{Test Results} % (fold)
 \label{sec:test_results}
 
-\FloatBarrier \subsection{PC Incrementer} % (fold)
-\label{sub:pc_incrementer} \FloatBarrier
+\subsection{PC Incrementer} % (fold)
+\label{sub:pc_incrementer}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
@@ -13,14 +13,47 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 \end{enumerate}
 
 \begin{figure}
-    %TODO output
+    \begin{lstlisting}[numbers=none]
+# Time is          0 | I = 00 | O = 01
+# Time is         10 | I = 01 | O = 02
+# Time is         20 | I = 02 | O = 03
+# Time is         30 | I = 03 | O = 04
+# Time is         40 | I = 04 | O = 05
+# Time is         50 | I = 05 | O = 06
+# Time is         60 | I = 06 | O = 07
+# Time is         70 | I = 07 | O = 08
+# Time is         80 | I = 08 | O = 09
+# Time is         90 | I = 09 | O = 0a
+# Time is        100 | I = 0a | O = 0b
+# Time is        110 | I = 0b | O = 0c
+# Time is        120 | I = 0c | O = 0d
+# Time is        130 | I = 0d | O = 0e
+# Time is        140 | I = 0e | O = 0f
+# Time is        150 | I = 0f | O = 10
+# Time is        160 | I = 10 | O = 11
+# Time is        170 | I = 11 | O = 12
+# Time is        180 | I = 12 | O = 13
+# Time is        190 | I = 13 | O = 14
+# Time is        200 | I = 14 | O = 15
+# Time is        210 | I = 15 | O = 16
+# Time is        220 | I = 16 | O = 17
+# Time is        230 | I = 17 | O = 18
+# Time is        240 | I = 18 | O = 19
+# Time is        250 | I = 19 | O = 1a
+# Time is        260 | I = 1a | O = 1b
+# Time is        270 | I = 1b | O = 1c
+# Time is        280 | I = 1c | O = 1d
+# Time is        290 | I = 1d | O = 1e
+# Time is        300 | I = 1e | O = 1f
+# Time is        310 | I = 1f | O = 00
+    \end{lstlisting}
     \caption{PC Incrementer \emph{ModelSim} Output\label{fig:pcadder_output}}
 \end{figure}
 
 % subsection pc_incrementer (end)
 
-\FloatBarrier \subsection{Controller} % (fold)
-\label{sub:controller} \FloatBarrier
+\subsection{Controller} % (fold)
+\label{sub:controller}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
@@ -38,16 +71,16 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
     \caption{Controller \emph{ModelSim} Output\label{fig:controller_output}}
 \end{figure}
 
-\begin{figure}
+\begin{sidewaysfigure}
     %TODO RTL
     \includegraphics[width=\textwidth]{images/controller_rtl.png}
     \caption{Controller RTL View\label{fig:controller_rtl}}
-\end{figure}
+\end{sidewaysfigure}
 
 % subsection controller (end)
 
-\FloatBarrier \subsection{Program Counter} % (fold)
-\label{sub:program_counter} \FloatBarrier
+\subsection{Program Counter} % (fold)
+\label{sub:program_counter}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
@@ -64,8 +97,8 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection program_counter (end)
 
-\FloatBarrier \subsection{Instruction Register} % (fold)
-\label{sub:instruction_register} \FloatBarrier
+\subsection{Instruction Register} % (fold)
+\label{sub:instruction_register}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
@@ -82,44 +115,8 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection instruction_register (end)
 
-\FloatBarrier \subsection{Control Unit} % (fold)
-\label{sub:control_unit} \FloatBarrier
-
-The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
-
-\begin{enumerate}
-    \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:pcadder_output]{Figure \ref*{fig:cunit_output}}.
-    This output corresponds to \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}} for each row, indicating the simulation passes.
-    \item All test vectors as specified in \hyperref[tab:cunit_vectors]{Table \ref*{tab:cunit_vectors}} produced the corresponding outputs
-\end{enumerate}
-
-\begin{figure}
-    %TODO output
-    \caption{Control Unit \emph{ModelSim} Output\label{fig:cunit_output}}
-\end{figure}
-
-% subsection control_unit (end)
-
-\FloatBarrier \subsection{Datapath} % (fold)
-\label{sub:datapath} \FloatBarrier
-
-The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
-
-\begin{enumerate}
-    \item The simulation using \emph{ModelSim} produced the output shown in \hyperref[fig:datapath_output]{Figure \ref*{fig:datapath_output}}.
-    This output corresponds to \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}} for each row, indicating the simulation passes.
-    \item All test vectors as specified in \hyperref[tab:datapath_vectors]{Table \ref*{tab:datapath_vectors}} produced the corresponding outputs
-\end{enumerate}
-
-\begin{figure}
-    %TODO output
-    \caption{Datapath \emph{ModelSim} Output\label{fig:datapath_output}}
-\end{figure}
-
-% subsection datapath (end)
-
-\FloatBarrier \subsection{Processor} % (fold)
-\label{sub:processor} \FloatBarrier
+\subsection{Processor} % (fold)
+\label{sub:processor}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
@@ -136,22 +133,18 @@ The following observations correspond to the numbers in the \hyperref[sec:test_p
 
 % subsection processor (end)
 
-\FloatBarrier \subsection{Project} % (fold)
-\label{sub:projects} \FloatBarrier
+\subsection{Project} % (fold)
+\label{sub:projects}
 
 The following observations correspond to the numbers in the \hyperref[sec:test_procedures]{Section \ref*{sec:test_procedures}} procedures for this part:
 
 \begin{enumerate}
-    \item Compilation was successful, with the Flow Summary shown in \hyperref[fig:flow_summary]{Figure \ref*{fig:flow_summary}}.
+    \item Compilation was successful, with the Flow Summary shown in \hyperref[lst:flow_summary]{Listing \ref*{lst:flow_summary}}.
     \item The project was downloaded to the DE2 board without errors.
     \item The displayed output was selectable as described in \hyperref[tab:display]{Table \ref*{tab:display}}.
 \end{enumerate}
 
-\begin{figure}
-    %TODO flow summary
-    \includegraphics[width=\textwidth]{images/flow_summary.png}
-    \caption{Flow Summary\label{fig:flow_summary}}
-\end{figure}
+\lstinputlisting[basicstyle = \ttfamily\scriptsize, numbers=none, keywords ={}]{flow_summary.rpt}
 
 % subsection projects (end)
 
