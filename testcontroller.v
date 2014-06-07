@@ -34,42 +34,48 @@ module testcontroller;
 	initial //Test stimulus
 		begin
 			Reset = 1; //Reset for one clk
-			always @(posedge clk) Reset = 0;
+			#20 Reset = 0;
 
 			//Test NOOP instruction
 			//0000 0000 0000 0000
 			instruction = 16'h0000;
 			#100 Reset = 1; //Reset for next instruction
+			#20 Reset = 0;
 			#20;
 
 			//Test STORE instruction
 			//0001 r[3:0] read from register d[7:0] store to address
  			instruction = 16'b0001010100000101;
  			#100 Reset = 1; //Reset for next instruction
+ 			#20 Reset = 0;
  			#20;
 
  			//Test LOAD instruction
  			//0010 d[7:0] read from address r[3:0] load into register
  			instruction = 16'b001000000110011;
  			#100 Reset = 1; //Reset for next instruction
+ 			#20 Reset = 0;
  			#20;
 
  			//Test ADD instruction
  			//0011 ra[3:0] + rb[3:0] = rc[3:0] store in rc register
  			instruction = 16'b0011000100100011;
  			#100 Reset = 1; //Reset for next instruction
+ 			#20 Reset = 0;
  			#20;
 
  			//Test SUB instruction
  			//0100 ra[3:0] - rb[3:0] = rc[3:0] store in rc register
  			instruction = 16'b0100011001010100;
  			#100 Reset = 1; //Reset for next instruction
+ 			#20 Reset = 0;
  			#20;
 
  			//Test HALT instruction
  			//0101 0000 0000 0000
  			instruction = 16'b0101000000000000;
  			#100 Reset = 1; //Reset for next instruction
+ 			#20 Reset = 0;
 			#20 $stop; //then run for a while
 		end
 
