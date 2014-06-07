@@ -1,0 +1,335 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/thetic/Documents/tces330/LabB/simulation/modelsim
+vALU
+ILU1ZefR2m2EZG8F_FFoU>2
+V6UbzA@F0oBF9lHe011Ooo2
+Z1 d/home/thetic/Documents/tces330/LabB/simulation/modelsim
+w1402107917
+8/home/thetic/Documents/tces330/LabB/ALU.v
+F/home/thetic/Documents/tces330/LabB/ALU.v
+L0 17
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+/home/thetic/Documents/tces330/LabB -O0
+n@a@l@u
+!i10b 1
+!s100 oJ^Gkj_WoIOafAN[1QC=R2
+!s85 0
+!s108 1402111265.970827
+!s107 /home/thetic/Documents/tces330/LabB/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/ALU.v|
+!s101 -O0
+vcontroller
+I]^HIH`hbOVebR3KG9VQ=63
+Vk]aI@SB3ze_1@lOhca>a=1
+R1
+w1402111215
+8/home/thetic/Documents/tces330/LabB/controller.v
+F/home/thetic/Documents/tces330/LabB/controller.v
+L0 7
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 1zY<D9HGS9b1j[F<=l2CX1
+!s85 0
+!s108 1402111265.649107
+!s107 /home/thetic/Documents/tces330/LabB/controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/controller.v|
+!s101 -O0
+vcunit
+Ih>ABl9Fe_QP5WZe?9QXKz0
+ViY3>6a8ol[>zgkgFMA96l0
+R1
+w1402107851
+8/home/thetic/Documents/tces330/LabB/cunit.v
+F/home/thetic/Documents/tces330/LabB/cunit.v
+L0 8
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 _6BaB]eXP3F<GOZD8>KCV0
+!s85 0
+!s108 1402111265.849300
+!s107 /home/thetic/Documents/tces330/LabB/cunit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/cunit.v|
+!s101 -O0
+vDatapath
+Ie];o]L@JNJ;:<Zo@L0FgQ0
+V?onc7^FTI0c`SX09>jeob0
+R1
+w1402108786
+8/home/thetic/Documents/tces330/LabB/Datapath.v
+F/home/thetic/Documents/tces330/LabB/Datapath.v
+L0 9
+R2
+r1
+31
+R3
+R4
+n@datapath
+!i10b 1
+!s100 IUD3e]jEcEneMTA``_TTD3
+!s85 0
+!s108 1402111265.805610
+!s107 /home/thetic/Documents/tces330/LabB/Datapath.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/Datapath.v|
+!s101 -O0
+vDecoderN
+IFS<LRePVzI[2IBD=FbW9V2
+VZEe8?ZhN>BEHb4P]RMXo=1
+R1
+w1402107972
+8/home/thetic/Documents/tces330/LabB/DecoderN.v
+F/home/thetic/Documents/tces330/LabB/DecoderN.v
+L0 6
+R2
+r1
+31
+R3
+R4
+n@decoder@n
+!i10b 1
+!s100 43BU8?TKnUKUY7MhONmJh2
+!s85 0
+!s108 1402111265.487190
+!s107 /home/thetic/Documents/tces330/LabB/DecoderN.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/DecoderN.v|
+!s101 -O0
+vHex7seg
+I3_j4IjT9a`nzMF?JDS<9K1
+VU56KD`Nl]jkE]51BEXCd?1
+R1
+w1401904588
+8/home/thetic/Documents/tces330/LabB/Hex7seg.v
+F/home/thetic/Documents/tces330/LabB/Hex7seg.v
+L0 6
+R2
+r1
+31
+R3
+R4
+n@hex7seg
+!i10b 1
+!s100 WJQ3b8cD@BJa:NW7bBYXF1
+!s85 0
+!s108 1402111265.880460
+!s107 /home/thetic/Documents/tces330/LabB/Hex7seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/Hex7seg.v|
+!s101 -O0
+vimemlpm
+IfH09NgQ`j?k:2h`RGGPQi1
+VKJkd6:gA7nmD;CMD;N]WN0
+R1
+w1401232156
+8/home/thetic/Documents/tces330/LabB/imemlpm.v
+F/home/thetic/Documents/tces330/LabB/imemlpm.v
+L0 39
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 NO3Ko>TA?NdA3V^C4Xcj42
+!s85 0
+!s108 1402111265.690837
+!s107 /home/thetic/Documents/tces330/LabB/imemlpm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/imemlpm.v|
+!s101 -O0
+vinstruction_register
+Ik_YClmY6<f^5?4PC8Z?lB2
+VZYg:2[6eSTEZBV^WT8QW?0
+R1
+w1402109418
+8/home/thetic/Documents/tces330/LabB/instruction_register.v
+F/home/thetic/Documents/tces330/LabB/instruction_register.v
+L0 7
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 TiUeG6?bE1d`TJFoKhTn[2
+!s85 0
+!s108 1402111265.727535
+!s107 /home/thetic/Documents/tces330/LabB/instruction_register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/instruction_register.v|
+!s101 -O0
+vLabB
+I[h@KS54h`2c=4Gk<a>P4f0
+VMLdmkgabLh]CEFcVz0hEU1
+R1
+w1402100873
+8/home/thetic/Documents/tces330/LabB/LabB.v
+F/home/thetic/Documents/tces330/LabB/LabB.v
+L0 7
+R2
+r1
+31
+R3
+R4
+n@lab@b
+!i10b 1
+!s100 TNTajm@4Y_A07JMa4KH9b1
+!s85 0
+!s108 1402111265.940633
+!s107 /home/thetic/Documents/tces330/LabB/LabB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/LabB.v|
+!s101 -O0
+vmuxlpm
+!i10b 1
+!s100 NV>98YhFWjf<AOHXSh6=f3
+IL8^G_4;3UA4adAFd7?nY:0
+V]Y<MGdNzfBIT^H4g0;[mL0
+R1
+Z5 w1401837100
+8/home/thetic/Documents/tces330/LabB/muxlpm.v
+F/home/thetic/Documents/tces330/LabB/muxlpm.v
+L0 39
+R2
+r1
+!s85 0
+31
+!s108 1402111266.001013
+!s107 /home/thetic/Documents/tces330/LabB/muxlpm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/muxlpm.v|
+!s101 -O0
+R3
+R4
+vPC
+ImK_5TTbShDLXW?c>UI:673
+VA88VGgkF[U`0aZ;Af>Mcl2
+R1
+w1402106979
+8/home/thetic/Documents/tces330/LabB/PC.v
+F/home/thetic/Documents/tces330/LabB/PC.v
+L0 7
+R2
+r1
+31
+R3
+R4
+n@p@c
+!i10b 1
+!s100 54cAYmjildE5OWZZz[K7d3
+!s85 0
+!s108 1402111265.763889
+!s107 /home/thetic/Documents/tces330/LabB/PC.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/PC.v|
+!s101 -O0
+vPCAdder
+IGNZ`>3b31;<65T8BHbE8E2
+VH;;X6GkH`glXhnDcgJJAN3
+R1
+R5
+8/home/thetic/Documents/tces330/LabB/PCAdder.v
+F/home/thetic/Documents/tces330/LabB/PCAdder.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@p@c@adder
+!i10b 1
+!s100 U3]35`jScYFYWB7bi<<e=3
+!s85 0
+!s108 1402111265.607230
+!s107 /home/thetic/Documents/tces330/LabB/PCAdder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/PCAdder.v|
+!s101 -O0
+vProcessor
+IC4jX6Kc0Ed_famWTPWgGE3
+VzLhl97_B8e[j77XhekSAl3
+R1
+w1402100911
+8/home/thetic/Documents/tces330/LabB/Processor.v
+F/home/thetic/Documents/tces330/LabB/Processor.v
+L0 8
+R2
+r1
+31
+R3
+R4
+n@processor
+!i10b 1
+!s100 ZIQZKnd8@ch1^iaE2BKYm1
+!s85 0
+!s108 1402111265.912463
+!s107 /home/thetic/Documents/tces330/LabB/Processor.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/Processor.v|
+!s101 -O0
+vramlpm
+InM?a>?M_UPAnD0zcT?JVA2
+VYa^U[368cklV<=lK_XTk_1
+R1
+w1401860534
+8/home/thetic/Documents/tces330/LabB/ramlpm.v
+F/home/thetic/Documents/tces330/LabB/ramlpm.v
+L0 39
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 BN_ZIMGUb>jm<SAB7n0eW0
+!s85 0
+!s108 1402111265.566234
+!s107 /home/thetic/Documents/tces330/LabB/ramlpm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/ramlpm.v|
+!s101 -O0
+vRegisterFile
+I_odVWhJ:klXBTQ625b>BG3
+VWD^^^ON[b?W2SdJnFE=DY2
+R1
+w1402100956
+8/home/thetic/Documents/tces330/LabB/RegisterFile.v
+F/home/thetic/Documents/tces330/LabB/RegisterFile.v
+L0 4
+R2
+r1
+31
+R3
+R4
+n@register@file
+!i10b 1
+!s100 hRSQneWjln31Wb6U>HSNT0
+!s85 0
+!s108 1402111265.526143
+!s107 /home/thetic/Documents/tces330/LabB/RegisterFile.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/RegisterFile.v|
+!s101 -O0
+vRegisterOEN
+IE1>C3d7RWKn8]8AET[kaF1
+VQbUcYK_ehS3dIRRaQa1F:0
+R1
+w1402108555
+8/home/thetic/Documents/tces330/LabB/RegisterOEN.v
+F/home/thetic/Documents/tces330/LabB/RegisterOEN.v
+L0 5
+R2
+r1
+31
+R3
+n@register@o@e@n
+R4
+!i10b 1
+!s100 emzf[LSDS=Nf`g14DJ:?72
+!s85 0
+!s108 1402111265.448599
+!s107 /home/thetic/Documents/tces330/LabB/RegisterOEN.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/thetic/Documents/tces330/LabB|/home/thetic/Documents/tces330/LabB/RegisterOEN.v|
+!s101 -O0

@@ -118,8 +118,8 @@ module controller (
               4'b0011:
                 begin
                   next_state = ADD              ;
-                  D_addr     = instruction[7 :0];
-                  D_wr       = 1                ;
+                  RF_W_addr  = instruction[3 :0];
+                  RF_W_wr    = 1                ;
                   RF_Ra_addr = instruction[11:8];
                   RF_Ra_rd   = 1                ;
                   RF_Rb_addr = instruction[7 :4];
@@ -159,56 +159,53 @@ module controller (
 
         LOAD_A:
           begin
-        RF_W_addr  = instruction[3:0];
-        D_addr     = instruction[11:4];
-        RF_s       = 1;
-
+            RF_W_addr  = instruction[3:0];
+            D_addr     = instruction[11:4];
+            RF_s       = 1;
             next_state = LOAD_B;
           end
 
         LOAD_B:
           begin
-        RF_W_wr    = 1;
-        RF_W_addr  = instruction[3:0];
-        D_addr     = instruction[11:4];
-        RF_s       = 1;
-
+            RF_W_wr    = 1;
+            RF_W_addr  = instruction[3:0];
+            D_addr     = instruction[11:4];
+            RF_s       = 1;
             next_state = FETCH;
           end
 
         STORE:
           begin
-        RF_Ra_addr = instruction[11:8];
-        RF_Ra_rd   = 1;
-        D_addr     = instruction[7:0];
-        D_wr       = 1;
-
+            RF_Ra_addr = instruction[11:8];
+            RF_Ra_rd   = 1;
+            D_addr     = instruction[7:0];
+            D_wr       = 1;
             next_state = FETCH;
           end
 
         ADD:
           begin
-        RF_W_addr = instruction[3:0];
-        RF_W_wr    = 1;
-        RF_Ra_addr = instruction[11:8];
-        RF_Ra_rd   = 1;
-        RF_Rb_addr = instruction[7:4];
-        RF_Rb_rd   = 1;
-        Alu_s0     = 1;
+            RF_W_addr = instruction[3:0];
+            RF_W_wr    = 1;
+            RF_Ra_addr = instruction[11:8];
+            RF_Ra_rd   = 1;
+            RF_Rb_addr = instruction[7:4];
+            RF_Rb_rd   = 1;
+            Alu_s0     = 1;
             next_state = FETCH;
           end
 
         SUB:
           begin
-        RF_W_addr = instruction[3:0];
-        RF_W_wr = 1;
-        RF_Ra_addr = instruction[11:8];
-        RF_Ra_rd = 1;
-        RF_Rb_addr = instruction[7:4];
-        RF_Rb_rd = 1;
-        Alu_s0 = 2;
+            RF_W_addr = instruction[3:0];
+            RF_W_wr = 1;
+            RF_Ra_addr = instruction[11:8];
+            RF_Ra_rd = 1;
+            RF_Rb_addr = instruction[7:4];
+            RF_Rb_rd = 1;
+            Alu_s0 = 2;
             next_state = FETCH;
-       end
+          end
 
         HALT:
           begin
@@ -219,20 +216,21 @@ module controller (
           begin
             next_state = INIT;
           end
+
       endcase
     end
 
     // flop:
     always @(posedge clk)
       begin
-      if(Reset)
-        begin
-          current_state <= INIT;
-        end
-      else
-        begin
-          current_state <= next_state;
-        end
+        if(Reset)
+          begin
+            current_state <= INIT;
+          end
+        else
+          begin
+            current_state <= next_state;
+          end
       end
 
 endmodule
