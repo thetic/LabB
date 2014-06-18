@@ -1,5 +1,6 @@
-// TECES 330, Spring 2009
-// R. Gutmann
+// TECES 330, Spring 2014
+// Final
+// Chad Condon
 // Generic Register with output enable
 // Used to build register files
 module RegisterOEN( Clk, Rst, Ld, I, Oe0, Oe1, Qz0, Qz1, RQ );

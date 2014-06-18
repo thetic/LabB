@@ -1,7 +1,8 @@
 /*
  * TCES 330, Spring 2014
- * Lab B
- * Top level module for lab B
+ * Final
+ * Chad Condon
+ * Top level module for Final
  */
 
 module LabB(KEY, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);

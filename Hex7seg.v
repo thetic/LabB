@@ -1,8 +1,9 @@
 // TCES 330
-// R. Gutmann
+// Final
+// Chad Condon
 // Generic 7-Segment Hex Decoder, long version
 // This module implements a 7-segment decoder '0' through 'F'
-// 
+//
 module Hex7seg( C, Display );
   input  [3:0] C      ; // input code
   output [0:6] Display; // seven-segment display output
@@ -48,5 +49,5 @@ module Hex7seg( C, Display );
                     + (~C[3] & ~C[2] & ~C[1] &  C[0])
                     + (~C[3] &  C[2] &  C[1] &  C[0])
                     + ( C[3] &  C[2] & ~C[1] & ~C[0]);
-  
+
 endmodule

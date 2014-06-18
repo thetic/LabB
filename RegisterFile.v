@@ -1,35 +1,30 @@
-// TCES 330, Spring 2009
+// TCES 330, Spring 2014
+// Final
+// Chad Condon
 // Implements a register file
 // Size: four 32-bit registers
-module RegisterFile(Clk, Reset, W_data, W_addr, W_en, R_addr0, R_addr1,
-  R_en0, R_en1, R_data0, R_data1, RQ);
-  input         Clk    ; // system clock
-  input         Reset  ; // reset signal
-  input  [15:0] W_data ; // data to write
-  input  [3 :0] W_addr ; // write address
-  input         W_en   ; // write enable
-  input  [3 :0] R_addr0; // read address 0
-  input  [3 :0] R_addr1; // read address 1
-  input         R_en0  ; // read enable 0
-  input         R_en1  ; // read enable 1
-  output [15:0] RQ     ; // RF[0] contents.
-
-  // only uses data from enabled register
-  output [15:0] R_data0;
-  output [15:0] R_data1;
+module RegisterFile(
+  input         Clk    , // system clock
+  input         Reset  , // reset signal
+  input  [15:0] W_data , // data to write
+  input  [3 :0] W_addr , // write address
+  input         W_en   , // write enable
+  input  [3 :0] R_addr0, // read address 0
+  input  [3 :0] R_addr1, // read address 1
+  input         R_en0  , // read enable 0
+  input         R_en1  , // read enable 1
+  output [15:0] R_data0,
+  output [15:0] R_data1,
+  output [15:0] RQ       // RF[0] contents.
+);
 
   wire [15 :0] W_d, R_d0, R_d1;
   wire [255:0] Q              ;
 
   genvar I; //we are going to generate the registers
 
-  // write decoder
   DecoderN #(.N(4)) WriteDecoder(W_addr, W_en, W_d);
-
-  // read decoder 0
   DecoderN #(.N(4)) ReadDecoder0(R_addr0, R_en0, R_d0);
-
-  // read decoder 1
   DecoderN #(.N(4)) ReadDecoder1(R_addr1, R_en1, R_d1);
 
   // instantiate the 16 dial-output registers

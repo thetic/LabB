@@ -1,7 +1,8 @@
 /*
   TCES Lab B
   Spring 2014
-  Aaron Stephens
+  Final
+  Chad Condon
   Program Counter
 */
 module PC(O, Clear, Up, Clock);

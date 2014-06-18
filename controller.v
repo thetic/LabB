@@ -1,40 +1,43 @@
 /*
  * TCES 330, Spring 2014
- * Lab B
+ * Final
  * Chad Condon
  * Controller state machine.
  */
 module controller (
-  input      [15:0] instruction,  // instruction
-  input             clk        ,  // clock
-  input             Reset      ,  // Reset
-  output reg [7 :0] D_addr     ,  // data memory address
-  output reg        D_wr       ,  // data memory write enable signal
-  output reg        PC_clr      , // load instruction signal
-  output reg        PC_up      ,  // load instruction signal
-  output reg        IR_ld      ,  // load instruction signal
-  output reg        RF_s       ,  // register file select signal
-  output reg [3 :0] RF_W_addr  ,  // register file write address
-  output reg        RF_W_wr    ,  // register file write enable signal
-  output reg [3 :0] RF_Ra_addr ,  // register file read address a
-  output reg        RF_Ra_rd   ,  // register file read enable signal a
-  output reg [3 :0] RF_Rb_addr ,  // register file read address b
-  output reg        RF_Rb_rd   ,  // register file read enable signal b
-  output reg [2 :0] Alu_s0     ,  // alu function select signal
-  output     [3 :0] State         // current state output
+  input      [15:0] instruction, // instruction
+  input             clk        , // clock
+  input             Reset      , // Reset
+  output reg [7 :0] D_addr     , // data memory address
+  output reg        D_wr       , // data memory write enable signal
+  output reg        PC_clr     , // load instruction signal
+  output reg        PC_up      , // load instruction signal
+  output reg        IR_ld      , // load instruction signal
+  output reg        RF_s       , // register file select signal
+  output reg [3 :0] RF_W_addr  , // register file write address
+  output reg        RF_W_wr    , // register file write enable signal
+  output reg [3 :0] RF_Ra_addr , // register file read address a
+  output reg        RF_Ra_rd   , // register file read enable signal a
+  output reg [3 :0] RF_Rb_addr , // register file read address b
+  output reg        RF_Rb_rd   , // register file read enable signal b
+  output reg [2 :0] Alu_s0     , // alu function select signal
+  output     [3 :0] State      , // current state output
+  output reg        SP_inc     , // stack pointer increment signal
+  output reg        S_wr         // stack write enable
 );
 
   // name states:
-  localparam INIT   = 4'd0;
-  localparam FETCH  = 4'd1;
-  localparam DECODE = 4'd2;
-  localparam NOOP   = 4'd3;
-  localparam LOAD_A = 4'd4;
-  localparam LOAD_B = 4'd5;
-  localparam STORE  = 4'd6;
-  localparam ADD    = 4'd7;
-  localparam SUB    = 4'd8;
-  localparam HALT   = 4'd9;
+  localparam INIT   = 4'd0 ;
+  localparam FETCH  = 4'd1 ;
+  localparam DECODE = 4'd2 ;
+  localparam NOOP   = 4'd3 ;
+  localparam LOAD_A = 4'd4 ;
+  localparam LOAD_B = 4'd5 ;
+  localparam STORE  = 4'd6 ;
+  localparam ADD    = 4'd7 ;
+  localparam SUB    = 4'd8 ;
+  localparam HALT   = 4'd9 ;
+  localparam PUSH   = 4'd10;
 
   // store states:
   reg [3:0] current_state;
@@ -55,6 +58,8 @@ module controller (
       RF_Rb_addr = 0;
       RF_Rb_rd   = 0;
       Alu_s0     = 0;
+      S_wr       = 0;
+      SP_inc     = 0;
     end
 
   assign State = current_state; // output current state
@@ -75,6 +80,8 @@ module controller (
       D_addr     = 0;
       D_wr       = 0;
       RF_s       = 0;
+      S_wr       = 0;
+      SP_inc     = 0;
 
       case (current_state)
         INIT:
@@ -144,6 +151,15 @@ module controller (
                   next_state = HALT;
                 end
 
+              4'b1010:
+                begin
+                  next_state = PUSH;
+                  S_wr       = 1    ;
+                  RF_Ra_addr = 0    ;
+                  RF_Ra_rd   = 1    ;
+
+                end
+
               default:
                 begin
                   next_state = NOOP;
@@ -197,7 +213,7 @@ module controller (
 
         SUB:
           begin
-            RF_W_addr = instruction[3:0];
+            RF_W_addr  = instruction[3:0];
             RF_W_wr = 1;
             RF_Ra_addr = instruction[11:8];
             RF_Ra_rd = 1;
@@ -210,6 +226,14 @@ module controller (
         HALT:
           begin
             next_state = HALT;
+          end
+
+        PUSH:
+          begin
+            RF_Ra_addr = 0    ;
+            RF_Ra_rd   = 1    ;
+            SP_inc     = 1    ;
+            next_state = FETCH;
           end
 
         default:

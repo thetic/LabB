@@ -1,6 +1,6 @@
 /*
   TCES 330, Spring 2014
-  Lab B
+  Final
   Chad Condon
   8 function ALU
 */

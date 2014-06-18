@@ -1,6 +1,7 @@
 /*
  * TCES 330, Spring 2014
- *
+ * Final
+ * Chad Condon
  * Implements an N to 2**N decoder
  */
 module DecoderN( W, E, Y );
